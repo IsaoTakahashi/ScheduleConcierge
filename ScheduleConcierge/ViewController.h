@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+    
+}
+
+@property (strong, nonatomic) IBOutlet UIView *sample_;
+- (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;
 
 @end

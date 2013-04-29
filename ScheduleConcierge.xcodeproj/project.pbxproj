@@ -56,6 +56,10 @@
 		4DA12C70172E14EF004A1114 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C6F172E14EF004A1114 /* Security.framework */; };
 		4DA12C72172E14FD004A1114 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */; };
 		4DA12C74172E1528004A1114 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */; };
+		4DA12C78172EC2E7004A1114 /* schedule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C77172EC2E7004A1114 /* schedule.sqlite */; };
+		4DA12C79172EC2E7004A1114 /* schedule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C77172EC2E7004A1114 /* schedule.sqlite */; };
+		4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
+		4DA12C7D172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +124,8 @@
 		4DA12C6F172E14EF004A1114 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		4DA12C77172EC2E7004A1114 /* schedule.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedule.sqlite; sourceTree = "<group>"; };
+		4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBSetup.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,8 @@
 				4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */,
 				4DA12C6F172E14EF004A1114 /* Security.framework */,
 				4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */,
+				4DA12C75172EC2E7004A1114 /* resources */,
+				4DA12BF1172E0C9A004A1114 /* Supporting Files */,
 				4DA12C14172E0C9B004A1114 /* ScheduleConciergeTests */,
 				4DA12BE9172E0C9A004A1114 /* Frameworks */,
 				4DA12BE8172E0C9A004A1114 /* Products */,
@@ -194,7 +202,6 @@
 				4DA12C02172E0C9A004A1114 /* MainStoryboard.storyboard */,
 				4DA12C05172E0C9A004A1114 /* ViewController.h */,
 				4DA12C06172E0C9A004A1114 /* ViewController.m */,
-				4DA12BF1172E0C9A004A1114 /* Supporting Files */,
 			);
 			path = ScheduleConcierge;
 			sourceTree = "<group>";
@@ -211,6 +218,7 @@
 				4DA12C00172E0C9A004A1114 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			path = ScheduleConcierge;
 			sourceTree = "<group>";
 		};
 		4DA12C14172E0C9B004A1114 /* ScheduleConciergeTests */ = {
@@ -302,6 +310,31 @@
 			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		4DA12C75172EC2E7004A1114 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C76172EC2E7004A1114 /* DB */,
+			);
+			path = resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		4DA12C76172EC2E7004A1114 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C7A172EC3E8004A1114 /* schema */,
+				4DA12C77172EC2E7004A1114 /* schedule.sqlite */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		4DA12C7A172EC3E8004A1114 /* schema */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */,
+			);
+			path = schema;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,6 +415,8 @@
 				4DA12C61172E124E004A1114 /* MIT-LICENSE in Resources */,
 				4DA12C63172E124E004A1114 /* ReadMe in Resources */,
 				4DA12C6B172E1386004A1114 /* README in Resources */,
+				4DA12C78172EC2E7004A1114 /* schedule.sqlite in Resources */,
+				4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +429,8 @@
 				4DA12C62172E124E004A1114 /* MIT-LICENSE in Resources */,
 				4DA12C64172E124E004A1114 /* ReadMe in Resources */,
 				4DA12C6C172E1386004A1114 /* README in Resources */,
+				4DA12C79172EC2E7004A1114 /* schedule.sqlite in Resources */,
+				4DA12C7D172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

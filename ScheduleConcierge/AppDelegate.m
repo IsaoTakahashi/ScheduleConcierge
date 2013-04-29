@@ -13,6 +13,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSSetUncaughtExceptionHandler(&caughtExceptionHandler);
     return YES;
 }
 							
@@ -41,6 +42,14 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+# pragma --
+# pragma callstack log
+void caughtExceptionHandler(NSException *exception) {
+    NSLog(@"%@", exception.name);
+    NSLog(@"%@", exception.reason);
+    NSLog(@"%@", exception.callStackSymbols);
 }
 
 @end

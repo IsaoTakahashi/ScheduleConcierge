@@ -14,6 +14,8 @@
 
 @implementation ViewController
 
+@synthesize sample_;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -24,6 +26,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender
+{
+    switch (sender.state)
+    {
+        case UIGestureRecognizerStateBegan:
+        case UIGestureRecognizerStateChanged:
+            if(sender.numberOfTouches > 0)
+            {
+                NSLog(@"handled %@",NSStringFromCGPoint([sender locationOfTouch:0 inView:self.view]));
+            }
+            
+            break;
+        default:
+            break;
+            
+    }
 }
 
 @end

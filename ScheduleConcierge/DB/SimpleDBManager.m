@@ -22,7 +22,7 @@ static SimpleDBManager* singlton;
 + (SimpleDBManager *)getInstance {
     if (singlton == nil) {
         singlton = [[SimpleDBManager alloc] init];
-        [singlton connect: @"navi.db"];
+        [singlton connect: @"schedule.sqlite"];
     }
     
     return singlton;
@@ -68,7 +68,7 @@ static SimpleDBManager* singlton;
 
 //UpdateSQLのパスを取得
 -(NSString *) getUpdateSQL:(NSString *) version{
-    return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"sessionDBUpdate_%@.txt", version]];
+    return [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:[NSString stringWithFormat:@"scheduleDBUpdate_%@.txt", version]];
 }
 
 //UpdateSQLがあるかどうか

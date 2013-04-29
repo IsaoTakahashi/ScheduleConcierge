@@ -1,0 +1,15 @@
+--Test Table for Query Test
+CREATE TABLE QUERY_TEST (
+	   id serial
+	 , n numeric
+	 , t text
+	 , r real
+);
+
+--データベースのバージョン情報
+CREATE TABLE dbinfo (
+    id INTEGER PRIMARY KEY,
+	version TEXT NOT NULL
+);
+
+INSERT INTO dbinfo (id, version) VALUES (1, '1');
