@@ -23,6 +23,39 @@
 		4DA12C11172E0C9B004A1114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12BEC172E0C9A004A1114 /* Foundation.framework */; };
 		4DA12C19172E0C9B004A1114 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C17172E0C9B004A1114 /* InfoPlist.strings */; };
 		4DA12C1C172E0C9B004A1114 /* ScheduleConciergeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C1B172E0C9B004A1114 /* ScheduleConciergeTests.m */; };
+		4DA12C33172E1098004A1114 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C27172E1098004A1114 /* FMDatabase.m */; };
+		4DA12C34172E1098004A1114 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C27172E1098004A1114 /* FMDatabase.m */; };
+		4DA12C35172E1098004A1114 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C29172E1098004A1114 /* FMDatabaseAdditions.m */; };
+		4DA12C36172E1098004A1114 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C29172E1098004A1114 /* FMDatabaseAdditions.m */; };
+		4DA12C37172E1098004A1114 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2B172E1098004A1114 /* FMDatabasePool.m */; };
+		4DA12C38172E1098004A1114 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2B172E1098004A1114 /* FMDatabasePool.m */; };
+		4DA12C39172E1098004A1114 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2D172E1098004A1114 /* FMDatabaseQueue.m */; };
+		4DA12C3A172E1098004A1114 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2D172E1098004A1114 /* FMDatabaseQueue.m */; };
+		4DA12C3B172E1098004A1114 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2F172E1098004A1114 /* FMResultSet.m */; };
+		4DA12C3C172E1098004A1114 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C2F172E1098004A1114 /* FMResultSet.m */; };
+		4DA12C3D172E1098004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C30172E1098004A1114 /* README */; };
+		4DA12C3E172E1098004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C30172E1098004A1114 /* README */; };
+		4DA12C3F172E1098004A1114 /* SimpleDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C32172E1098004A1114 /* SimpleDBManager.m */; };
+		4DA12C40172E1098004A1114 /* SimpleDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C32172E1098004A1114 /* SimpleDBManager.m */; };
+		4DA12C44172E10C8004A1114 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C43172E10C8004A1114 /* FileUtil.m */; };
+		4DA12C45172E10C8004A1114 /* FileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C43172E10C8004A1114 /* FileUtil.m */; };
+		4DA12C4D172E10EF004A1114 /* UserSettingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C4A172E10EF004A1114 /* UserSettingUtil.m */; };
+		4DA12C4E172E10EF004A1114 /* UserSettingUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C4A172E10EF004A1114 /* UserSettingUtil.m */; };
+		4DA12C5A172E116B004A1114 /* NSString+Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C59172E116B004A1114 /* NSString+Validate.m */; };
+		4DA12C5B172E116B004A1114 /* NSString+Validate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C59172E116B004A1114 /* NSString+Validate.m */; };
+		4DA12C61172E124E004A1114 /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C5D172E124E004A1114 /* MIT-LICENSE */; };
+		4DA12C62172E124E004A1114 /* MIT-LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C5D172E124E004A1114 /* MIT-LICENSE */; };
+		4DA12C63172E124E004A1114 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C5E172E124E004A1114 /* ReadMe */; };
+		4DA12C64172E124E004A1114 /* ReadMe in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C5E172E124E004A1114 /* ReadMe */; };
+		4DA12C65172E124E004A1114 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C60172E124E004A1114 /* SFHFKeychainUtils.m */; };
+		4DA12C66172E124E004A1114 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C60172E124E004A1114 /* SFHFKeychainUtils.m */; };
+		4DA12C6B172E1386004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C68172E1386004A1114 /* README */; };
+		4DA12C6C172E1386004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C68172E1386004A1114 /* README */; };
+		4DA12C6D172E1386004A1114 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C6A172E1386004A1114 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4DA12C6E172E1386004A1114 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C6A172E1386004A1114 /* RegexKitLite.m */; };
+		4DA12C70172E14EF004A1114 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C6F172E14EF004A1114 /* Security.framework */; };
+		4DA12C72172E14FD004A1114 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */; };
+		4DA12C74172E1528004A1114 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +91,35 @@
 		4DA12C18172E0C9B004A1114 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DA12C1A172E0C9B004A1114 /* ScheduleConciergeTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScheduleConciergeTests.h; sourceTree = "<group>"; };
 		4DA12C1B172E0C9B004A1114 /* ScheduleConciergeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScheduleConciergeTests.m; sourceTree = "<group>"; };
+		4DA12C26172E1098004A1114 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		4DA12C27172E1098004A1114 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		4DA12C28172E1098004A1114 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		4DA12C29172E1098004A1114 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		4DA12C2A172E1098004A1114 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		4DA12C2B172E1098004A1114 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		4DA12C2C172E1098004A1114 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		4DA12C2D172E1098004A1114 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		4DA12C2E172E1098004A1114 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		4DA12C2F172E1098004A1114 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		4DA12C30172E1098004A1114 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4DA12C31172E1098004A1114 /* SimpleDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBManager.h; sourceTree = "<group>"; };
+		4DA12C32172E1098004A1114 /* SimpleDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBManager.m; sourceTree = "<group>"; };
+		4DA12C42172E10C8004A1114 /* FileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileUtil.h; sourceTree = "<group>"; };
+		4DA12C43172E10C8004A1114 /* FileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileUtil.m; sourceTree = "<group>"; };
+		4DA12C49172E10EF004A1114 /* UserSettingUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingUtil.h; sourceTree = "<group>"; };
+		4DA12C4A172E10EF004A1114 /* UserSettingUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingUtil.m; sourceTree = "<group>"; };
+		4DA12C58172E116B004A1114 /* NSString+Validate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Validate.h"; sourceTree = "<group>"; };
+		4DA12C59172E116B004A1114 /* NSString+Validate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Validate.m"; sourceTree = "<group>"; };
+		4DA12C5D172E124E004A1114 /* MIT-LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "MIT-LICENSE"; sourceTree = "<group>"; };
+		4DA12C5E172E124E004A1114 /* ReadMe */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ReadMe; sourceTree = "<group>"; };
+		4DA12C5F172E124E004A1114 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		4DA12C60172E124E004A1114 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		4DA12C68172E1386004A1114 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4DA12C69172E1386004A1114 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		4DA12C6A172E1386004A1114 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		4DA12C6F172E14EF004A1114 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +127,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA12C74172E1528004A1114 /* libsqlite3.0.dylib in Frameworks */,
+				4DA12C72172E14FD004A1114 /* SystemConfiguration.framework in Frameworks */,
+				4DA12C70172E14EF004A1114 /* Security.framework in Frameworks */,
 				4DA12BEB172E0C9A004A1114 /* UIKit.framework in Frameworks */,
 				4DA12BED172E0C9A004A1114 /* Foundation.framework in Frameworks */,
 				4DA12BEF172E0C9A004A1114 /* CoreGraphics.framework in Frameworks */,
@@ -87,6 +152,9 @@
 		4DA12BDE172E0C9A004A1114 = {
 			isa = PBXGroup;
 			children = (
+				4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */,
+				4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */,
+				4DA12C6F172E14EF004A1114 /* Security.framework */,
 				4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */,
 				4DA12C14172E0C9B004A1114 /* ScheduleConciergeTests */,
 				4DA12BE9172E0C9A004A1114 /* Frameworks */,
@@ -117,6 +185,10 @@
 		4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */ = {
 			isa = PBXGroup;
 			children = (
+				4DA12C4F172E1133004A1114 /* ExternalLibrary */,
+				4DA12C46172E10EF004A1114 /* UserSetting */,
+				4DA12C41172E10C8004A1114 /* File */,
+				4DA12C25172E1098004A1114 /* DB */,
 				4DA12BF9172E0C9A004A1114 /* AppDelegate.h */,
 				4DA12BFA172E0C9A004A1114 /* AppDelegate.m */,
 				4DA12C02172E0C9A004A1114 /* MainStoryboard.storyboard */,
@@ -158,6 +230,76 @@
 				4DA12C17172E0C9B004A1114 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DA12C25172E1098004A1114 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C26172E1098004A1114 /* FMDatabase.h */,
+				4DA12C27172E1098004A1114 /* FMDatabase.m */,
+				4DA12C28172E1098004A1114 /* FMDatabaseAdditions.h */,
+				4DA12C29172E1098004A1114 /* FMDatabaseAdditions.m */,
+				4DA12C2A172E1098004A1114 /* FMDatabasePool.h */,
+				4DA12C2B172E1098004A1114 /* FMDatabasePool.m */,
+				4DA12C2C172E1098004A1114 /* FMDatabaseQueue.h */,
+				4DA12C2D172E1098004A1114 /* FMDatabaseQueue.m */,
+				4DA12C2E172E1098004A1114 /* FMResultSet.h */,
+				4DA12C2F172E1098004A1114 /* FMResultSet.m */,
+				4DA12C30172E1098004A1114 /* README */,
+				4DA12C31172E1098004A1114 /* SimpleDBManager.h */,
+				4DA12C32172E1098004A1114 /* SimpleDBManager.m */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		4DA12C41172E10C8004A1114 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C42172E10C8004A1114 /* FileUtil.h */,
+				4DA12C43172E10C8004A1114 /* FileUtil.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		4DA12C46172E10EF004A1114 /* UserSetting */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C58172E116B004A1114 /* NSString+Validate.h */,
+				4DA12C59172E116B004A1114 /* NSString+Validate.m */,
+				4DA12C49172E10EF004A1114 /* UserSettingUtil.h */,
+				4DA12C4A172E10EF004A1114 /* UserSettingUtil.m */,
+			);
+			path = UserSetting;
+			sourceTree = "<group>";
+		};
+		4DA12C4F172E1133004A1114 /* ExternalLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C67172E1386004A1114 /* RegexKitLite */,
+				4DA12C5C172E124E004A1114 /* SFHFKeychainUtils */,
+			);
+			path = ExternalLibrary;
+			sourceTree = "<group>";
+		};
+		4DA12C5C172E124E004A1114 /* SFHFKeychainUtils */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C5D172E124E004A1114 /* MIT-LICENSE */,
+				4DA12C5E172E124E004A1114 /* ReadMe */,
+				4DA12C5F172E124E004A1114 /* SFHFKeychainUtils.h */,
+				4DA12C60172E124E004A1114 /* SFHFKeychainUtils.m */,
+			);
+			path = SFHFKeychainUtils;
+			sourceTree = "<group>";
+		};
+		4DA12C67172E1386004A1114 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				4DA12C68172E1386004A1114 /* README */,
+				4DA12C69172E1386004A1114 /* RegexKitLite.h */,
+				4DA12C6A172E1386004A1114 /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +378,10 @@
 				4DA12BFF172E0C9A004A1114 /* Default@2x.png in Resources */,
 				4DA12C01172E0C9A004A1114 /* Default-568h@2x.png in Resources */,
 				4DA12C04172E0C9A004A1114 /* MainStoryboard.storyboard in Resources */,
+				4DA12C3D172E1098004A1114 /* README in Resources */,
+				4DA12C61172E124E004A1114 /* MIT-LICENSE in Resources */,
+				4DA12C63172E124E004A1114 /* ReadMe in Resources */,
+				4DA12C6B172E1386004A1114 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +390,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA12C19172E0C9B004A1114 /* InfoPlist.strings in Resources */,
+				4DA12C3E172E1098004A1114 /* README in Resources */,
+				4DA12C62172E124E004A1114 /* MIT-LICENSE in Resources */,
+				4DA12C64172E124E004A1114 /* ReadMe in Resources */,
+				4DA12C6C172E1386004A1114 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +423,17 @@
 				4DA12BF7172E0C9A004A1114 /* main.m in Sources */,
 				4DA12BFB172E0C9A004A1114 /* AppDelegate.m in Sources */,
 				4DA12C07172E0C9A004A1114 /* ViewController.m in Sources */,
+				4DA12C33172E1098004A1114 /* FMDatabase.m in Sources */,
+				4DA12C35172E1098004A1114 /* FMDatabaseAdditions.m in Sources */,
+				4DA12C37172E1098004A1114 /* FMDatabasePool.m in Sources */,
+				4DA12C39172E1098004A1114 /* FMDatabaseQueue.m in Sources */,
+				4DA12C3B172E1098004A1114 /* FMResultSet.m in Sources */,
+				4DA12C3F172E1098004A1114 /* SimpleDBManager.m in Sources */,
+				4DA12C44172E10C8004A1114 /* FileUtil.m in Sources */,
+				4DA12C4D172E10EF004A1114 /* UserSettingUtil.m in Sources */,
+				4DA12C5A172E116B004A1114 /* NSString+Validate.m in Sources */,
+				4DA12C65172E124E004A1114 /* SFHFKeychainUtils.m in Sources */,
+				4DA12C6D172E1386004A1114 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +442,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DA12C1C172E0C9B004A1114 /* ScheduleConciergeTests.m in Sources */,
+				4DA12C34172E1098004A1114 /* FMDatabase.m in Sources */,
+				4DA12C36172E1098004A1114 /* FMDatabaseAdditions.m in Sources */,
+				4DA12C38172E1098004A1114 /* FMDatabasePool.m in Sources */,
+				4DA12C3A172E1098004A1114 /* FMDatabaseQueue.m in Sources */,
+				4DA12C3C172E1098004A1114 /* FMResultSet.m in Sources */,
+				4DA12C40172E1098004A1114 /* SimpleDBManager.m in Sources */,
+				4DA12C45172E10C8004A1114 /* FileUtil.m in Sources */,
+				4DA12C4E172E10EF004A1114 /* UserSettingUtil.m in Sources */,
+				4DA12C5B172E116B004A1114 /* NSString+Validate.m in Sources */,
+				4DA12C66172E124E004A1114 /* SFHFKeychainUtils.m in Sources */,
+				4DA12C6E172E1386004A1114 /* RegexKitLite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +558,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleConcierge/ScheduleConcierge-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleConcierge/ScheduleConcierge-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -397,6 +570,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleConcierge/ScheduleConcierge-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleConcierge/ScheduleConcierge-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -455,6 +629,7 @@
 				4DA12C21172E0C9B004A1114 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DA12C22172E0C9B004A1114 /* Build configuration list for PBXNativeTarget "ScheduleConciergeTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +638,7 @@
 				4DA12C24172E0C9B004A1114 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
