@@ -65,6 +65,9 @@
 		4DA7B52B172FE8D7004BAFED /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */; };
 		4DA7B52C172FE8E6004BAFED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C6F172E14EF004A1114 /* Security.framework */; };
 		4DA7B52D172FE8EE004BAFED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */; };
+		4DA7B532172FFB0F004BAFED /* UIStickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */; };
+		4DA7B533172FFB0F004BAFED /* UIStickyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */; };
+		4DA7B53517301064004BAFED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA7B53417301064004BAFED /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,10 @@
 		4DA7B525172FCDC9004BAFED /* UIStickyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStickyView.m; sourceTree = "<group>"; };
 		4DA7B528172FD659004BAFED /* SimpleDBManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBManagerTest.h; sourceTree = "<group>"; };
 		4DA7B529172FD659004BAFED /* SimpleDBManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBManagerTest.m; sourceTree = "<group>"; };
+		4DA7B52F172FFB0F004BAFED /* UIStickyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStickyViewController.h; sourceTree = "<group>"; };
+		4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStickyViewController.m; sourceTree = "<group>"; };
+		4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIStickyViewController.xib; sourceTree = "<group>"; };
+		4DA7B53417301064004BAFED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA7B53517301064004BAFED /* QuartzCore.framework in Frameworks */,
 				4DA7B52D172FE8EE004BAFED /* SystemConfiguration.framework in Frameworks */,
 				4DA7B52C172FE8E6004BAFED /* Security.framework in Frameworks */,
 				4DA7B52B172FE8D7004BAFED /* libsqlite3.0.dylib in Frameworks */,
@@ -170,6 +178,7 @@
 		4DA12BDE172E0C9A004A1114 = {
 			isa = PBXGroup;
 			children = (
+				4DA7B53417301064004BAFED /* QuartzCore.framework */,
 				4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */,
 				4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */,
 				4DA12C6F172E14EF004A1114 /* Security.framework */,
@@ -368,6 +377,7 @@
 		4DA7B51E172FCD02004BAFED /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				4DA7B52E172FFAEE004BAFED /* Controller */,
 				4DA7B522172FCDC9004BAFED /* Model */,
 				4DA7B523172FCDC9004BAFED /* View */,
 			);
@@ -397,6 +407,16 @@
 				4DA7B529172FD659004BAFED /* SimpleDBManagerTest.m */,
 			);
 			name = DB;
+			sourceTree = "<group>";
+		};
+		4DA7B52E172FFAEE004BAFED /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7B52F172FFB0F004BAFED /* UIStickyViewController.h */,
+				4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */,
+				4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,6 +501,7 @@
 				4DA12C6B172E1386004A1114 /* README in Resources */,
 				4DA12C78172EC2E7004A1114 /* schedule.sqlite in Resources */,
 				4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */,
+				4DA7B533172FFB0F004BAFED /* UIStickyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +557,7 @@
 				4DA12C65172E124E004A1114 /* SFHFKeychainUtils.m in Sources */,
 				4DA12C6D172E1386004A1114 /* RegexKitLite.m in Sources */,
 				4DA7B526172FCDC9004BAFED /* UIStickyView.m in Sources */,
+				4DA7B532172FFB0F004BAFED /* UIStickyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

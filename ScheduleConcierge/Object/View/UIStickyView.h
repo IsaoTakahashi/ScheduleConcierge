@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface UIStickyView : UIView<UIGestureRecognizerDelegate>
 {
     CGPoint lastPoint_;
 }
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIWebView *siteWebView;
 
-- (void) setViewPosition:(CGPoint)diffVector;
+- (void)initialize;
+- (void)setViewPosition:(CGPoint)diffVector;
 
 @end

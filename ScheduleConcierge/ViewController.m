@@ -48,8 +48,11 @@
 
 - (IBAction)clickStickyButton:(id)sender
 {
-    UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    [self.view addSubview:newSticky];
+    UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+    [self.view addSubview:newStickyCtr.view];
+    
+    //UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    //[self.view addSubview:newSticky];
 }
 
 @end

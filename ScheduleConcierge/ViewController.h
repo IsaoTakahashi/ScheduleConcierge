@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIStickyViewController.h"
 #import "UIStickyView.h"
 
 @interface ViewController : UIViewController {

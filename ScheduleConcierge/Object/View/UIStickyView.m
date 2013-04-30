@@ -10,6 +10,41 @@
 
 @implementation UIStickyView
 
+@synthesize nameLabel;
+@synthesize siteWebView;
+
+- (id)init{
+    if ([super init]) {
+        // Set GestureRecognizer
+        UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
+        [self addGestureRecognizer:recog];
+        
+        // Set Background color
+        //[self setBackgroundColor:[UIColor brownColor]];
+        self.layer.cornerRadius = 0.5f;
+        self.layer.masksToBounds = YES;
+        
+        // Set Information for Outlet
+        nameLabel.text = @"aaa";
+    }
+    
+    return self;
+}
+
+- (void)initialize {
+    // Set GestureRecognizer
+    UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
+    [self addGestureRecognizer:recog];
+    
+    // Set Background color
+    //[self setBackgroundColor:[UIColor brownColor]];
+    self.layer.cornerRadius = 0.5f;
+    self.layer.masksToBounds = YES;
+    
+    // Set Information for Outlet
+    nameLabel.text = @"aaa";
+}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
