@@ -46,4 +46,10 @@
     }
 }
 
+- (IBAction)clickStickyButton:(id)sender
+{
+    UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    [self.view addSubview:newSticky];
+}
+
 @end

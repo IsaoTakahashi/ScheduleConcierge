@@ -52,7 +52,7 @@
 		4DA12C6B172E1386004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C68172E1386004A1114 /* README */; };
 		4DA12C6C172E1386004A1114 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C68172E1386004A1114 /* README */; };
 		4DA12C6D172E1386004A1114 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C6A172E1386004A1114 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		4DA12C6E172E1386004A1114 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C6A172E1386004A1114 /* RegexKitLite.m */; };
+		4DA12C6E172E1386004A1114 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA12C6A172E1386004A1114 /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4DA12C70172E14EF004A1114 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C6F172E14EF004A1114 /* Security.framework */; };
 		4DA12C72172E14FD004A1114 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */; };
 		4DA12C74172E1528004A1114 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */; };
@@ -60,6 +60,11 @@
 		4DA12C79172EC2E7004A1114 /* schedule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C77172EC2E7004A1114 /* schedule.sqlite */; };
 		4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
 		4DA12C7D172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
+		4DA7B526172FCDC9004BAFED /* UIStickyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B525172FCDC9004BAFED /* UIStickyView.m */; };
+		4DA7B52A172FD659004BAFED /* SimpleDBManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B529172FD659004BAFED /* SimpleDBManagerTest.m */; };
+		4DA7B52B172FE8D7004BAFED /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */; };
+		4DA7B52C172FE8E6004BAFED /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C6F172E14EF004A1114 /* Security.framework */; };
+		4DA7B52D172FE8EE004BAFED /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12C71172E14FD004A1114 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +131,10 @@
 		4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4DA12C77172EC2E7004A1114 /* schedule.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedule.sqlite; sourceTree = "<group>"; };
 		4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBSetup.txt; sourceTree = "<group>"; };
+		4DA7B524172FCDC9004BAFED /* UIStickyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIStickyView.h; sourceTree = "<group>"; };
+		4DA7B525172FCDC9004BAFED /* UIStickyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStickyView.m; sourceTree = "<group>"; };
+		4DA7B528172FD659004BAFED /* SimpleDBManagerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleDBManagerTest.h; sourceTree = "<group>"; };
+		4DA7B529172FD659004BAFED /* SimpleDBManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleDBManagerTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +155,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA7B52D172FE8EE004BAFED /* SystemConfiguration.framework in Frameworks */,
+				4DA7B52C172FE8E6004BAFED /* Security.framework in Frameworks */,
+				4DA7B52B172FE8D7004BAFED /* libsqlite3.0.dylib in Frameworks */,
 				4DA12C0F172E0C9B004A1114 /* SenTestingKit.framework in Frameworks */,
 				4DA12C10172E0C9B004A1114 /* UIKit.framework in Frameworks */,
 				4DA12C11172E0C9B004A1114 /* Foundation.framework in Frameworks */,
@@ -193,6 +205,9 @@
 		4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */ = {
 			isa = PBXGroup;
 			children = (
+				4DA7B51C172FCD02004BAFED /* Interface */,
+				4DA7B51D172FCD02004BAFED /* Logic */,
+				4DA7B51E172FCD02004BAFED /* Object */,
 				4DA12C4F172E1133004A1114 /* ExternalLibrary */,
 				4DA12C46172E10EF004A1114 /* UserSetting */,
 				4DA12C41172E10C8004A1114 /* File */,
@@ -224,6 +239,7 @@
 		4DA12C14172E0C9B004A1114 /* ScheduleConciergeTests */ = {
 			isa = PBXGroup;
 			children = (
+				4DA7B527172FD63C004BAFED /* DB */,
 				4DA12C1A172E0C9B004A1114 /* ScheduleConciergeTests.h */,
 				4DA12C1B172E0C9B004A1114 /* ScheduleConciergeTests.m */,
 				4DA12C15172E0C9B004A1114 /* Supporting Files */,
@@ -333,6 +349,54 @@
 				4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */,
 			);
 			path = schema;
+			sourceTree = "<group>";
+		};
+		4DA7B51C172FCD02004BAFED /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		4DA7B51D172FCD02004BAFED /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		4DA7B51E172FCD02004BAFED /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7B522172FCDC9004BAFED /* Model */,
+				4DA7B523172FCDC9004BAFED /* View */,
+			);
+			path = Object;
+			sourceTree = "<group>";
+		};
+		4DA7B522172FCDC9004BAFED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4DA7B523172FCDC9004BAFED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7B524172FCDC9004BAFED /* UIStickyView.h */,
+				4DA7B525172FCDC9004BAFED /* UIStickyView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DA7B527172FD63C004BAFED /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				4DA7B528172FD659004BAFED /* SimpleDBManagerTest.h */,
+				4DA7B529172FD659004BAFED /* SimpleDBManagerTest.m */,
+			);
+			name = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +535,7 @@
 				4DA12C5A172E116B004A1114 /* NSString+Validate.m in Sources */,
 				4DA12C65172E124E004A1114 /* SFHFKeychainUtils.m in Sources */,
 				4DA12C6D172E1386004A1114 /* RegexKitLite.m in Sources */,
+				4DA7B526172FCDC9004BAFED /* UIStickyView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,6 +555,7 @@
 				4DA12C5B172E116B004A1114 /* NSString+Validate.m in Sources */,
 				4DA12C66172E124E004A1114 /* SFHFKeychainUtils.m in Sources */,
 				4DA12C6E172E1386004A1114 /* RegexKitLite.m in Sources */,
+				4DA7B52A172FD659004BAFED /* SimpleDBManagerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -624,6 +690,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleConcierge/ScheduleConcierge-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleConciergeTests/ScheduleConciergeTests-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -641,6 +708,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ScheduleConcierge/ScheduleConcierge-Prefix.pch";
 				INFOPLIST_FILE = "ScheduleConciergeTests/ScheduleConciergeTests-Info.plist";
+				"OTHER_LDFLAGS[arch=*]" = "-licucore";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;

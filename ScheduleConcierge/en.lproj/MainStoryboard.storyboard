@@ -9,7 +9,7 @@
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5">
-                        <rect key="frame" x="0.0" y="20" width="768" height="1004"/>
+                        <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-8n-mhe">
@@ -19,15 +19,39 @@
                                     <outletCollection property="gestureRecognizers" destination="hjm-VX-zXk" appends="YES" id="I9v-co-L1p"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rN-yt-qGm" userLabel="StickyButton">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="ByO-Cn-5WL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Sticky">
+                                            <attributes>
+                                                <color key="NSColor" red="0.16142104476546337" green="0.52156865600000002" blue="0.14046237157043417" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="15" name="Helvetica-Bold"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="clickStickyButton:" destination="2" eventType="touchUpInside" id="OHb-bz-Mwg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6rN-yt-qGm" firstAttribute="top" secondItem="5" secondAttribute="top" constant="197" id="758-0A-CLd"/>
                             <constraint firstItem="1Di-8n-mhe" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="164" id="GE1-2o-tCn"/>
                             <constraint firstAttribute="trailing" secondItem="1Di-8n-mhe" secondAttribute="trailing" constant="327" id="GjG-CO-Q1t"/>
                             <constraint firstItem="1Di-8n-mhe" firstAttribute="top" secondItem="5" secondAttribute="top" constant="181" id="O9k-iQ-Hfv"/>
-                            <constraint firstAttribute="bottom" secondItem="1Di-8n-mhe" secondAttribute="bottom" constant="584" id="vLg-7Y-Mdm"/>
+                            <constraint firstAttribute="bottom" secondItem="1Di-8n-mhe" secondAttribute="bottom" constant="567" id="PlK-Hp-VJ1"/>
+                            <constraint firstItem="6rN-yt-qGm" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="481" id="hbm-sR-8zA"/>
                         </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="sample_" destination="1Di-8n-mhe" id="ubt-Cc-cM3"/>
                     </connections>
@@ -48,7 +72,8 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="handlePanGesture:"/>
+                <relationship kind="action" name="clickStickyButton:"/>
+                <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
                 <relationship kind="outlet" name="sample_" candidateClass="UIView"/>
             </relationships>
         </class>
