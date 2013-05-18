@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface UIStickyView : UIView<UIGestureRecognizerDelegate>
+@interface UIStickyView : UIView<UIGestureRecognizerDelegate,UIAlertViewDelegate>
 {
     CGPoint lastPoint_;
 }

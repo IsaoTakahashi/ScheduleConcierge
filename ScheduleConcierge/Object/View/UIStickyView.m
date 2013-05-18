@@ -13,36 +13,20 @@
 @synthesize nameLabel;
 @synthesize siteWebView;
 
-- (id)init{
-    if ([super init]) {
-        // Set GestureRecognizer
-        UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
-        [self addGestureRecognizer:recog];
-        
-        // Set Background color
-        //[self setBackgroundColor:[UIColor brownColor]];
-        self.layer.cornerRadius = 0.5f;
-        self.layer.masksToBounds = YES;
-        
-        // Set Information for Outlet
-        nameLabel.text = @"aaa";
-    }
-    
-    return self;
-}
 
 - (void)initialize {
     // Set GestureRecognizer
     UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
     [self addGestureRecognizer:recog];
     
-    // Set Background color
-    //[self setBackgroundColor:[UIColor brownColor]];
-    self.layer.cornerRadius = 0.5f;
-    self.layer.masksToBounds = YES;
+    [self setStyle];
     
     // Set Information for Outlet
-    nameLabel.text = @"aaa";
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"create sticky" message:@"input search word" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"search", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    [alert show];
+    
+    nameLabel.text = @"?";
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -61,6 +45,15 @@
     return self;
 }
 
+- (void)setStyle {
+    // Set Background color
+    //[self setBackgroundColor:[UIColor brownColor]];
+    //self.layer.cornerRadius = 0.5f;
+    //self.layer.masksToBounds = YES;
+    //self.layer.borderWidth = 2.0f;
+    self.layer.borderColor = [[UIColor brownColor] CGColor];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -69,6 +62,41 @@
     // Drawing code
 }
 */
+
+- (void) loadWebView:(NSString*)urlString {
+    [siteWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+}
+
+#pragma mark -
+#pragma mark UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *searchText;
+    switch (buttonIndex) {
+        case 1:
+            nameLabel.text = [[alertView textFieldAtIndex:0] text];
+            searchText = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                            kCFAllocatorDefault,
+                                                                            (CFStringRef)nameLabel.text,
+                                                                            NULL,
+                                                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                            kCFStringEncodingUTF8));
+            [self loadWebView:[NSString stringWithFormat:@"https://www.google.co.jp/search?tbm=isch&q=%@",searchText]];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+// enable "search" button when any text is input
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView{
+    NSString *inputText = [[alertView textFieldAtIndex:0] text];
+    if(inputText.length > 0){
+        return YES;
+    }
+    return NO;
+}
 
 #pragma mark -
 #pragma mark UIGestureRecognizerDelegate

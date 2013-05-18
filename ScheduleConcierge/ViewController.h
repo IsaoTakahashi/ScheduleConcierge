@@ -14,8 +14,6 @@
     
 }
 
-@property (strong, nonatomic) IBOutlet UIView *sample_;
-
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;
 - (IBAction)clickStickyButton:(id)sender;
 

@@ -14,8 +14,6 @@
 
 @implementation ViewController
 
-@synthesize sample_;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -53,6 +51,19 @@
     
     //UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     //[self.view addSubview:newSticky];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ((interfaceOrientation == UIDeviceOrientationLandscapeLeft) ||
+        (interfaceOrientation == UIDeviceOrientationLandscapeRight)) {
+        return YES;
+    } else {
+        return NO;
+    }
+    
+    //	return YES; // 全方向に設定する場合は、単にYESを返す
 }
 
 @end

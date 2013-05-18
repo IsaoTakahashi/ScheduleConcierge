@@ -12,13 +12,7 @@
                         <rect key="frame" x="0.0" y="20" width="1024" height="748"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view multipleTouchEnabled="YES" contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-8n-mhe">
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="hjm-VX-zXk" appends="YES" id="I9v-co-L1p"/>
-                                </connections>
-                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="scaleAspectFit" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8s5-w0-4w0"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rN-yt-qGm" userLabel="StickyButton">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="ByO-Cn-5WL"/>
@@ -42,19 +36,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6rN-yt-qGm" firstAttribute="top" secondItem="5" secondAttribute="top" constant="197" id="758-0A-CLd"/>
-                            <constraint firstItem="1Di-8n-mhe" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="164" id="GE1-2o-tCn"/>
-                            <constraint firstAttribute="trailing" secondItem="1Di-8n-mhe" secondAttribute="trailing" constant="327" id="GjG-CO-Q1t"/>
-                            <constraint firstItem="1Di-8n-mhe" firstAttribute="top" secondItem="5" secondAttribute="top" constant="181" id="O9k-iQ-Hfv"/>
-                            <constraint firstAttribute="bottom" secondItem="1Di-8n-mhe" secondAttribute="bottom" constant="567" id="PlK-Hp-VJ1"/>
-                            <constraint firstItem="6rN-yt-qGm" firstAttribute="leading" secondItem="5" secondAttribute="leading" constant="481" id="hbm-sR-8zA"/>
+                            <constraint firstItem="8s5-w0-4w0" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="9yv-VF-aek"/>
+                            <constraint firstItem="8s5-w0-4w0" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="Mnn-GJ-ZaO"/>
+                            <constraint firstItem="8s5-w0-4w0" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="nCd-M9-vDr"/>
+                            <constraint firstItem="6rN-yt-qGm" firstAttribute="top" secondItem="5" secondAttribute="top" constant="115" id="rRW-ib-Ed4"/>
+                            <constraint firstAttribute="trailing" secondItem="6rN-yt-qGm" secondAttribute="trailing" constant="302" id="uNe-eP-8oz"/>
+                            <constraint firstItem="8s5-w0-4w0" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="xEW-1k-FEa"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="sample_" destination="1Di-8n-mhe" id="ubt-Cc-cM3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="hjm-VX-zXk">
@@ -63,8 +54,12 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="-189" y="-222"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="background.jpg" width="350" height="247"/>
+    </resources>
     <classes>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
@@ -74,7 +69,6 @@
             <relationships>
                 <relationship kind="action" name="clickStickyButton:"/>
                 <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="outlet" name="sample_" candidateClass="UIView"/>
             </relationships>
         </class>
     </classes>

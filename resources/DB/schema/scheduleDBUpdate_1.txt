@@ -1,0 +1,6 @@
+CREATE TABLE TEST_LABEL (
+	   id serial
+	 , t_label text
+	 , t_url text
+	 , n_del_flg numeric
+);
