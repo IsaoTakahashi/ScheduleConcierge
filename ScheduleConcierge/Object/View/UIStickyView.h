@@ -8,11 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ImageSearchLogic.h"
+
+@protocol UIStickyViewDelegate <NSObject>
+
+- (NSMutableArray*) getStickyArray;
+
+@end
 
 @interface UIStickyView : UIView<UIGestureRecognizerDelegate,UIAlertViewDelegate>
 {
     CGPoint lastPoint_;
 }
+@property (weak, nonatomic) id<UIStickyViewDelegate> stickyViewDelegate;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *siteWebView;
 

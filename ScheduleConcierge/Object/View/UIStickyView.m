@@ -14,6 +14,7 @@
 @synthesize siteWebView;
 
 
+
 - (void)initialize {
     // Set GestureRecognizer
     UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
@@ -46,11 +47,6 @@
 }
 
 - (void)setStyle {
-    // Set Background color
-    //[self setBackgroundColor:[UIColor brownColor]];
-    //self.layer.cornerRadius = 0.5f;
-    //self.layer.masksToBounds = YES;
-    //self.layer.borderWidth = 2.0f;
     self.layer.borderColor = [[UIColor brownColor] CGColor];
 }
 
@@ -63,8 +59,8 @@
 }
 */
 
-- (void) loadWebView:(NSString*)urlString {
-    [siteWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+- (void) loadWebView:(NSURL*)url {
+    [siteWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 #pragma mark -
@@ -72,6 +68,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *searchText;
+    ImageSearchLogic *imageSearchLogic;
+    
     switch (buttonIndex) {
         case 1:
             nameLabel.text = [[alertView textFieldAtIndex:0] text];
@@ -81,7 +79,10 @@
                                                                             NULL,
                                                                             (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                                                             kCFStringEncodingUTF8));
-            [self loadWebView:[NSString stringWithFormat:@"https://www.google.co.jp/search?tbm=isch&q=%@",searchText]];
+            //[self loadWebView:[NSString stringWithFormat:@"https://www.google.co.jp/search?tbm=isch&q=%@",searchText]];
+            //[self loadWebView:[NSString stringWithFormat:IMAGE_API_URL,searchText]];
+            imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
+            [self loadWebView:[imageSearchLogic searchImageURL]];
             break;
             
         default:
@@ -105,8 +106,6 @@
     // current tap point on superview
     CGPoint nowPoint;
     
-    NSLog(@"panned");
-    
     switch (recog.state)
     {
         case UIGestureRecognizerStateBegan:
@@ -117,7 +116,7 @@
             [self setViewPosition:CGPointMake(nowPoint.x - lastPoint_.x, nowPoint.y - lastPoint_.y)];
             if(recog.numberOfTouches > 0)
             {
-                NSLog(@"handled %@",NSStringFromCGPoint([recog locationOfTouch:0 inView:self.superview]));
+                //NSLog(@"handled %@",NSStringFromCGPoint([recog locationOfTouch:0 inView:self.superview]));
             }
             
             lastPoint_ = nowPoint;

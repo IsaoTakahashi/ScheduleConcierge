@@ -10,9 +10,11 @@
 #import "UIStickyViewController.h"
 #import "UIStickyView.h"
 
-@interface ViewController : UIViewController {
-    
+@interface ViewController : UIViewController<UIStickyViewControllerDelegate> {
+
 }
+
+@property (strong,nonatomic) NSMutableArray *stickyArray;
 
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;
 - (IBAction)clickStickyButton:(id)sender;

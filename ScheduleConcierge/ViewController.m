@@ -34,7 +34,7 @@
         case UIGestureRecognizerStateChanged:
             if(sender.numberOfTouches > 0)
             {
-                NSLog(@"handled %@",NSStringFromCGPoint([sender locationOfTouch:0 inView:self.view]));
+                //NSLog(@"handled %@",NSStringFromCGPoint([sender locationOfTouch:0 inView:self.view]));
             }
             
             break;
@@ -46,8 +46,15 @@
 
 - (IBAction)clickStickyButton:(id)sender
 {
+    if (self.stickyArray == nil || self.stickyArray.count == 0) {
+        self.stickyArray = [NSMutableArray new];
+    }
+    
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+    newStickyCtr.delegate = self;
     [self.view addSubview:newStickyCtr.view];
+    
+    [self.stickyArray addObject:newStickyCtr.view];
     
     //UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
     //[self.view addSubview:newSticky];
@@ -64,6 +71,12 @@
     }
     
     //	return YES; // 全方向に設定する場合は、単にYESを返す
+}
+
+#pragma mark -
+#pragma mark UIStickyViewControllerDelegate
+- (NSMutableArray*)getStickyArrayForTargetStickyView {
+    return self.stickyArray;
 }
 
 @end
