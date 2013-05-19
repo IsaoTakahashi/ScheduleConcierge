@@ -17,6 +17,6 @@
 
 @interface UIStickyViewController : UIViewController<UIStickyViewDelegate>
 
-@property (weak,nonatomic) id<UIStickyViewControllerDelegate> delegate;
+@property (strong,nonatomic) id<UIStickyViewControllerDelegate> delegate;
 
 @end

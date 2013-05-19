@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 
 typedef enum effectDirectionType : NSUInteger {
+    UNDEFINED,
     BOTH,
     VERTICAL,
     HORIZONTAL
 } effectDirectionType;
 
-typedef enum positoinOffsetType : Boolean {
-    YES,
-    NO
+typedef enum positoinOffsetType : NSUInteger {
+    OFFSET_UNDEFINED,
+    OFFSET_OFF,
+    OFFSET_ON
 } positionOffsetType;
 
 @interface SpringAnimationLogic : NSObject {
@@ -24,11 +26,15 @@ typedef enum positoinOffsetType : Boolean {
 }
 
 @property (strong,nonatomic) UIView *targetView;
-@property (strong,nonatomic) NSArray *effectedViewArray;
-@property (nonatomic) effectDirectionType directionType;
-@property (nonatomic) positionOffsetType offsetType;
+@property (strong,nonatomic) NSMutableArray *effectedViewArray;
+@property (strong,nonatomic) NSMutableArray *baseCenterArray;
+@property (strong,nonatomic) NSMutableArray *moveDistanceArray;
+@property (nonatomic) effectDirectionType directionType; //バネの動く方向の設定
+@property (nonatomic) positionOffsetType offsetType; //影響させるViewが、影響させるViewを「乗り越える」かどうかの設定
+@property (nonatomic) CGFloat springConstant; //影響するViewのバネ定数
+@property (nonatomic) CGFloat repulsionConst; //影響させるViewの基本反発力
 
-- (id) initWithTarget:(UIView*)target effectedViewArray:(NSArray*)effectedArray;
+- (id) initWithTarget:(UIView*)target effectedViewArray:(NSMutableArray*)effectedArray;
 - (Boolean) prepareAnimation;
 - (Boolean) executeAnimation;
 - (Boolean) stopAnimation;

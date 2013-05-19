@@ -14,6 +14,7 @@
 
 }
 
+@property (nonatomic) int stikcySerial;
 @property (strong,nonatomic) NSMutableArray *stickyArray;
 
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;

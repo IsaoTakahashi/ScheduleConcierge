@@ -48,12 +48,14 @@
 {
     if (self.stickyArray == nil || self.stickyArray.count == 0) {
         self.stickyArray = [NSMutableArray new];
+        self.stikcySerial = 1;
     }
     
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
     newStickyCtr.delegate = self;
     [self.view addSubview:newStickyCtr.view];
     
+    newStickyCtr.view.tag = self.stikcySerial++;
     [self.stickyArray addObject:newStickyCtr.view];
     
     //UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];

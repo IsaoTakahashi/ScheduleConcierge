@@ -110,18 +110,27 @@
     {
         case UIGestureRecognizerStateBegan:
             lastPoint_ = [recog locationOfTouch:0 inView:self.superview];
+            self.springAnimationLogic = [[SpringAnimationLogic alloc] initWithTarget:self effectedViewArray:[self.stickyViewDelegate getStickyArray]];
+            [self setSpringAnimationSetting];
+            
+            if(![self.springAnimationLogic prepareAnimation]) {
+                NSLog(@"faled to Preparation");
+            }
             break;
         case UIGestureRecognizerStateChanged:
             nowPoint = [recog locationOfTouch:0 inView:self.superview];
-            [self setViewPosition:CGPointMake(nowPoint.x - lastPoint_.x, nowPoint.y - lastPoint_.y)];
-            if(recog.numberOfTouches > 0)
-            {
-                //NSLog(@"handled %@",NSStringFromCGPoint([recog locationOfTouch:0 inView:self.superview]));
-            }
-            
+            [self setViewPosition:CGPointMake(nowPoint.x - lastPoint_.x, nowPoint.y - lastPoint_.y)];            
             lastPoint_ = nowPoint;
+            if ([self.springAnimationLogic executeAnimation]) {
+                //NSLog(@"Moved!!");
+            } else {
+                NSLog(@"faled to Moving");
+            }
             break;
         default:
+            if ([self.springAnimationLogic stopAnimation]) {
+                NSLog(@"Stop SpringAnimation normally");
+            }
             break;
             
     }
@@ -130,13 +139,22 @@
 #pragma mark -
 #pragma mark private method
 
-- (void) setViewPosition:(CGPoint)diffVector
+-(void)setViewPosition:(CGPoint)diffVector
 {
     CGPoint center = self.center;
     center.x += diffVector.x;
     center.y += diffVector.y;
     
     self.center = center;
+}
+
+-(void) setSpringAnimationSetting {
+    if (self.springAnimationLogic != nil) {
+        self.springAnimationLogic.directionType = BOTH;
+        self.springAnimationLogic.offsetType = OFFSET_ON;
+        self.springAnimationLogic.springConstant = 1000.0f;
+        self.springAnimationLogic.repulsionConst = 0.002f;
+    }
 }
 
 @end

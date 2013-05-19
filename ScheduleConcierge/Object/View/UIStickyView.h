@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "ImageSearchLogic.h"
+#import "SpringAnimationLogic.h"
 
 @protocol UIStickyViewDelegate <NSObject>
 
@@ -20,7 +21,8 @@
 {
     CGPoint lastPoint_;
 }
-@property (weak, nonatomic) id<UIStickyViewDelegate> stickyViewDelegate;
+@property (strong, nonatomic) id<UIStickyViewDelegate> stickyViewDelegate;
+@property (strong, nonatomic) SpringAnimationLogic *springAnimationLogic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIWebView *siteWebView;
 
