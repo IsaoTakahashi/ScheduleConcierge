@@ -29,6 +29,14 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
 
 #pragma mark -
 #pragma mark Animation Trigger
+
+-(Boolean)validateSetting {
+    return (self.directionType == UNDEFINED ||
+            self.offsetType == OFFSET_UNDEFINED ||
+            self.springConstant <= 0 ||
+            self.repulsionConst <- 0);
+}
+
 -(Boolean)prepareAnimation {
     // target Object validation
     if(self.targetView == nil || self.effectedViewArray == nil) {
@@ -36,8 +44,7 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
     }
     
     // set status validation
-    if(self.directionType == UNDEFINED || self.offsetType == OFFSET_UNDEFINED ||
-       self.springConstant <= 0 || self.repulsionConst <- 0) {
+    if ([self validateSetting]) {
         return false;
     }
     
@@ -51,6 +58,11 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
 }
 
 - (Boolean) executeAnimation {
+    
+    if ([self validateSetting]) {
+        return false;
+    }
+    
     [self calcMoveDistance];
     
     if (self.moveDistanceArray.count != self.effectedViewArray.count) {
@@ -102,6 +114,7 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
         // hit test
         if ([self hitTestView1:view View2:self.targetView]) {
             CGPoint distanceVectorFromTarget = [self calcDistanceVectorWithCGPoint1:view.center CGPoint2:self.targetView.center];
+            
             CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:self.targetView.center];
             CGPoint normalizedVector = CGPointMake(distanceVectorFromTarget.x / distanceScalarFromTarget, distanceVectorFromTarget.y / distanceScalarFromTarget);
             
@@ -113,23 +126,46 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
             
             // 反発力を正として、最終的に適用される力を計算
             CGFloat appliedForce = reputativeForce - restorativeForce;
+            
             moveDistancePoint = CGPointMake(appliedForce * normalizedVector.x, appliedForce * normalizedVector.y);
             
-            NSLog(@"Applied Force: %f",appliedForce);
+            // 「TargetViewが、各Viewを乗り越える」判定
+            if (self.offsetType == OFFSET_ON) {
+                CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:self.targetView.center];
+                CGFloat distanceScalarFromBasePoint = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:basePoint];
+                
+                if (distanceScalarFromTarget < distanceScalarFromBasePoint) {
+                    moveDistancePoint = CGPointMake(-distanceVectorFromBasePoint.x, -distanceVectorFromBasePoint.y);
+                }
+            }
+            
+            
+            
+            //NSLog(@"Applied Force: %f",appliedForce);
         } else {
             if (!CGPointEqualToPoint(view.center, basePoint)) {
-                //復元力計算
-                CGFloat restorativeForce = [self calcRestorativeForceWithCurrentPosition:view.center basePoint:basePoint];
-                moveDistancePoint = CGPointMake(-distanceVectorFromBasePoint.x * restorativeForce, -distanceVectorFromBasePoint.y * restorativeForce);
+                CGRect baseRect = CGRectMake(view.frame.origin.x - distanceVectorFromBasePoint.x, view.frame.origin.y - distanceVectorFromBasePoint.y,
+                                             view.frame.size.width, view.frame.size.height);
                 
-                NSLog(@"RestorativeForce: %f",restorativeForce);
+                // 元の位置に戻っても、targetViewと重ならない場合、元の位置まで戻す
+                if (!CGRectIntersectsRect(baseRect, self.targetView.frame)) {
+                    moveDistancePoint = CGPointMake(-distanceVectorFromBasePoint.x, -distanceVectorFromBasePoint.y);
+                    NSLog(@"Back to base Position");
+                } else {
+                    // 復元力計算
+                    CGFloat restorativeForce = [self calcRestorativeForceWithCurrentPosition:view.center basePoint:basePoint];
+                    moveDistancePoint = CGPointMake(-distanceVectorFromBasePoint.x * restorativeForce, -distanceVectorFromBasePoint.y * restorativeForce);
+                    
+                    //NSLog(@"RestorativeForce: %f",restorativeForce);
+                }
+                
             }
         }
         
         [self.moveDistanceArray addObject:[NSValue valueWithCGPoint:moveDistancePoint]];
         viewCount++;
         
-        NSLog(@"move DistancePoint: %@", NSStringFromCGPoint(moveDistancePoint));
+        //NSLog(@"move DistancePoint: %@", NSStringFromCGPoint(moveDistancePoint));
     }
 }
 
@@ -175,6 +211,12 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
 -(void)animateAllTarget {
     int viewCount = 0;
     
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    
     for (UIView *view in self.effectedViewArray) {
         CGPoint moveDistancePoint = [(NSValue*)self.moveDistanceArray[viewCount] CGPointValue];
         
@@ -184,11 +226,26 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
             continue;
         }
         
+        switch (self.directionType) {
+            case BOTH:
+                break;
+            case VERTICAL:
+                moveDistancePoint.x = 0.0f;
+                break;
+            case HORIZONTAL:
+                moveDistancePoint.y = 0.0f;
+                break;
+            default:
+                break;
+        }
+        
         CGPoint distinationPoint = CGPointMake(view.center.x + moveDistancePoint.x, view.center.y + moveDistancePoint.y);
         view.center = distinationPoint;
         
         viewCount++;
     }
+    
+    [UIView commitAnimations];
 }
 
 #pragma mark -

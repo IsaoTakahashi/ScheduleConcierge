@@ -15,7 +15,7 @@
                             <imageView userInteractionEnabled="NO" alpha="0.40000000000000013" contentMode="scaleAspectFit" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="8s5-w0-4w0"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rN-yt-qGm" userLabel="StickyButton">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="ByO-Cn-5WL"/>
+                                    <constraint firstAttribute="width" constant="73" id="JND-BE-fWs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal">
@@ -33,19 +33,57 @@
                                     <action selector="clickStickyButton:" destination="2" eventType="touchUpInside" id="OHb-bz-Mwg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkI-j9-Ebw">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="125" id="AHc-D6-vyQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Spring">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clidkSpringButton:" destination="2" eventType="touchUpInside" id="hCe-8S-Ua3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PwU-K6-fja">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Offset">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOffsetButton:" destination="2" eventType="touchUpInside" id="xCp-Xf-aVE"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="QkI-j9-Ebw" firstAttribute="centerX" secondItem="6rN-yt-qGm" secondAttribute="centerX" type="default" id="1Fr-Ci-WZY"/>
+                            <constraint firstItem="PwU-K6-fja" firstAttribute="top" secondItem="5" secondAttribute="top" constant="273" id="6fs-3P-3qG"/>
                             <constraint firstItem="8s5-w0-4w0" firstAttribute="top" secondItem="5" secondAttribute="top" type="default" id="9yv-VF-aek"/>
+                            <constraint firstItem="QkI-j9-Ebw" firstAttribute="top" secondItem="5" secondAttribute="top" constant="184" id="GbU-vO-f2b"/>
                             <constraint firstItem="8s5-w0-4w0" firstAttribute="bottom" secondItem="5" secondAttribute="bottom" type="default" id="Mnn-GJ-ZaO"/>
+                            <constraint firstItem="6rN-yt-qGm" firstAttribute="top" secondItem="5" secondAttribute="top" constant="96" id="T9a-GM-bQW"/>
+                            <constraint firstItem="PwU-K6-fja" firstAttribute="trailing" secondItem="QkI-j9-Ebw" secondAttribute="trailing" type="default" id="XVC-fs-D9v"/>
+                            <constraint firstAttribute="trailing" secondItem="QkI-j9-Ebw" secondAttribute="trailing" constant="68" id="dUt-Mu-SRa"/>
+                            <constraint firstItem="PwU-K6-fja" firstAttribute="leading" secondItem="QkI-j9-Ebw" secondAttribute="leading" type="default" id="eUv-Jb-Izz"/>
                             <constraint firstItem="8s5-w0-4w0" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" type="default" id="nCd-M9-vDr"/>
-                            <constraint firstItem="6rN-yt-qGm" firstAttribute="top" secondItem="5" secondAttribute="top" constant="115" id="rRW-ib-Ed4"/>
-                            <constraint firstAttribute="trailing" secondItem="6rN-yt-qGm" secondAttribute="trailing" constant="302" id="uNe-eP-8oz"/>
                             <constraint firstItem="8s5-w0-4w0" firstAttribute="leading" secondItem="5" secondAttribute="leading" type="default" id="xEW-1k-FEa"/>
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="offsetButton" destination="PwU-K6-fja" id="OwS-gz-EXL"/>
+                        <outlet property="springButton" destination="QkI-j9-Ebw" id="DW9-rh-5Gz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="hjm-VX-zXk">
@@ -60,6 +98,22 @@
     <resources>
         <image name="background.jpg" width="350" height="247"/>
     </resources>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOffsetButton:"/>
+                <relationship kind="action" name="clickStickyButton:"/>
+                <relationship kind="action" name="clidkSpringButton:" candidateClass="UIButton"/>
+                <relationship kind="action" name="handlePanGesture:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="outlet" name="offsetButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="springButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>

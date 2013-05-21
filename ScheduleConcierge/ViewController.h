@@ -17,7 +17,11 @@
 @property (nonatomic) int stikcySerial;
 @property (strong,nonatomic) NSMutableArray *stickyArray;
 
+@property (weak, nonatomic) IBOutlet UIButton *springButton;
+@property (weak, nonatomic) IBOutlet UIButton *offsetButton;
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;
 - (IBAction)clickStickyButton:(id)sender;
+- (IBAction)clidkSpringButton:(UIButton*)sender;
+- (IBAction)clickOffsetButton:(id)sender;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DA12290174BDB2C00F43FE4 /* GlobalProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA1228F174BDB2C00F43FE4 /* GlobalProperty.m */; };
 		4DA12BEB172E0C9A004A1114 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12BEA172E0C9A004A1114 /* UIKit.framework */; };
 		4DA12BED172E0C9A004A1114 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12BEC172E0C9A004A1114 /* Foundation.framework */; };
 		4DA12BEF172E0C9A004A1114 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA12BEE172E0C9A004A1114 /* CoreGraphics.framework */; };
@@ -77,6 +78,7 @@
 		4DA7B533172FFB0F004BAFED /* UIStickyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */; };
 		4DA7B53517301064004BAFED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA7B53417301064004BAFED /* QuartzCore.framework */; };
 		4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */; };
+		4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */; };
 		4DB59D3A174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3B174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */; };
@@ -94,6 +96,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DA1228E174BDB2C00F43FE4 /* GlobalProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalProperty.h; sourceTree = "<group>"; };
+		4DA1228F174BDB2C00F43FE4 /* GlobalProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalProperty.m; sourceTree = "<group>"; };
 		4DA12BE7172E0C9A004A1114 /* ScheduleConcierge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleConcierge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DA12BEA172E0C9A004A1114 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4DA12BEC172E0C9A004A1114 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -172,6 +176,8 @@
 		4DA7B53417301064004BAFED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		4DA9F12517488B6C00BB2FCC /* SpringAnimationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringAnimationLogic.h; sourceTree = "<group>"; };
 		4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationLogic.m; sourceTree = "<group>"; };
+		4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		4DB59D37174729F600B1ABD6 /* BackgroundCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundCalendarViewController.h; sourceTree = "<group>"; };
 		4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundCalendarViewController.m; sourceTree = "<group>"; };
 		4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundCalendarViewController.xib; sourceTree = "<group>"; };
@@ -208,6 +214,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DA1228D174BDB0E00F43FE4 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				4DA1228E174BDB2C00F43FE4 /* GlobalProperty.h */,
+				4DA1228F174BDB2C00F43FE4 /* GlobalProperty.m */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		4DA12BDE172E0C9A004A1114 = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +262,7 @@
 		4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */ = {
 			isa = PBXGroup;
 			children = (
+				4DA1228D174BDB0E00F43FE4 /* Setting */,
 				4DA9F12417488B5300BB2FCC /* Animation */,
 				4DA6FCEC1747DAC8006FEEEC /* Category */,
 				4DA6FCDC1747D95E006FEEEC /* Network */,
@@ -343,6 +359,7 @@
 		4DA12C4F172E1133004A1114 /* ExternalLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				4DA9F1281748E21C00BB2FCC /* MBProgressHUD */,
 				4DA6FCE31747D9CE006FEEEC /* R9HTTPRequest */,
 				4DA12C67172E1386004A1114 /* RegexKitLite */,
 				4DA12C5C172E124E004A1114 /* SFHFKeychainUtils */,
@@ -510,6 +527,15 @@
 			path = Animation;
 			sourceTree = "<group>";
 		};
+		4DA9F1281748E21C00BB2FCC /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */,
+				4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		4DB59D36174729C600B1ABD6 /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +698,8 @@
 				4DA6FCF11747DAC8006FEEEC /* NSString+Validate.m in Sources */,
 				4DA6FCF21747DAC8006FEEEC /* UIImage+Edit.m in Sources */,
 				4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */,
+				4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */,
+				4DA12290174BDB2C00F43FE4 /* GlobalProperty.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

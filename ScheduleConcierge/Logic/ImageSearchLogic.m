@@ -12,7 +12,7 @@
 
 static NSString * const IMAGE_API_URL = @"http://ajax.googleapis.com/ajax/services/search/images";//?q=%@&v=1.0";
 
-- (id)initWithSearchWord:(NSString *)word {
+-(id)initWithSearchWord:(NSString *)word {
     
     if(self = [super init]) {
         self.searchWord = word;
@@ -21,35 +21,55 @@ static NSString * const IMAGE_API_URL = @"http://ajax.googleapis.com/ajax/servic
     return self;
 }
 
-- (NSURL*)searchImageURL {
+-(NSURL*)searchImageURL {
     NSDictionary* jsonObject = [self requestJsonObjectBySearch];
-    NSArray *searchResultArray = [jsonObject valueForKeyPath:@"responseData.results"];
-    
-    // if can't get any result, return dummy URL
-    if(searchResultArray == nil) {
-        return [NSURL URLWithString:@"http://travel.rakuten.co.jp"];
+    if (jsonObject != nil && [jsonObject valueForKeyPath:@"responseStatus"] != nil) {
+         NSNumber *responseStatusValue = [jsonObject valueForKeyPath:@"responseStatus"];
+        if([responseStatusValue intValue] != 200) {
+            return nil;
+        }
+        NSArray *searchResultArray = [jsonObject valueForKeyPath:@"responseData.results"];
+        
+        if(searchResultArray != nil) {
+            NSDictionary *firstResultDictionary = searchResultArray[0];
+            NSString *firstResultURLString = [firstResultDictionary valueForKey:@"unescapedUrl"];
+            //NSArray* resultArray = [searchResultDictionary allValues];
+            NSLog(@"resultURL = %@",firstResultURLString);
+            return [NSURL URLWithString:firstResultURLString];
+        }
     }
     
-    NSDictionary *firstResultDictionary = searchResultArray[0];
-    NSString *firstResultURLString = [firstResultDictionary valueForKey:@"url"];
-    //NSArray* resultArray = [searchResultDictionary allValues];
-    NSLog(@"resultURL = %@",firstResultURLString);
-    return [NSURL URLWithString:firstResultURLString];
+    return nil;
 }
 
 #pragma mark -
 #pragma mark Search Logic
 
-- (NSDictionary*) requestJsonObjectBySearch {
+-(NSDictionary*) requestJsonObjectBySearch {
     NSString *searchURLString = [NSString stringWithFormat:@"%@?q=%@&v=1.0&hl=ja",IMAGE_API_URL,self.searchWord];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:searchURLString]];
     
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
     NSError *error = nil;
-    NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+    NSDictionary *jsonObject = nil;
     
-    NSLog(@"jsonObject =%@",[jsonObject description]);
+    if (jsonData != nil) {
+        jsonObject = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingAllowFragments error:&error];
+        
+        NSLog(@"jsonObject =%@",[jsonObject description]);
+    } else {
+        NSLog(@"cann't get jsonObject");
+    }
+    
     return jsonObject;
+}
+
+-(NSData*)requestImage:(NSURL*)url {
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    NSData *result = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    
+    return result;
 }
 
 

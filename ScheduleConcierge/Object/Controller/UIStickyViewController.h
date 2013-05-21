@@ -11,8 +11,8 @@
 
 @protocol UIStickyViewControllerDelegate <NSObject>
 
--(NSMutableArray*) getStickyArrayForTargetStickyView;
-
+-(NSMutableArray*)getStickyArrayForTargetStickyView;
+-(void)removeStickyWithTag:(NSInteger)tag;
 @end
 
 @interface UIStickyViewController : UIViewController<UIStickyViewDelegate>

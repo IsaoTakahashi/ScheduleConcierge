@@ -33,10 +33,21 @@
     [request setHTTPMethod:@"GET"];
     
     [request setCompletionHandler:^(NSHTTPURLResponse *responseHeader, NSString *responseString){
+        NSLog(@"%@",responseString);
         [delegate receiveResponseResult:responseHeader responseString:responseString tag:tag];
     }];
     
     [request startRequest];
+}
+
+- (void) sendGetRequestForData:(NSURL*)url tag:(NSString*)tag {
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+    self.tagForDataRequest = tag;
+    
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if(conn == nil) {
+        [delegate receiveResponseResultWithDataRequest:nil responseData:self.receivedData tag:self.tagForDataRequest];
+    }
 }
 
 - (void) sendPostRequest:(NSURL*)url tag:(NSString*)tag postDatas:(NSMutableDictionary*)dic {
@@ -96,6 +107,28 @@
     [self setPostData:request postData:dic];
     
     [request startRequest];
+}
+
+#pragma mark -
+#pragma mark NSURLConnectionDelegate
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    NSLog(@"get response");
+    self.responseFromDataRequest = response;
+    self.receivedData = [NSMutableData new];
+}
+
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    //NSLog(@"append Data");
+    [self.receivedData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    NSLog(@"finished loading Data");
+    [delegate receiveResponseResultWithDataRequest:(NSHTTPURLResponse*)self.responseFromDataRequest responseData:self.receivedData tag:self.tagForDataRequest];
+}
+
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [delegate receiveResponseResultWithDataRequest:nil responseData:self.receivedData tag:self.tagForDataRequest];
 }
 
 

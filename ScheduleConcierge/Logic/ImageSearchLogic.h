@@ -15,7 +15,8 @@
 @property (weak,nonatomic) NSMutableArray *hitImageURLArray;
 @property (strong,nonatomic) UIImage* priorImage;
 
-- (id)initWithSearchWord:(NSString*)word;
-- (NSURL*)searchImageURL;
+-(id)initWithSearchWord:(NSString*)word;
+-(NSURL*)searchImageURL;
+-(NSData*)requestImage:(NSURL*)url;
 
 @end

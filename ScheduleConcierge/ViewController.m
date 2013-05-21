@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "GlobalProperty.h"
 
 @interface ViewController ()
 
@@ -62,6 +63,54 @@
     //[self.view addSubview:newSticky];
 }
 
+- (IBAction)clidkSpringButton:(UIButton*)sender {
+    GlobalProperty *gp = [GlobalProperty getInstance];
+    NSString *buttonTitle = @"";
+    
+    switch (gp.directionType) {
+        case UNDEFINED:
+            gp.directionType = BOTH;
+            buttonTitle = @"BOTH";
+            break;
+        case BOTH:
+            gp.directionType = VERTICAL;
+            buttonTitle = @"VERTICAL";
+            break;
+        case VERTICAL:
+            gp.directionType = HORIZONTAL;
+            buttonTitle = @"HORIZONTAL";
+            break;
+        case HORIZONTAL:
+            gp.directionType = UNDEFINED;
+            buttonTitle = @"NONE";
+            break;
+        default:
+            break;
+    }
+    
+    [self.springButton setTitle:buttonTitle forState:UIControlStateNormal];
+}
+
+- (IBAction)clickOffsetButton:(id)sender {
+    GlobalProperty *gp = [GlobalProperty getInstance];
+    NSString *buttonTitle = @"";
+    
+    switch (gp.offsetType) {
+        case OFFSET_OFF:
+            gp.offsetType = OFFSET_ON;
+            buttonTitle = @"ON";
+            break;
+        case OFFSET_UNDEFINED:
+        case OFFSET_ON:
+            gp.offsetType = OFFSET_OFF;
+            buttonTitle = @"OFF";
+        default:
+            break;
+    }
+    
+    [self.offsetButton setTitle:buttonTitle forState:UIControlStateNormal];
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -77,8 +126,17 @@
 
 #pragma mark -
 #pragma mark UIStickyViewControllerDelegate
-- (NSMutableArray*)getStickyArrayForTargetStickyView {
+-(NSMutableArray*)getStickyArrayForTargetStickyView {
     return self.stickyArray;
+}
+
+-(void)removeStickyWithTag:(NSInteger)tag {
+    for (UIView *view in self.stickyArray) {
+        if(view.tag == tag) {
+            [self.stickyArray removeObject:view];
+            break;
+        }
+    }
 }
 
 @end

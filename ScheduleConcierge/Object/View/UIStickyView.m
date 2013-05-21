@@ -7,43 +7,28 @@
 //
 
 #import "UIStickyView.h"
+#import "MBProgressHUD.h"
+#import "GlobalProperty.h"
 
 @implementation UIStickyView
-
-@synthesize nameLabel;
-@synthesize siteWebView;
-
 
 
 - (void)initialize {
     // Set GestureRecognizer
-    UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
-    [self addGestureRecognizer:recog];
+    UIPanGestureRecognizer *recogPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
+    [self addGestureRecognizer:recogPan];
+    UILongPressGestureRecognizer *recogLong = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(removeStickyAlert:)];
+    [self addGestureRecognizer:recogLong];
     
     [self setStyle];
     
     // Set Information for Outlet
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"create sticky" message:@"input search word" delegate:self cancelButtonTitle:@"cancel" otherButtonTitles:@"search", nil];
+    alert.tag = CREATE;
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alert show];
     
-    nameLabel.text = @"?";
-}
-
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-        
-        // Set GestureRecognizer
-        UIPanGestureRecognizer *recog = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
-        [self addGestureRecognizer:recog];
-        
-        // Set Background color
-        [self setBackgroundColor:[UIColor brownColor]];
-    }
-    return self;
+    self.nameLabel.text = @"?";
 }
 
 - (void)setStyle {
@@ -59,44 +44,64 @@
 }
 */
 
-- (void) loadWebView:(NSURL*)url {
-    [siteWebView loadRequest:[NSURLRequest requestWithURL:url]];
-}
 
 #pragma mark -
 #pragma mark UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *searchText;
-    ImageSearchLogic *imageSearchLogic;
-    
-    switch (buttonIndex) {
-        case 1:
-            nameLabel.text = [[alertView textFieldAtIndex:0] text];
-            searchText = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                            kCFAllocatorDefault,
-                                                                            (CFStringRef)nameLabel.text,
-                                                                            NULL,
-                                                                            (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                            kCFStringEncodingUTF8));
-            //[self loadWebView:[NSString stringWithFormat:@"https://www.google.co.jp/search?tbm=isch&q=%@",searchText]];
-            //[self loadWebView:[NSString stringWithFormat:IMAGE_API_URL,searchText]];
-            imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
-            [self loadWebView:[imageSearchLogic searchImageURL]];
-            break;
-            
-        default:
-            break;
-    }
-}
 
 // enable "search" button when any text is input
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView{
-    NSString *inputText = [[alertView textFieldAtIndex:0] text];
-    if(inputText.length > 0){
-        return YES;
+    if(alertView.tag == CREATE) {
+        NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        if(inputText.length > 0){
+            return YES;
+        }
+        
+        return NO;
     }
-    return NO;
+    
+    return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == CREATE) {
+        
+        NSString *searchText;
+        ImageSearchLogic *imageSearchLogic;
+        NSURL *imageURL;
+        SimpleNetwork *simpleNetwork = [SimpleNetwork new];
+        simpleNetwork.delegate = self;
+        
+        switch (buttonIndex) {
+            case 1:
+                self.nameLabel.text = [[alertView textFieldAtIndex:0] text];
+                searchText = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                                                                                  kCFAllocatorDefault,
+                                                                                                  (CFStringRef)self.nameLabel.text,
+                                                                                                  NULL,
+                                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                                  kCFStringEncodingUTF8));
+                imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
+                imageURL = [imageSearchLogic searchImageURL];
+                
+                [MBProgressHUD showHUDAddedTo:self.resultImageView animated:YES];
+                [simpleNetwork sendGetRequestForData:imageURL tag:@"aaa"];
+                break;
+                
+            default:
+                break;
+        }
+    } else if (alertView.tag == REMOVE) {
+        switch (buttonIndex) {
+            case 1:
+                [self removeFromSuperview];
+                [self.stickyViewDelegate removeSticky:self.tag];
+                break;
+            default:
+                break;
+        }
+        
+    }
 }
 
 #pragma mark -
@@ -109,6 +114,7 @@
     switch (recog.state)
     {
         case UIGestureRecognizerStateBegan:
+            [self.superview bringSubviewToFront:self];
             lastPoint_ = [recog locationOfTouch:0 inView:self.superview];
             self.springAnimationLogic = [[SpringAnimationLogic alloc] initWithTarget:self effectedViewArray:[self.stickyViewDelegate getStickyArray]];
             [self setSpringAnimationSetting];
@@ -121,6 +127,7 @@
             nowPoint = [recog locationOfTouch:0 inView:self.superview];
             [self setViewPosition:CGPointMake(nowPoint.x - lastPoint_.x, nowPoint.y - lastPoint_.y)];            
             lastPoint_ = nowPoint;
+            
             if ([self.springAnimationLogic executeAnimation]) {
                 //NSLog(@"Moved!!");
             } else {
@@ -134,6 +141,48 @@
             break;
             
     }
+}
+
+-(void)removeStickyAlert:(UILongPressGestureRecognizer*)recog {
+    UIAlertView* removeAlert;
+    
+    switch (recog.state) {
+        case UIGestureRecognizerStateBegan:
+            removeAlert = [[UIAlertView alloc] initWithTitle:@"Remove Sticky" message:@"Do you want to remove?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+            removeAlert.tag = REMOVE;
+            [removeAlert setAlertViewStyle:UIAlertViewStyleDefault];
+            [removeAlert show];
+            break;
+        case UIGestureRecognizerStateChanged:
+            break;
+        case UIGestureRecognizerStateEnded:
+        default:
+            break;
+    }
+}
+
+#pragma mark -
+#pragma mark SimpleNetWorkDelegate
+-(void)receiveResponseResult:(NSHTTPURLResponse *)responseHeader responseString:(NSString *)responseString tag:(NSString *)tag {
+    if (responseHeader.statusCode != 200) {
+        NSLog(@"received status code: %d",responseHeader.statusCode);
+        return;
+    }
+    
+    NSData *resultData = (NSData*)responseString;
+    [self setImageData:resultData];
+}
+
+-(void)receiveResponseResultWithDataRequest:(NSHTTPURLResponse *)responseHeader responseData:(NSData *)responseData tag:(NSString *)tag {
+    
+    [MBProgressHUD hideHUDForView:self.resultImageView animated:YES];
+    
+    if (responseHeader == nil || responseHeader.statusCode != 200) {
+        NSLog(@"received status code: %d",responseHeader.statusCode);
+        return;
+    }
+    
+    [self setImageData:responseData];
 }
 
 #pragma mark -
@@ -150,11 +199,19 @@
 
 -(void) setSpringAnimationSetting {
     if (self.springAnimationLogic != nil) {
-        self.springAnimationLogic.directionType = BOTH;
-        self.springAnimationLogic.offsetType = OFFSET_ON;
+        GlobalProperty *gp = [GlobalProperty getInstance];
+        
+        self.springAnimationLogic.directionType = gp.directionType;
+        self.springAnimationLogic.offsetType = gp.offsetType;
         self.springAnimationLogic.springConstant = 1000.0f;
-        self.springAnimationLogic.repulsionConst = 0.002f;
+        self.springAnimationLogic.repulsionConst = 0.001f;
     }
+}
+
+-(void)setImageData:(NSData*)imageData {
+    if (imageData == nil) return;
+    NSLog(@"set Image");
+    self.resultImageView.image = [UIImage imageWithData:imageData scale:0.5];
 }
 
 @end

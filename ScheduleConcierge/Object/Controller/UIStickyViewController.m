@@ -42,8 +42,12 @@
 
 #pragma mark -
 #pragma mark UIStickyViewDelegate
-- (NSMutableArray*)getStickyArray {
+-(NSMutableArray*)getStickyArray {
     return [self.delegate getStickyArrayForTargetStickyView];
+}
+
+-(void)removeSticky:(NSInteger)tagNum {
+    [self.delegate removeStickyWithTag:tagNum];
 }
 
 @end
