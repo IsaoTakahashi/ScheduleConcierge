@@ -67,7 +67,17 @@ static StickyManager *singlton;
     
     for (UIView *view in self.stickyArray) {
         if(view.tag == tag) {
+            for (DateBarViewController* dbvCtr in self.dateBarCtrArray) {
+                if ([dbvCtr.stickies containsObject:view]) {
+                    [dbvCtr removeSticky:(UIStickyView*)view];
+                    [dbvCtr sortStickies];
+                }
+            }
+            
+            // 配列から除外し、どのViewからも排除する(見えなくなる)
             [self.stickyArray removeObject:view];
+            [view removeFromSuperview];
+            
             for (UIStickyViewController *usvCtr in self.stickyCtrArray) {
                 if ([usvCtr.view isEqual:view]) {
                     targetCtr = usvCtr;

@@ -95,7 +95,7 @@
     } else if (alertView.tag == REMOVE) {
         switch (buttonIndex) {
             case 1:
-                [self removeFromSuperview];
+                //[self removeFromSuperview];
                 [[StickyManager getInstance] removeStickyWithTag:self.tag];
                 break;
             default:
