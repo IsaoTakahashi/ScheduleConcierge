@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIStickyViewController.h"
-#import "UIStickyView.h"
-#import "DateBarViewController.h"
+#import "StickyManager.h"
 
-@interface ViewController : UIViewController<UIStickyViewControllerDelegate> {
+@interface ViewController : UIViewController {
 
 }
-
-@property (nonatomic) int stikcySerial;
-@property (strong,nonatomic) NSMutableArray *stickyArray;
 
 @property (weak, nonatomic) IBOutlet UIButton *springButton;
 @property (weak, nonatomic) IBOutlet UIButton *offsetButton;

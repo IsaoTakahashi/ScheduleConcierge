@@ -174,7 +174,7 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
 
 // 2つのViewの当たり判定
 -(Boolean)hitTestView1:(UIView*)view1 View2:(UIView*)view2 {
-    return CGRectIntersectsRect(view1.frame, view2.frame);
+    return CGRectIntersectsRect(view1.frame, [view2.superview convertRect:view2.frame toView:view1.superview]);
 }
 
 //ViewとViewの反発力＝「targetViewが、他のViewを押し出す力」を計算

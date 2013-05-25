@@ -9,14 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIStickyView.h"
 
-@protocol UIStickyViewControllerDelegate <NSObject>
+@interface UIStickyViewController : UIViewController
 
--(NSMutableArray*)getStickyArrayForTargetStickyView;
--(void)removeStickyWithTag:(NSInteger)tag;
-@end
-
-@interface UIStickyViewController : UIViewController<UIStickyViewDelegate>
-
-@property (strong,nonatomic) id<UIStickyViewControllerDelegate> delegate;
 
 @end

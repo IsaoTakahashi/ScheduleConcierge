@@ -17,18 +17,10 @@ typedef enum AlertTabType : NSUInteger {
     REMOVE
 } AlertTabType;
 
-@protocol UIStickyViewDelegate <NSObject>
-
--(NSMutableArray*)getStickyArray;
--(void)removeSticky:(NSInteger)tagNum;
-
-@end
-
 @interface UIStickyView : UIView<UIGestureRecognizerDelegate,UIAlertViewDelegate,SimpeNetworkDelegate>
 {
     CGPoint lastPoint_;
 }
-@property (strong, nonatomic) id<UIStickyViewDelegate> stickyViewDelegate;
 @property (strong, nonatomic) SpringAnimationLogic *springAnimationLogic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageView;

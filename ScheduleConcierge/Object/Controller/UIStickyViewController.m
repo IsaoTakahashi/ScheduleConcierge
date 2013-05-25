@@ -20,7 +20,6 @@
     if (self) {
         // Custom initialization
         UIStickyView *baseView = (UIStickyView*)self.view;
-        baseView.stickyViewDelegate = self;
         NSLog(@"%@",baseView.description);
         [baseView initialize];
         
@@ -38,16 +37,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark -
-#pragma mark UIStickyViewDelegate
--(NSMutableArray*)getStickyArray {
-    return [self.delegate getStickyArrayForTargetStickyView];
-}
-
--(void)removeSticky:(NSInteger)tagNum {
-    [self.delegate removeStickyWithTag:tagNum];
 }
 
 @end

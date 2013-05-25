@@ -82,6 +82,11 @@
 		4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB595175085D20020D9AB /* DateBarViewController.m */; };
 		4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DACB596175085D20020D9AB /* DateBarViewController.xib */; };
 		4DACB59B1750927D0020D9AB /* NSDate+Softbuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */; };
+		4DACB5A317509A1F0020D9AB /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB59E17509A1F0020D9AB /* BButton.m */; };
+		4DACB5A417509A1F0020D9AB /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5A017509A1F0020D9AB /* NSString+FontAwesome.m */; };
+		4DACB5A517509A1F0020D9AB /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5A217509A1F0020D9AB /* UIColor+BButton.m */; };
+		4DACB5A817509A680020D9AB /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DACB5A717509A680020D9AB /* FontAwesome.ttf */; };
+		4DACB5AC1750A97A0020D9AB /* StickyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5AB1750A97A0020D9AB /* StickyManager.m */; };
 		4DB59D3A174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3B174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */; };
@@ -186,6 +191,15 @@
 		4DACB596175085D20020D9AB /* DateBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateBarViewController.xib; sourceTree = "<group>"; };
 		4DACB5991750927D0020D9AB /* NSDate+Softbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Softbuild.h"; sourceTree = "<group>"; };
 		4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Softbuild.m"; sourceTree = "<group>"; };
+		4DACB59D17509A1F0020D9AB /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		4DACB59E17509A1F0020D9AB /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		4DACB59F17509A1F0020D9AB /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		4DACB5A017509A1F0020D9AB /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		4DACB5A117509A1F0020D9AB /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		4DACB5A217509A1F0020D9AB /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		4DACB5A717509A680020D9AB /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		4DACB5AA1750A97A0020D9AB /* StickyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyManager.h; sourceTree = "<group>"; };
+		4DACB5AB1750A97A0020D9AB /* StickyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyManager.m; sourceTree = "<group>"; };
 		4DB59D37174729F600B1ABD6 /* BackgroundCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundCalendarViewController.h; sourceTree = "<group>"; };
 		4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundCalendarViewController.m; sourceTree = "<group>"; };
 		4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundCalendarViewController.xib; sourceTree = "<group>"; };
@@ -270,6 +284,7 @@
 		4DA12BF0172E0C9A004A1114 /* ScheduleConcierge */ = {
 			isa = PBXGroup;
 			children = (
+				4DACB5A91750A94D0020D9AB /* ItemManager */,
 				4DA1228D174BDB0E00F43FE4 /* Setting */,
 				4DA9F12417488B5300BB2FCC /* Animation */,
 				4DA6FCEC1747DAC8006FEEEC /* Category */,
@@ -367,6 +382,7 @@
 		4DA12C4F172E1133004A1114 /* ExternalLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				4DACB59C17509A1F0020D9AB /* BButton */,
 				4DA9F1281748E21C00BB2FCC /* MBProgressHUD */,
 				4DA6FCE31747D9CE006FEEEC /* R9HTTPRequest */,
 				4DA12C67172E1386004A1114 /* RegexKitLite */,
@@ -549,6 +565,37 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		4DACB59C17509A1F0020D9AB /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				4DACB5A617509A680020D9AB /* resources */,
+				4DACB59D17509A1F0020D9AB /* BButton.h */,
+				4DACB59E17509A1F0020D9AB /* BButton.m */,
+				4DACB59F17509A1F0020D9AB /* NSString+FontAwesome.h */,
+				4DACB5A017509A1F0020D9AB /* NSString+FontAwesome.m */,
+				4DACB5A117509A1F0020D9AB /* UIColor+BButton.h */,
+				4DACB5A217509A1F0020D9AB /* UIColor+BButton.m */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		4DACB5A617509A680020D9AB /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				4DACB5A717509A680020D9AB /* FontAwesome.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		4DACB5A91750A94D0020D9AB /* ItemManager */ = {
+			isa = PBXGroup;
+			children = (
+				4DACB5AA1750A97A0020D9AB /* StickyManager.h */,
+				4DACB5AB1750A97A0020D9AB /* StickyManager.m */,
+			);
+			path = ItemManager;
+			sourceTree = "<group>";
+		};
 		4DB59D36174729C600B1ABD6 /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +694,7 @@
 				4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */,
 				4DA6FCE91747D9CE006FEEEC /* BSD-LICENSE in Resources */,
 				4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */,
+				4DACB5A817509A680020D9AB /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +764,10 @@
 				4DA12290174BDB2C00F43FE4 /* GlobalProperty.m in Sources */,
 				4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */,
 				4DACB59B1750927D0020D9AB /* NSDate+Softbuild.m in Sources */,
+				4DACB5A317509A1F0020D9AB /* BButton.m in Sources */,
+				4DACB5A417509A1F0020D9AB /* NSString+FontAwesome.m in Sources */,
+				4DACB5A517509A1F0020D9AB /* UIColor+BButton.m in Sources */,
+				4DACB5AC1750A97A0020D9AB /* StickyManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

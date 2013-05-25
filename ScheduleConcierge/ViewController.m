@@ -29,6 +29,7 @@
 - (void) viewDidAppear:(BOOL)animated {
     DateBarViewController *barCtr;
     NSDate *date = [NSDate date];
+    StickyManager *stickyMgr = [StickyManager getInstance];
     
     for (int i=0;i < DateBarCount; i++) {
         
@@ -42,6 +43,7 @@
         [barCtr setDate:date];
         
         [self.view addSubview:barCtr.view];
+        [stickyMgr addDateBar:barCtr];
         
         date = [date tommorow];
     }
@@ -74,20 +76,12 @@
 
 - (IBAction)clickStickyButton:(id)sender
 {
-    if (self.stickyArray == nil || self.stickyArray.count == 0) {
-        self.stickyArray = [NSMutableArray new];
-        self.stikcySerial = 1;
-    }
+    StickyManager *stickyMgr = [StickyManager getInstance];
     
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
-    newStickyCtr.delegate = self;
     [self.view addSubview:newStickyCtr.view];
     
-    newStickyCtr.view.tag = self.stikcySerial++;
-    [self.stickyArray addObject:newStickyCtr.view];
-    
-    //UIStickyView *newSticky = [[UIStickyView alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    //[self.view addSubview:newSticky];
+    [stickyMgr addSticky:newStickyCtr];
 }
 
 - (IBAction)clidkSpringButton:(UIButton*)sender {
@@ -152,19 +146,5 @@
     //	return YES; // 全方向に設定する場合は、単にYESを返す
 }
 
-#pragma mark -
-#pragma mark UIStickyViewControllerDelegate
--(NSMutableArray*)getStickyArrayForTargetStickyView {
-    return self.stickyArray;
-}
-
--(void)removeStickyWithTag:(NSInteger)tag {
-    for (UIView *view in self.stickyArray) {
-        if(view.tag == tag) {
-            [self.stickyArray removeObject:view];
-            break;
-        }
-    }
-}
 
 @end

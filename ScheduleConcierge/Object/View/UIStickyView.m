@@ -9,6 +9,7 @@
 #import "UIStickyView.h"
 #import "MBProgressHUD.h"
 #import "GlobalProperty.h"
+#import "StickyManager.h"
 
 @implementation UIStickyView
 
@@ -95,7 +96,7 @@
         switch (buttonIndex) {
             case 1:
                 [self removeFromSuperview];
-                [self.stickyViewDelegate removeSticky:self.tag];
+                [[StickyManager getInstance] removeStickyWithTag:self.tag];
                 break;
             default:
                 break;
@@ -114,9 +115,11 @@
     switch (recog.state)
     {
         case UIGestureRecognizerStateBegan:
+            [self.superview.superview bringSubviewToFront:self.superview];
             [self.superview bringSubviewToFront:self];
+            
             lastPoint_ = [recog locationOfTouch:0 inView:self.superview];
-            self.springAnimationLogic = [[SpringAnimationLogic alloc] initWithTarget:self effectedViewArray:[self.stickyViewDelegate getStickyArray]];
+            self.springAnimationLogic = [[SpringAnimationLogic alloc] initWithTarget:self effectedViewArray:[StickyManager getInstance].stickyArray];
             [self setSpringAnimationSetting];
             
             if(![self.springAnimationLogic prepareAnimation]) {
@@ -131,8 +134,15 @@
             if ([self.springAnimationLogic executeAnimation]) {
                 //NSLog(@"Moved!!");
             } else {
-                NSLog(@"faled to Moving");
+                //NSLog(@"faled to Moving");
             }
+            break;
+        case UIGestureRecognizerStateEnded:
+            if ([self.springAnimationLogic stopAnimation]) {
+                NSLog(@"Stop SpringAnimation normally");
+            }
+            //TODO: DateBarに入れてソートしたいね
+            [[StickyManager getInstance] relocateSticky:self];
             break;
         default:
             if ([self.springAnimationLogic stopAnimation]) {
