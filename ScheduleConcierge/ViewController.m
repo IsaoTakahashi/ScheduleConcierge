@@ -8,6 +8,9 @@
 
 #import "ViewController.h"
 #import "GlobalProperty.h"
+#import "NSDate+Softbuild.h"
+
+#define DateBarCount 3
 
 @interface ViewController ()
 
@@ -19,6 +22,30 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    DateBarViewController *barCtr;
+    NSDate *date = [NSDate date];
+    
+    for (int i=0;i < DateBarCount; i++) {
+        
+        barCtr = [[DateBarViewController alloc] initWithNibName:@"DateBarViewController" bundle:nil];
+        CGPoint origin = CGPointZero;
+        origin.x = 50;
+        origin.y += 30 * (i+1);
+        origin.y += barCtr.view.frame.size.height * i;
+        
+        barCtr.view.frame = CGRectMake(origin.x, origin.y, barCtr.view.frame.size.width, barCtr.view.frame.size.height);
+        [barCtr setDate:date];
+        
+        [self.view addSubview:barCtr.view];
+        
+        date = [date tommorow];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -109,6 +136,7 @@
     }
     
     [self.offsetButton setTitle:buttonTitle forState:UIControlStateNormal];
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -30,7 +30,7 @@
 
 + (void) setIntegerWithKey:(NSString*)key value:(int)value
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:value] forKey:key];
+    [[NSUserDefaults standardUserDefaults] setObject:@(value) forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

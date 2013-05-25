@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UIStickyViewController.h"
 #import "UIStickyView.h"
+#import "DateBarViewController.h"
 
 @interface ViewController : UIViewController<UIStickyViewControllerDelegate> {
 

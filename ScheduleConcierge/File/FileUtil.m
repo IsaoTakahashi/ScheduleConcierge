@@ -67,7 +67,7 @@
     
     NSArray* paths=NSSearchPathForDirectoriesInDomains(
                                                        NSDocumentDirectory,NSUserDomainMask,YES); 
-    NSString* dir=[paths objectAtIndex:0]; 
+    NSString* dir=paths[0]; 
     NSString* userDir = [dir stringByAppendingPathComponent:dirName];
     if(subDir)
     {
@@ -160,7 +160,7 @@
 
 + (NSString*) getRootDirectoryPath {
     NSArray* path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString* dir = [path objectAtIndex:0];
+    NSString* dir = path[0];
     NSString* userDir = [dir stringByAppendingPathComponent:[FileUtil getRootDirectoryName]];
     
     return userDir;

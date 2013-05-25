@@ -180,7 +180,7 @@
 }
 
 - (FMStatement*)cachedStatementForQuery:(NSString*)query {
-    return [_cachedStatements objectForKey:query];
+    return _cachedStatements[query];
 }
 
 - (void)setCachedStatement:(FMStatement*)statement forQuery:(NSString*)query {
@@ -189,7 +189,7 @@
     
     [statement setQuery:query];
     
-    [_cachedStatements setObject:statement forKey:query];
+    _cachedStatements[query] = statement;
     
     FMDBRelease(query);
 }
@@ -275,7 +275,7 @@
 }
 
 - (NSString*)lastErrorMessage {
-    return [NSString stringWithUTF8String:sqlite3_errmsg(_db)];
+    return @(sqlite3_errmsg(_db));
 }
 
 - (BOOL)hadError {
@@ -290,7 +290,7 @@
 
 
 - (NSError*)errorWithMessage:(NSString*)message {
-    NSDictionary* errorMessage = [NSDictionary dictionaryWithObject:message forKey:NSLocalizedDescriptionKey];
+    NSDictionary* errorMessage = @{NSLocalizedDescriptionKey: message};
     
     return [NSError errorWithDomain:@"FMDatabase" code:sqlite3_errcode(_db) userInfo:errorMessage];    
 }
@@ -399,26 +399,26 @@
                     arg = [NSString stringWithFormat:@"%c", va_arg(args, int)];
                     break;
                 case 's':
-                    arg = [NSString stringWithUTF8String:va_arg(args, char*)];
+                    arg = @(va_arg(args, char*));
                     break;
                 case 'd':
                 case 'D':
                 case 'i':
-                    arg = [NSNumber numberWithInt:va_arg(args, int)];
+                    arg = @(va_arg(args, int));
                     break;
                 case 'u':
                 case 'U':
-                    arg = [NSNumber numberWithUnsignedInt:va_arg(args, unsigned int)];
+                    arg = @(va_arg(args, unsigned int));
                     break;
                 case 'h':
                     i++;
                     if (i < length && [sql characterAtIndex:i] == 'i') {
                         //  warning: second argument to 'va_arg' is of promotable type 'short'; this va_arg has undefined behavior because arguments will be promoted to 'int'
-                        arg = [NSNumber numberWithShort:(short)(va_arg(args, int))];
+                        arg = @((short)(va_arg(args, int)));
                     }
                     else if (i < length && [sql characterAtIndex:i] == 'u') {
                         // warning: second argument to 'va_arg' is of promotable type 'unsigned short'; this va_arg has undefined behavior because arguments will be promoted to 'int'
-                        arg = [NSNumber numberWithUnsignedShort:(unsigned short)(va_arg(args, uint))];
+                        arg = @((unsigned short)(va_arg(args, uint)));
                     }
                     else {
                         i--;
@@ -427,21 +427,21 @@
                 case 'q':
                     i++;
                     if (i < length && [sql characterAtIndex:i] == 'i') {
-                        arg = [NSNumber numberWithLongLong:va_arg(args, long long)];
+                        arg = @(va_arg(args, long long));
                     }
                     else if (i < length && [sql characterAtIndex:i] == 'u') {
-                        arg = [NSNumber numberWithUnsignedLongLong:va_arg(args, unsigned long long)];
+                        arg = @(va_arg(args, unsigned long long));
                     }
                     else {
                         i--;
                     }
                     break;
                 case 'f':
-                    arg = [NSNumber numberWithDouble:va_arg(args, double)];
+                    arg = @(va_arg(args, double));
                     break;
                 case 'g':
                     // warning: second argument to 'va_arg' is of promotable type 'float'; this va_arg has undefined behavior because arguments will be promoted to 'double'
-                    arg = [NSNumber numberWithFloat:(float)(va_arg(args, double))];
+                    arg = @((float)(va_arg(args, double)));
                     break;
                 case 'l':
                     i++;
@@ -451,11 +451,11 @@
                             i++;
                             if (i < length && [sql characterAtIndex:i] == 'd') {
                                 //%lld
-                                arg = [NSNumber numberWithLongLong:va_arg(args, long long)];
+                                arg = @(va_arg(args, long long));
                             }
                             else if (i < length && [sql characterAtIndex:i] == 'u') {
                                 //%llu
-                                arg = [NSNumber numberWithUnsignedLongLong:va_arg(args, unsigned long long)];
+                                arg = @(va_arg(args, unsigned long long));
                             }
                             else {
                                 i--;
@@ -463,11 +463,11 @@
                         }
                         else if (next == 'd') {
                             //%ld
-                            arg = [NSNumber numberWithLong:va_arg(args, long)];
+                            arg = @(va_arg(args, long));
                         }
                         else if (next == 'u') {
                             //%lu
-                            arg = [NSNumber numberWithUnsignedLong:va_arg(args, unsigned long)];
+                            arg = @(va_arg(args, unsigned long));
                         }
                         else {
                             i--;
@@ -590,7 +590,7 @@
             
             if (namedIdx > 0) {
                 // Standard binding from here.
-                [self bindObject:[dictionaryArgs objectForKey:dictionaryKey] toColumn:namedIdx inStatement:pStmt];
+                [self bindObject:dictionaryArgs[dictionaryKey] toColumn:namedIdx inStatement:pStmt];
             }
             else {
                 NSLog(@"Could not find index for %@", dictionaryKey);
@@ -605,7 +605,7 @@
         while (idx < queryCount) {
             
             if (arrayArgs) {
-                obj = [arrayArgs objectAtIndex:(NSUInteger)idx];
+                obj = arrayArgs[(NSUInteger)idx];
             }
             else {
                 obj = va_arg(args, id);
@@ -745,7 +745,7 @@
                 sqlite3_finalize(pStmt);
                 
                 if (outErr) {
-                    *outErr = [self errorWithMessage:[NSString stringWithUTF8String:sqlite3_errmsg(_db)]];
+                    *outErr = [self errorWithMessage:@(sqlite3_errmsg(_db))];
                 }
                 
                 _isExecutingStatement = NO;
@@ -774,7 +774,7 @@
             
             if (namedIdx > 0) {
                 // Standard binding from here.
-                [self bindObject:[dictionaryArgs objectForKey:dictionaryKey] toColumn:namedIdx inStatement:pStmt];
+                [self bindObject:dictionaryArgs[dictionaryKey] toColumn:namedIdx inStatement:pStmt];
             }
             else {
                 NSLog(@"Could not find index for %@", dictionaryKey);
@@ -789,7 +789,7 @@
         while (idx < queryCount) {
             
             if (arrayArgs) {
-                obj = [arrayArgs objectAtIndex:(NSUInteger)idx];
+                obj = arrayArgs[(NSUInteger)idx];
             }
             else {
                 obj = va_arg(args, id);

@@ -81,7 +81,7 @@ static NSString        *s_pstrEqual = @"=";
         char    cConvChar[2];
         cConvChar[0] = s_cBase64Tbl[nIndex];
         cConvChar[1] = '\0';
-        [pstrResult appendString:[NSString stringWithCString:cConvChar encoding:NSASCIIStringEncoding]];
+        [pstrResult appendString:@(cConvChar)];
         nLineCharCnt++;
         if ( (nLineCharCnt % 76) == 0 ) {
             // 76文字毎の改行コード挿入

@@ -71,8 +71,7 @@
     
     int columnIdx = 0;
     for (columnIdx = 0; columnIdx < columnCount; columnIdx++) {
-        [_columnNameToIndexMap setObject:[NSNumber numberWithInt:columnIdx]
-                                 forKey:[[NSString stringWithUTF8String:sqlite3_column_name([_statement statement], columnIdx)] lowercaseString]];
+        _columnNameToIndexMap[[@(sqlite3_column_name([_statement statement], columnIdx)) lowercaseString]] = @(columnIdx);
     }
     _columnNamesSetup = YES;
 }
@@ -88,9 +87,9 @@
         
         // check for a null row
         if (c) {
-            NSString *s = [NSString stringWithUTF8String:c];
+            NSString *s = @(c);
             
-            [object setValue:s forKey:[NSString stringWithUTF8String:sqlite3_column_name([_statement statement], columnIdx)]];
+            [object setValue:s forKey:@(sqlite3_column_name([_statement statement], columnIdx))];
         }
     }
 }
@@ -113,7 +112,7 @@
         NSString *columnName = nil;
         while ((columnName = [columnNames nextObject])) {
             id objectValue = [self objectForColumnName:columnName];
-            [dict setObject:objectValue forKey:columnName];
+            dict[columnName] = objectValue;
         }
         
         return FMDBReturnAutoreleased([dict copy]);
@@ -139,9 +138,9 @@
         int columnIdx = 0;
         for (columnIdx = 0; columnIdx < columnCount; columnIdx++) {
             
-            NSString *columnName = [NSString stringWithUTF8String:sqlite3_column_name([_statement statement], columnIdx)];
+            NSString *columnName = @(sqlite3_column_name([_statement statement], columnIdx));
             id objectValue = [self objectForColumnIndex:columnIdx];
-            [dict setObject:objectValue forKey:columnName];
+            dict[columnName] = objectValue;
         }
         
         return dict;
@@ -226,7 +225,7 @@
     
     columnName = [columnName lowercaseString];
     
-    NSNumber *n = [_columnNameToIndexMap objectForKey:columnName];
+    NSNumber *n = _columnNameToIndexMap[columnName];
     
     if (n) {
         return [n intValue];
@@ -300,7 +299,7 @@
         return nil;
     }
     
-    return [NSString stringWithUTF8String:c];
+    return @(c);
 }
 
 - (NSString*)stringForColumn:(NSString*)columnName {
@@ -386,10 +385,10 @@
     id returnValue = nil;
     
     if (columnType == SQLITE_INTEGER) {
-        returnValue = [NSNumber numberWithLongLong:[self longLongIntForColumnIndex:columnIdx]];
+        returnValue = @([self longLongIntForColumnIndex:columnIdx]);
     }
     else if (columnType == SQLITE_FLOAT) {
-        returnValue = [NSNumber numberWithDouble:[self doubleForColumnIndex:columnIdx]];
+        returnValue = @([self doubleForColumnIndex:columnIdx]);
     }
     else if (columnType == SQLITE_BLOB) {
         returnValue = [self dataForColumnIndex:columnIdx];
@@ -412,7 +411,7 @@
 
 // returns autoreleased NSString containing the name of the column in the result set
 - (NSString*)columnNameForIndex:(int)columnIdx {
-    return [NSString stringWithUTF8String: sqlite3_column_name([_statement statement], columnIdx)];
+    return @(sqlite3_column_name([_statement statement], columnIdx));
 }
 
 - (void)setParentDB:(FMDatabase *)newDb {

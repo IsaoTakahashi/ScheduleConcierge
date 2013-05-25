@@ -79,6 +79,9 @@
 		4DA7B53517301064004BAFED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA7B53417301064004BAFED /* QuartzCore.framework */; };
 		4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */; };
 		4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */; };
+		4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB595175085D20020D9AB /* DateBarViewController.m */; };
+		4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DACB596175085D20020D9AB /* DateBarViewController.xib */; };
+		4DACB59B1750927D0020D9AB /* NSDate+Softbuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */; };
 		4DB59D3A174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3B174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */; };
@@ -178,6 +181,11 @@
 		4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationLogic.m; sourceTree = "<group>"; };
 		4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		4DACB594175085D20020D9AB /* DateBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateBarViewController.h; sourceTree = "<group>"; };
+		4DACB595175085D20020D9AB /* DateBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateBarViewController.m; sourceTree = "<group>"; };
+		4DACB596175085D20020D9AB /* DateBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateBarViewController.xib; sourceTree = "<group>"; };
+		4DACB5991750927D0020D9AB /* NSDate+Softbuild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Softbuild.h"; sourceTree = "<group>"; };
+		4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Softbuild.m"; sourceTree = "<group>"; };
 		4DB59D37174729F600B1ABD6 /* BackgroundCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundCalendarViewController.h; sourceTree = "<group>"; };
 		4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundCalendarViewController.m; sourceTree = "<group>"; };
 		4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundCalendarViewController.xib; sourceTree = "<group>"; };
@@ -453,6 +461,8 @@
 				4DA6FCEE1747DAC8006FEEEC /* NSString+Validate.m */,
 				4DA6FCEF1747DAC8006FEEEC /* UIImage+Edit.h */,
 				4DA6FCF01747DAC8006FEEEC /* UIImage+Edit.m */,
+				4DACB5991750927D0020D9AB /* NSDate+Softbuild.h */,
+				4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -460,6 +470,9 @@
 		4DA7B51C172FCD02004BAFED /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				4DACB594175085D20020D9AB /* DateBarViewController.h */,
+				4DACB595175085D20020D9AB /* DateBarViewController.m */,
+				4DACB596175085D20020D9AB /* DateBarViewController.xib */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
@@ -633,6 +646,7 @@
 				4DA5EA6717394F06004F13DD /* background.jpg in Resources */,
 				4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */,
 				4DA6FCE91747D9CE006FEEEC /* BSD-LICENSE in Resources */,
+				4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +714,8 @@
 				4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */,
 				4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */,
 				4DA12290174BDB2C00F43FE4 /* GlobalProperty.m in Sources */,
+				4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */,
+				4DACB59B1750927D0020D9AB /* NSDate+Softbuild.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

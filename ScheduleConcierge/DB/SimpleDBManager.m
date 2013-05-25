@@ -62,7 +62,7 @@ static SimpleDBManager* singlton;
 //古いDBファイルへのパスを取得
 - (NSString *) getOldDBFilePath:(NSString *) dbname{
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *documentsDirectory = paths[0];
     return [documentsDirectory stringByAppendingPathComponent:dbname];
 }
 

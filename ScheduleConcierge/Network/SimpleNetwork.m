@@ -149,7 +149,7 @@
 
 - (void) setPostData:(R9HTTPRequest*)request postData:(NSMutableDictionary*)dic {
     for (id key in [dic keyEnumerator]) {
-        id value = [dic objectForKey:key];
+        id value = dic[key];
         NSString* keyString = (NSString*)key;
         if([keyString isEmpty]) continue;
         

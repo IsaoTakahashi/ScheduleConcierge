@@ -149,8 +149,7 @@ return ret;
             if (error) {
                 *error = [NSError errorWithDomain:NSCocoaErrorDomain 
                                              code:[self lastErrorCode]
-                                         userInfo:[NSDictionary dictionaryWithObject:[self lastErrorMessage] 
-                                                                              forKey:NSLocalizedDescriptionKey]];
+                                         userInfo:@{NSLocalizedDescriptionKey: [self lastErrorMessage]}];
             }
         }
     }

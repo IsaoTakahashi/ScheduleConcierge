@@ -108,7 +108,7 @@ static NSString *boundary = @"----------0xKhTmLbOuNdArY";
 
 - (void)start
 {
-    [self setValue:[NSNumber numberWithBool:YES] forKey:@"isExecuting"];
+    [self setValue:@YES forKey:@"isExecuting"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:_url];
     if ([self.headers count] > 0) {
         [request setAllHTTPHeaderFields:self.headers];
@@ -140,12 +140,12 @@ static NSString *boundary = @"----------0xKhTmLbOuNdArY";
 
 - (void)addHeader:(NSString *)value forKey:(NSString *)key
 {
-    [self.headers setObject:value forKey:key];
+    (self.headers)[key] = value;
 }
 
 - (void)addBody:(NSString *)value forKey:(NSString *)key
 {
-    [self.bodies setObject:value forKey:key];
+    (self.bodies)[key] = value;
 }
 
 - (void)setData:(NSData *)data withFileName:(NSString *)fileName andContentType:(NSString *)contentType forKey:(NSString *)key
@@ -168,11 +168,11 @@ static NSString *boundary = @"----------0xKhTmLbOuNdArY";
         [bodyString appendFormat:@"\r\n--%@\r\n",boundary];
     }];
     [bodyString appendFormat:@"Content-Disposition: form-data; name=\"%@\";"
-                                @" filename=\"%@\"\r\n", [self.fileInfo objectForKey:@"key"], [self.fileInfo objectForKey:@"fileName"]];
-    [bodyString appendFormat:@"Content-Type: %@\r\n\r\n", [self.fileInfo objectForKey:@"contentType"]];
+                                @" filename=\"%@\"\r\n", (self.fileInfo)[@"key"], (self.fileInfo)[@"fileName"]];
+    [bodyString appendFormat:@"Content-Type: %@\r\n\r\n", (self.fileInfo)[@"contentType"]];
     NSMutableData *bodyData = [NSMutableData data];
     [bodyData appendData:[bodyString dataUsingEncoding:NSUTF8StringEncoding]];
-    [bodyData appendData:[self.fileInfo objectForKey:@"data"]];
+    [bodyData appendData:(self.fileInfo)[@"data"]];
     [bodyData appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     return bodyData;
 }
@@ -225,8 +225,8 @@ static NSString *boundary = @"----------0xKhTmLbOuNdArY";
 {
     if (totalBytesExpectedToWrite == 0) return;
     if (self.uploadProgressHandler) {
-        float progress = [[NSNumber numberWithInteger:totalBytesWritten] floatValue];
-        float total = [[NSNumber numberWithInteger: totalBytesExpectedToWrite] floatValue];
+        float progress = [@(totalBytesWritten) floatValue];
+        float total = [@(totalBytesExpectedToWrite) floatValue];
         __weak R9HTTPRequest *_self = self;
         NSOperationQueue *queue = [NSOperationQueue mainQueue];
         [queue addOperationWithBlock:^{
@@ -267,8 +267,8 @@ static NSString *boundary = @"----------0xKhTmLbOuNdArY";
 
 - (void)finish
 {
-    [self setValue:[NSNumber numberWithBool:NO] forKey:@"isExecuting"];
-    [self setValue:[NSNumber numberWithBool:YES] forKey:@"isFinished"];
+    [self setValue:@NO forKey:@"isExecuting"];
+    [self setValue:@YES forKey:@"isFinished"];
 }
 
 @end
