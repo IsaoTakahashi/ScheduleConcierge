@@ -113,16 +113,18 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
         
         // hit test
         if ([self hitTestView1:view View2:self.targetView]) {
-            CGPoint distanceVectorFromTarget = [self calcDistanceVectorWithCGPoint1:view.center CGPoint2:self.targetView.center];
+            CGPoint distanceVectorFromTarget = [self calcDistanceVectorWithCGPoint1:view.center
+                                                                           CGPoint2:[self.targetView.superview convertPoint:self.targetView.center toView:view.superview]];
             
-            CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:self.targetView.center];
+            CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center
+                                                                           CGPoint2:[self.targetView.superview convertPoint:self.targetView.center toView:view.superview]];
             CGPoint normalizedVector = CGPointMake(distanceVectorFromTarget.x / distanceScalarFromTarget, distanceVectorFromTarget.y / distanceScalarFromTarget);
             
             //復元力計算
             CGFloat restorativeForce = [self calcRestorativeForceWithCurrentPosition:view.center basePoint:basePoint];
             
             //反発力計算
-            CGFloat reputativeForce = [self calcReputativeForce:view.center];
+            CGFloat reputativeForce = [self calcReputativeForce:view];
             
             // 反発力を正として、最終的に適用される力を計算
             CGFloat appliedForce = reputativeForce - restorativeForce;
@@ -131,7 +133,8 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
             
             // 「TargetViewが、各Viewを乗り越える」判定
             if (self.offsetType == OFFSET_ON) {
-                CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:self.targetView.center];
+                CGFloat distanceScalarFromTarget = [self calcDistanceScalarWithCGPoint1:view.center
+                                                                               CGPoint2:[self.targetView.superview convertPoint:self.targetView.center toView:view.superview]];
                 CGFloat distanceScalarFromBasePoint = [self calcDistanceScalarWithCGPoint1:view.center CGPoint2:basePoint];
                 
                 if (distanceScalarFromTarget < distanceScalarFromBasePoint) {
@@ -175,10 +178,11 @@ static CGFloat const BASE_MOVE_DISTANCE = 5.0f;
 }
 
 //ViewとViewの反発力＝「targetViewが、他のViewを押し出す力」を計算
--(CGFloat)calcReputativeForce:(CGPoint)viewPoint {
+-(CGFloat)calcReputativeForce:(UIView*)view {
     CGFloat reputativeForce = 0.0f;
     
-    CGFloat distanceScalar = [self calcDistanceScalarWithCGPoint1:viewPoint CGPoint2:self.targetView.center];
+    CGFloat distanceScalar = [self calcDistanceScalarWithCGPoint1:view.center
+                                                         CGPoint2:[self.targetView.superview convertPoint:self.targetView.center toView:view.superview]];
     
     reputativeForce = self.springConstant / distanceScalar;
     
