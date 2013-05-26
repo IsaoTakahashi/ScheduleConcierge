@@ -17,9 +17,13 @@
 @property (weak, nonatomic) IBOutlet BButton *CalcButton;
 
 @property (strong, nonatomic) NSMutableArray *stickies;
+@property (strong, nonatomic) NSMutableArray *directionCtrArray;
 
 - (void) setDate:(NSDate*)date;
 - (void) sortStickies;
 -(Boolean)addSticky:(UIStickyView*)sticky;
 -(Boolean)removeSticky:(UIStickyView*)sticky;
+
+- (IBAction)clickRouteButton:(BButton *)sender;
+
 @end

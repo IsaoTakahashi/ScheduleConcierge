@@ -59,6 +59,8 @@
 		4DA12C79172EC2E7004A1114 /* schedule.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C77172EC2E7004A1114 /* schedule.sqlite */; };
 		4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
 		4DA12C7D172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
+		4DA417BF17520C7B00A27908 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA417BD17520C7B00A27908 /* DirectionViewController.m */; };
+		4DA417C017520C7B00A27908 /* DirectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA417BE17520C7B00A27908 /* DirectionViewController.xib */; };
 		4DA5EA6417378473004F13DD /* scheduleDBUpdate_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA5EA6317378473004F13DD /* scheduleDBUpdate_1.txt */; };
 		4DA5EA6717394F06004F13DD /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DA5EA6617394F06004F13DD /* background.jpg */; };
 		4DA6FCDB1747D58E006FEEEC /* ImageSearchLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FCDA1747D58E006FEEEC /* ImageSearchLogic.m */; };
@@ -87,6 +89,9 @@
 		4DACB5A517509A1F0020D9AB /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5A217509A1F0020D9AB /* UIColor+BButton.m */; };
 		4DACB5A817509A680020D9AB /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4DACB5A717509A680020D9AB /* FontAwesome.ttf */; };
 		4DACB5AC1750A97A0020D9AB /* StickyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5AB1750A97A0020D9AB /* StickyManager.m */; };
+		4DACB5AF1750E95A0020D9AB /* DirectionSearchLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5AE1750E95A0020D9AB /* DirectionSearchLogic.m */; };
+		4DACB5B21750E9A50020D9AB /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5B11750E9A50020D9AB /* Direction.m */; };
+		4DACB5B51750F65E0020D9AB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5B41750F65E0020D9AB /* NSString+URLEncoding.m */; };
 		4DB59D3A174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3B174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */; };
@@ -157,6 +162,9 @@
 		4DA12C73172E1528004A1114 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		4DA12C77172EC2E7004A1114 /* schedule.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = schedule.sqlite; sourceTree = "<group>"; };
 		4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBSetup.txt; sourceTree = "<group>"; };
+		4DA417BC17520C7B00A27908 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
+		4DA417BD17520C7B00A27908 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
+		4DA417BE17520C7B00A27908 /* DirectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionViewController.xib; sourceTree = "<group>"; };
 		4DA5EA6317378473004F13DD /* scheduleDBUpdate_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBUpdate_1.txt; sourceTree = "<group>"; };
 		4DA5EA6617394F06004F13DD /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		4DA6FCD91747D58E006FEEEC /* ImageSearchLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSearchLogic.h; sourceTree = "<group>"; };
@@ -200,6 +208,12 @@
 		4DACB5A717509A680020D9AB /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		4DACB5AA1750A97A0020D9AB /* StickyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StickyManager.h; sourceTree = "<group>"; };
 		4DACB5AB1750A97A0020D9AB /* StickyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StickyManager.m; sourceTree = "<group>"; };
+		4DACB5AD1750E95A0020D9AB /* DirectionSearchLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionSearchLogic.h; sourceTree = "<group>"; };
+		4DACB5AE1750E95A0020D9AB /* DirectionSearchLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionSearchLogic.m; sourceTree = "<group>"; };
+		4DACB5B01750E9A50020D9AB /* Direction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Direction.h; sourceTree = "<group>"; };
+		4DACB5B11750E9A50020D9AB /* Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Direction.m; sourceTree = "<group>"; };
+		4DACB5B31750F65D0020D9AB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		4DACB5B41750F65E0020D9AB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		4DB59D37174729F600B1ABD6 /* BackgroundCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundCalendarViewController.h; sourceTree = "<group>"; };
 		4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundCalendarViewController.m; sourceTree = "<group>"; };
 		4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundCalendarViewController.xib; sourceTree = "<group>"; };
@@ -479,6 +493,8 @@
 				4DA6FCF01747DAC8006FEEEC /* UIImage+Edit.m */,
 				4DACB5991750927D0020D9AB /* NSDate+Softbuild.h */,
 				4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */,
+				4DACB5B31750F65D0020D9AB /* NSString+URLEncoding.h */,
+				4DACB5B41750F65E0020D9AB /* NSString+URLEncoding.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -498,6 +514,8 @@
 			children = (
 				4DA6FCD91747D58E006FEEEC /* ImageSearchLogic.h */,
 				4DA6FCDA1747D58E006FEEEC /* ImageSearchLogic.m */,
+				4DACB5AD1750E95A0020D9AB /* DirectionSearchLogic.h */,
+				4DACB5AE1750E95A0020D9AB /* DirectionSearchLogic.m */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -515,6 +533,8 @@
 		4DA7B522172FCDC9004BAFED /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4DACB5B01750E9A50020D9AB /* Direction.h */,
+				4DACB5B11750E9A50020D9AB /* Direction.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -543,6 +563,9 @@
 				4DA7B52F172FFB0F004BAFED /* UIStickyViewController.h */,
 				4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */,
 				4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */,
+				4DA417BC17520C7B00A27908 /* DirectionViewController.h */,
+				4DA417BD17520C7B00A27908 /* DirectionViewController.m */,
+				4DA417BE17520C7B00A27908 /* DirectionViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -695,6 +718,7 @@
 				4DA6FCE91747D9CE006FEEEC /* BSD-LICENSE in Resources */,
 				4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */,
 				4DACB5A817509A680020D9AB /* FontAwesome.ttf in Resources */,
+				4DA417C017520C7B00A27908 /* DirectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,6 +792,10 @@
 				4DACB5A417509A1F0020D9AB /* NSString+FontAwesome.m in Sources */,
 				4DACB5A517509A1F0020D9AB /* UIColor+BButton.m in Sources */,
 				4DACB5AC1750A97A0020D9AB /* StickyManager.m in Sources */,
+				4DACB5AF1750E95A0020D9AB /* DirectionSearchLogic.m in Sources */,
+				4DACB5B21750E9A50020D9AB /* Direction.m in Sources */,
+				4DACB5B51750F65E0020D9AB /* NSString+URLEncoding.m in Sources */,
+				4DA417BF17520C7B00A27908 /* DirectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

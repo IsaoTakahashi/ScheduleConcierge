@@ -7,6 +7,7 @@
 //
 
 #import "ImageSearchLogic.h"
+#import "NSString+URLEncoding.h"
 
 @implementation ImageSearchLogic
 
@@ -46,7 +47,7 @@ static NSString * const IMAGE_API_URL = @"http://ajax.googleapis.com/ajax/servic
 #pragma mark Search Logic
 
 -(NSDictionary*) requestJsonObjectBySearch {
-    NSString *searchURLString = [NSString stringWithFormat:@"%@?q=%@&v=1.0&hl=ja",IMAGE_API_URL,self.searchWord];
+    NSString *searchURLString = [NSString stringWithFormat:@"%@?q=%@&v=1.0&hl=ja",IMAGE_API_URL,[self.searchWord escapedString]];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:searchURLString]];
     
     NSData *jsonData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];

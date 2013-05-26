@@ -44,4 +44,63 @@
     return [self addDay:-day];
 }
 
+- (NSDate*) addHour:(int)hour {
+    return [NSDate dateWithTimeInterval:hour*60*60 sinceDate:self];
+}
+- (NSDate*) subHour:(int)hour {
+    return [self addHour:-hour];
+}
+
+- (NSDate*) addMinute:(int)min {
+    return [NSDate dateWithTimeInterval:min*60 sinceDate:self];
+}
+- (NSDate*) subMinute:(int)min {
+    return [self addMinute:-1];
+}
+
+- (NSDate*)boundaryForCalendarUnit:(NSCalendarUnit)calendarUnit
+{
+    NSDate *boundary;
+    [[NSCalendar currentCalendar] rangeOfUnit:calendarUnit startDate:&boundary interval:NULL forDate:self];
+    return boundary;
+}
+
+
+- (NSTimeInterval) timeToDate:(NSDate*)date scale:(NSCalendarUnit)scale {
+    NSTimeInterval diffInterval = date.timeIntervalSince1970 - self.timeIntervalSince1970;
+    
+    switch (scale) {
+        case NSYearCalendarUnit:
+            diffInterval /= 365;
+        case NSDayCalendarUnit:
+            diffInterval /= 24;
+        case NSHourCalendarUnit:
+            diffInterval /= 60;
+        case NSMinuteCalendarUnit:
+            diffInterval /= 60;
+        case NSSecondCalendarUnit:
+            break;
+        default:
+            diffInterval = 0;
+            break;
+    }
+    
+    return diffInterval;
+}
+
+- (NSDate*) truncWithScale:(NSCalendarUnit)scale {
+    return [self boundaryForCalendarUnit:scale];
+}
+
++ (NSDate*) dateWithString:(NSString*)dateString format:(NSString*)format {
+    NSDate *date = nil;
+    
+    NSDateFormatter *inputDateFormatter = [NSDateFormatter new];
+	[inputDateFormatter setDateFormat:format];
+	date = [inputDateFormatter dateFromString:dateString];
+    
+    
+    return date;
+}
+
 @end

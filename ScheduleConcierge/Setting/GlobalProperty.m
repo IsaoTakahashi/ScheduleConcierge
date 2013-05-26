@@ -27,7 +27,7 @@ static GlobalProperty *singlton;
 - (GlobalProperty*) init {
     if(self = [super init]) {
         self.directionType = UNDEFINED;
-        self.offsetType = OFFSET_UNDEFINED;
+        self.offsetType = OFFSET_OFF;
     }
     
     return self;

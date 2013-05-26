@@ -10,6 +10,7 @@
 #import "MBProgressHUD.h"
 #import "GlobalProperty.h"
 #import "StickyManager.h"
+#import "NSString+URLEncoding.h"
 
 @implementation UIStickyView
 
@@ -76,12 +77,7 @@
         switch (buttonIndex) {
             case 1:
                 self.nameLabel.text = [[alertView textFieldAtIndex:0] text];
-                searchText = (NSString*)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                  kCFAllocatorDefault,
-                                                                                                  (CFStringRef)self.nameLabel.text,
-                                                                                                  NULL,
-                                                                                                  (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                                  kCFStringEncodingUTF8));
+                searchText = self.nameLabel.text;
                 imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
                 imageURL = [imageSearchLogic searchImageURL];
                 

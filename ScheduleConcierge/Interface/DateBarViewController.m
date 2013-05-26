@@ -8,6 +8,9 @@
 
 #import "DateBarViewController.h"
 #import "NSDate+Softbuild.h"
+#import "DirectionSearchLogic.h"
+#import "DirectionViewController.h"
+#import "MBProgressHUD.h"
 
 #define STICKY_OFFSET_X 130
 #define STICKY_OFFSET_Y 15
@@ -25,6 +28,7 @@
         // Custom initialization
         
         self.stickies = [NSMutableArray new];
+        self.directionCtrArray = [NSMutableArray new];
         
         [self viewSetting];
         
@@ -58,8 +62,8 @@
     
     // corner setting
     layer.cornerRadius = 5;
-    layer.borderWidth = 3;
-    layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    //layer.borderWidth = 3;
+    //layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 - (void)setDate:(NSDate*)date {
@@ -144,7 +148,9 @@
     [self.view addSubview:sticky];
     [self.stickies addObject:sticky];
     
+    [self removeAllDirectionViews];
     NSLog(@"%@ is added to %@",sticky.nameLabel.text,self.DateLabel.text);
+    
     return true;
 }
 
@@ -158,10 +164,79 @@
     [self.view.superview addSubview:sticky];
     
     [self.stickies removeObject:sticky];
+    
+    [self removeAllDirectionViews];
     NSLog(@"%@ was removed from %@",sticky.nameLabel.text,self.DateLabel.text);
     NSLog(@"%@ : %@",sticky.nameLabel.text,NSStringFromCGRect(sticky.frame));
-
+    
     return true;
 }
+
+-(void)removeAllDirectionViews {
+    for (DirectionViewController *dvCtr in self.directionCtrArray) {
+        [dvCtr.view removeFromSuperview];
+    }
+    
+    [self.directionCtrArray removeAllObjects];
+}
+
+-(Boolean)calculateRoute {
+    if (self.stickies.count < 2) return false;
+    
+    [self removeAllDirectionViews];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
+    DirectionSearchLogic *directionSearchLogic = [DirectionSearchLogic new];
+    Direction *dir;
+    
+    // 各Sticky間の経路を計算する
+    for (int i=0;i<self.stickies.count-1;i++) {
+        UIStickyView *depSticky = self.stickies[i];
+        UIStickyView *destSticky = self.stickies[i+1];
+        
+        dir = [Direction new];
+        dir.departurePlace = depSticky.nameLabel.text;
+        dir.destinationPlace = destSticky.nameLabel.text;
+        dir.departureTime = [[[NSDate date] truncWithScale:NSDayCalendarUnit] addHour:9];
+        dir.destinationTime = [dir.departureTime subMinute:1];
+        
+        [directionSearchLogic.directionArray addObject:dir];
+    }
+    [directionSearchLogic searchDirections];
+    //[directionSearchLogic requestJsonObjectBySearch];
+    
+    // 経路情報表示
+    DirectionViewController* dvCtr;
+    for (Direction *dir in directionSearchLogic.directionArray) {
+        for (int i=0;i<self.stickies.count-1;i++) {
+            UIStickyView *depSticky = self.stickies[i];
+            UIStickyView *destSticky = self.stickies[i+1];
+            
+            if ([dir.departurePlace isEqual:depSticky.nameLabel.text] &&
+                [dir.destinationPlace isEqual:destSticky.nameLabel.text]) {
+                
+                dvCtr = [[DirectionViewController alloc] initWithNibName:@"DirectionViewController" bundle:nil];
+                dvCtr.direction = dir;
+                NSLog(@"%@ to %@",dvCtr.direction.departurePlace,dvCtr.direction.destinationPlace);
+                
+                dvCtr.view.center = CGPointMake((depSticky.center.x + destSticky.center.x) / 2.0,
+                                                depSticky.frame.origin.y + depSticky.frame.size.height);
+                
+                [self.view addSubview:dvCtr.view];
+                [self.directionCtrArray addObject:dvCtr];
+            }
+        }
+    }
+    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    
+    return true;
+}
+
+- (IBAction)clickRouteButton:(BButton *)sender {
+    [self calculateRoute];
+}
+
 
 @end

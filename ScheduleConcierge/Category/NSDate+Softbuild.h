@@ -20,5 +20,15 @@
 - (NSDate*) yesterday;
 - (NSDate*) addDay:(int)day;
 - (NSDate*) subDay:(int)day;
+- (NSDate*) addHour:(int)hour;
+- (NSDate*) subHour:(int)hour;
+- (NSDate*) addMinute:(int)min;
+- (NSDate*) subMinute:(int)min;
+
+- (NSTimeInterval) timeToDate:(NSDate*)date scale:(NSCalendarUnit)scale;
+
+- (NSDate*) truncWithScale:(NSCalendarUnit)scale;
+
++ (NSDate*) dateWithString:(NSString*)dateString format:(NSString*)format;
 
 @end

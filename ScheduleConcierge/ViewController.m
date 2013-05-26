@@ -23,7 +23,6 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -46,6 +45,7 @@
         [stickyMgr addDateBar:barCtr];
         
         date = [date tommorow];
+        NSLog(@"%f",[date timeIntervalSince1970]);
     }
     
 }
@@ -133,6 +133,12 @@
     
 }
 
+-(BOOL)shouldAutorotate {
+    return YES;
+}
+
+
+// Deprecated...
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
