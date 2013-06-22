@@ -61,7 +61,7 @@
 		4DA12C7D172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */; };
 		4DA417BF17520C7B00A27908 /* DirectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA417BD17520C7B00A27908 /* DirectionViewController.m */; };
 		4DA417C017520C7B00A27908 /* DirectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA417BE17520C7B00A27908 /* DirectionViewController.xib */; };
-		4DA5EA6417378473004F13DD /* scheduleDBUpdate_1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA5EA6317378473004F13DD /* scheduleDBUpdate_1.txt */; };
+		4DA5EA6417378473004F13DD /* scheduleDBUpdate_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA5EA6317378473004F13DD /* scheduleDBUpdate_2.txt */; };
 		4DA5EA6717394F06004F13DD /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4DA5EA6617394F06004F13DD /* background.jpg */; };
 		4DA6FCDB1747D58E006FEEEC /* ImageSearchLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FCDA1747D58E006FEEEC /* ImageSearchLogic.m */; };
 		4DA6FCE11747D95E006FEEEC /* Base64Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA6FCDE1747D95E006FEEEC /* Base64Util.m */; };
@@ -92,6 +92,8 @@
 		4DACB5AF1750E95A0020D9AB /* DirectionSearchLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5AE1750E95A0020D9AB /* DirectionSearchLogic.m */; };
 		4DACB5B21750E9A50020D9AB /* Direction.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5B11750E9A50020D9AB /* Direction.m */; };
 		4DACB5B51750F65E0020D9AB /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB5B41750F65E0020D9AB /* NSString+URLEncoding.m */; };
+		4DB1134E17754DDC003E681B /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1134D17754DDC003E681B /* Bookmark.m */; };
+		4DB1135217755035003E681B /* BookmarkDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB1135117755035003E681B /* BookmarkDAO.m */; };
 		4DB59D3A174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3B174729F600B1ABD6 /* BackgroundCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */; };
 		4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */; };
@@ -165,7 +167,7 @@
 		4DA417BC17520C7B00A27908 /* DirectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectionViewController.h; sourceTree = "<group>"; };
 		4DA417BD17520C7B00A27908 /* DirectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectionViewController.m; sourceTree = "<group>"; };
 		4DA417BE17520C7B00A27908 /* DirectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DirectionViewController.xib; sourceTree = "<group>"; };
-		4DA5EA6317378473004F13DD /* scheduleDBUpdate_1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBUpdate_1.txt; sourceTree = "<group>"; };
+		4DA5EA6317378473004F13DD /* scheduleDBUpdate_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBUpdate_2.txt; sourceTree = "<group>"; };
 		4DA5EA6617394F06004F13DD /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		4DA6FCD91747D58E006FEEEC /* ImageSearchLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSearchLogic.h; sourceTree = "<group>"; };
 		4DA6FCDA1747D58E006FEEEC /* ImageSearchLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageSearchLogic.m; sourceTree = "<group>"; };
@@ -214,6 +216,10 @@
 		4DACB5B11750E9A50020D9AB /* Direction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Direction.m; sourceTree = "<group>"; };
 		4DACB5B31750F65D0020D9AB /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
 		4DACB5B41750F65E0020D9AB /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
+		4DB1134C17754DDC003E681B /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
+		4DB1134D17754DDC003E681B /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
+		4DB1135017755035003E681B /* BookmarkDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkDAO.h; sourceTree = "<group>"; };
+		4DB1135117755035003E681B /* BookmarkDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkDAO.m; sourceTree = "<group>"; };
 		4DB59D37174729F600B1ABD6 /* BackgroundCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundCalendarViewController.h; sourceTree = "<group>"; };
 		4DB59D38174729F600B1ABD6 /* BackgroundCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundCalendarViewController.m; sourceTree = "<group>"; };
 		4DB59D39174729F600B1ABD6 /* BackgroundCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BackgroundCalendarViewController.xib; sourceTree = "<group>"; };
@@ -358,6 +364,8 @@
 		4DA12C25172E1098004A1114 /* DB */ = {
 			isa = PBXGroup;
 			children = (
+				4DB1134F1775501D003E681B /* DAO */,
+				4DB1134B17754DB1003E681B /* Entity */,
 				4DA12C26172E1098004A1114 /* FMDatabase.h */,
 				4DA12C27172E1098004A1114 /* FMDatabase.m */,
 				4DA12C28172E1098004A1114 /* FMDatabaseAdditions.h */,
@@ -448,7 +456,7 @@
 			isa = PBXGroup;
 			children = (
 				4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */,
-				4DA5EA6317378473004F13DD /* scheduleDBUpdate_1.txt */,
+				4DA5EA6317378473004F13DD /* scheduleDBUpdate_2.txt */,
 			);
 			path = schema;
 			sourceTree = "<group>";
@@ -619,6 +627,24 @@
 			path = ItemManager;
 			sourceTree = "<group>";
 		};
+		4DB1134B17754DB1003E681B /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				4DB1134C17754DDC003E681B /* Bookmark.h */,
+				4DB1134D17754DDC003E681B /* Bookmark.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		4DB1134F1775501D003E681B /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				4DB1135017755035003E681B /* BookmarkDAO.h */,
+				4DB1135117755035003E681B /* BookmarkDAO.m */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		4DB59D36174729C600B1ABD6 /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -712,7 +738,7 @@
 				4DA12C78172EC2E7004A1114 /* schedule.sqlite in Resources */,
 				4DA12C7C172EC3E8004A1114 /* scheduleDBSetup.txt in Resources */,
 				4DA7B533172FFB0F004BAFED /* UIStickyViewController.xib in Resources */,
-				4DA5EA6417378473004F13DD /* scheduleDBUpdate_1.txt in Resources */,
+				4DA5EA6417378473004F13DD /* scheduleDBUpdate_2.txt in Resources */,
 				4DA5EA6717394F06004F13DD /* background.jpg in Resources */,
 				4DB59D3C174729F600B1ABD6 /* BackgroundCalendarViewController.xib in Resources */,
 				4DA6FCE91747D9CE006FEEEC /* BSD-LICENSE in Resources */,
@@ -796,6 +822,8 @@
 				4DACB5B21750E9A50020D9AB /* Direction.m in Sources */,
 				4DACB5B51750F65E0020D9AB /* NSString+URLEncoding.m in Sources */,
 				4DA417BF17520C7B00A27908 /* DirectionViewController.m in Sources */,
+				4DB1134E17754DDC003E681B /* Bookmark.m in Sources */,
+				4DB1135217755035003E681B /* BookmarkDAO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

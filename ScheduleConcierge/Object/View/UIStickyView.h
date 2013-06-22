@@ -11,6 +11,7 @@
 #import "SimpleNetwork.h"
 #import "ImageSearchLogic.h"
 #import "SpringAnimationLogic.h"
+#import "Bookmark.h"
 
 typedef enum AlertTabType : NSUInteger {
     CREATE,
@@ -21,11 +22,13 @@ typedef enum AlertTabType : NSUInteger {
 {
     CGPoint lastPoint_;
 }
+@property (nonatomic) Bookmark* bookmark;
 @property (strong, nonatomic) SpringAnimationLogic *springAnimationLogic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
 
 - (void)initialize;
+- (void)initializeWithBookmark:(Bookmark*)bm;
 - (void)setViewPosition:(CGPoint)diffVector;
 
 @end

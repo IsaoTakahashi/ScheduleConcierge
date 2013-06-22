@@ -7,6 +7,7 @@
 //
 
 #import "StickyManager.h"
+#import "BookmarkDAO.h"
 
 #define SERIAL_FIRST_NUM 1
 
@@ -51,15 +52,34 @@ static StickyManager *singlton;
 }
 
 -(Boolean)addSticky:(UIStickyViewController*)usvCtr {
-    if ([self.stickyArray containsObject:usvCtr.view]) {
+    UIStickyView *stickyView = (UIStickyView*)usvCtr.view;
+    if ([self.stickyArray containsObject:stickyView]) {
         return false;
     }
     
+    [stickyView initialize];
+    
     usvCtr.view.tag = self.stikcySerial++;
-    [self.stickyArray addObject:usvCtr.view];
+    [self.stickyArray addObject:stickyView];
     [self.stickyCtrArray addObject:usvCtr];
     
-    return false;
+    return true;
+}
+
+-(Boolean)addStickyWithBookmark:(Bookmark*)bm usvCtr:(UIStickyViewController*)usvCtr {
+    
+    UIStickyView *stickyView = (UIStickyView*)usvCtr.view;
+    if ([self.stickyArray containsObject:stickyView]) {
+        return false;
+    }
+    
+    [stickyView initializeWithBookmark:bm];
+    
+    usvCtr.view.tag = self.stikcySerial++;
+    [self.stickyArray addObject:stickyView];
+    [self.stickyCtrArray addObject:usvCtr];
+    
+    return true;
 }
 
 -(Boolean)removeStickyWithTag:(NSInteger)tag {
@@ -69,7 +89,8 @@ static StickyManager *singlton;
         if(view.tag == tag) {
             for (DateBarViewController* dbvCtr in self.dateBarCtrArray) {
                 if ([dbvCtr.stickies containsObject:view]) {
-                    [dbvCtr removeSticky:(UIStickyView*)view];
+                    UIStickyView *stickyView = (UIStickyView*)view;
+                    [dbvCtr removeSticky:stickyView];
                     [dbvCtr sortStickies];
                 }
             }

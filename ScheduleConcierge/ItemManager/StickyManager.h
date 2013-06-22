@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DateBarViewController.h"
 #import "UIStickyViewController.h"
+#import "Bookmark.h"
 
 @interface StickyManager : NSObject
 
@@ -22,6 +23,7 @@
 
 -(Boolean)addDateBar:(DateBarViewController*)dbvCtr;
 -(Boolean)addSticky:(UIStickyViewController*)usvCtr;
+-(Boolean)addStickyWithBookmark:(Bookmark*)bm usvCtr:(UIStickyViewController*)usvCtr;
 
 -(Boolean)removeStickyWithTag:(NSInteger)tag;
 

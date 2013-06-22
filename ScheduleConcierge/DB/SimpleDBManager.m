@@ -51,7 +51,7 @@ static SimpleDBManager* singlton;
         NSLog(@"Could not open Database.");
     }
     
-    //[self updateDB];
+    [self updateDB];
 }
 
 //DBファイルへのパスを取得

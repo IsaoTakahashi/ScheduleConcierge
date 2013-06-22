@@ -11,17 +11,13 @@
 #import "GlobalProperty.h"
 #import "StickyManager.h"
 #import "NSString+URLEncoding.h"
+#import "BookmarkDAO.h"
 
 @implementation UIStickyView
 
-
 - (void)initialize {
-    // Set GestureRecognizer
-    UIPanGestureRecognizer *recogPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
-    [self addGestureRecognizer:recogPan];
-    UILongPressGestureRecognizer *recogLong = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(removeStickyAlert:)];
-    [self addGestureRecognizer:recogLong];
     
+    [self registerRecognizers];
     [self setStyle];
     
     // Set Information for Outlet
@@ -33,8 +29,25 @@
     self.nameLabel.text = @"?";
 }
 
+- (void)initializeWithBookmark:(Bookmark*)bm {
+    [self registerRecognizers];
+    [self setStyle];
+    
+    self.bookmark = bm;
+    
+    self.nameLabel.text = bm.t_title;
+}
+
 - (void)setStyle {
     self.layer.borderColor = [[UIColor brownColor] CGColor];
+}
+
+-(void)registerRecognizers {
+    // Set GestureRecognizer
+    UIPanGestureRecognizer *recogPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveSticky:)];
+    [self addGestureRecognizer:recogPan];
+    UILongPressGestureRecognizer *recogLong = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(removeStickyAlert:)];
+    [self addGestureRecognizer:recogLong];
 }
 
 /*
@@ -83,6 +96,10 @@
                 
                 [MBProgressHUD showHUDAddedTo:self.resultImageView animated:YES];
                 [simpleNetwork sendGetRequestForData:imageURL tag:@"aaa"];
+                
+                self.bookmark = [[Bookmark alloc] initWithTitle:self.nameLabel.text];
+                [BookmarkDAO inert:self.bookmark];
+                
                 break;
                 
             default:
@@ -92,6 +109,7 @@
         switch (buttonIndex) {
             case 1:
                 //[self removeFromSuperview];
+                [BookmarkDAO deleteWithId:self.bookmark];
                 [[StickyManager getInstance] removeStickyWithTag:self.tag];
                 break;
             default:

@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "GlobalProperty.h"
 #import "NSDate+Softbuild.h"
+#import "BookmarkDAO.h"
 
 #define DateBarCount 3
 
@@ -48,6 +49,14 @@
         NSLog(@"%f",[date timeIntervalSince1970]);
     }
     
+    //initialize sticky(bookmark)
+    NSMutableArray* bmArray = [BookmarkDAO selectAll];
+    for(Bookmark *bm in bmArray) {
+        UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+        [self.view addSubview:newStickyCtr.view];
+        
+        [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
+    }
 }
 
 - (void)didReceiveMemoryWarning

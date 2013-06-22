@@ -21,7 +21,6 @@
         // Custom initialization
         UIStickyView *baseView = (UIStickyView*)self.view;
         NSLog(@"%@",baseView.description);
-        [baseView initialize];
         
     }
     return self;
