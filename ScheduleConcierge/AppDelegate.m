@@ -14,6 +14,8 @@
 {
     // Override point for customization after application launch.
     NSSetUncaughtExceptionHandler(&caughtExceptionHandler);
+    
+    [GMSServices provideAPIKey:@"AIzaSyDfCB4BTScWItFO6Ab7tzcjZ213wAbeQpg"];
     return YES;
 }
 							

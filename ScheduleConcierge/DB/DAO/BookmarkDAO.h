@@ -11,7 +11,7 @@
 #import "SimpleDBManager.h"
 
 @interface BookmarkDAO : NSObject
-+(bool)inert:(Bookmark*)bookmark;
++(bool)insert:(Bookmark*)bookmark;
 +(NSMutableArray*)selectAll;
 +(bool)deleteWithId:(Bookmark*)bookmark;
 @end

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "StickyManager.h"
+#import "BookmarkSettingViewController.h"
+#import "MapSearchViewController.h"
 
-@interface ViewController : UIViewController {
-
+@interface ViewController : UIViewController<BookmarkSettingViewControllerDelegate,MapSearchViewControllerDelegate> {
+    BookmarkSettingViewController *bsViewCtr;
+    MapSearchViewController *msViewCtr;
 }
 
 @property (weak, nonatomic) IBOutlet UIButton *springButton;
@@ -19,5 +22,6 @@
 - (IBAction)clickStickyButton:(id)sender;
 - (IBAction)clidkSpringButton:(UIButton*)sender;
 - (IBAction)clickOffsetButton:(id)sender;
+- (IBAction)clickedBookmarkButton:(id)sender;
 
 @end

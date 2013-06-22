@@ -11,7 +11,7 @@
 
 @implementation ImageSearchLogic
 
-static NSString * const IMAGE_API_URL = @"http://ajax.googleapis.com/ajax/services/search/images";//?q=%@&v=1.0";
+static NSString * const IMAGE_API_URL = @"http://ajax.googleapis.com/ajax/services/search/images";
 
 -(id)initWithSearchWord:(NSString *)word {
     

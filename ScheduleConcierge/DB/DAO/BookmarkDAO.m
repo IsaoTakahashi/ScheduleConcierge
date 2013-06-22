@@ -10,7 +10,7 @@
 
 @implementation BookmarkDAO
 
-+(bool)inert:(Bookmark*)bookmark {
++(bool)insert:(Bookmark*)bookmark {
     SimpleDBManager* db = [SimpleDBManager getInstance];
     bool insert_flg = false;
     

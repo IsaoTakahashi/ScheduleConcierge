@@ -10,6 +10,7 @@
 #import "GlobalProperty.h"
 #import "NSDate+Softbuild.h"
 #import "BookmarkDAO.h"
+#import <GoogleMaps/GoogleMaps.h>
 
 #define DateBarCount 3
 
@@ -52,11 +53,18 @@
     //initialize sticky(bookmark)
     NSMutableArray* bmArray = [BookmarkDAO selectAll];
     for(Bookmark *bm in bmArray) {
-        UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
-        [self.view addSubview:newStickyCtr.view];
-        
-        [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
+        [self registerStickyWithBookmark:bm];
     }
+
+}
+
+-(void)registerStickyWithBookmark:(Bookmark*)bm {
+    StickyManager *stickyMgr = [StickyManager getInstance];
+    UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+    
+    [self.view addSubview:newStickyCtr.view];
+    
+    [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
 }
 
 - (void)didReceiveMemoryWarning
@@ -140,6 +148,68 @@
     
     [self.offsetButton setTitle:buttonTitle forState:UIControlStateNormal];
     
+}
+
+- (IBAction)clickedBookmarkButton:(id)sender {
+    bsViewCtr = [[BookmarkSettingViewController alloc] initWithNibName:@"BookmarkSettingViewController" bundle:nil];
+    bsViewCtr.delegate = self;
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    bsViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/3);
+    [bsViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [bsViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view addSubview:bsViewCtr.view];
+}
+
+#pragma mark -
+#pragma mark BookmarkSettingViewControllerDelegate
+
+-(void)showMapView:(Bookmark *)bookmark {
+    msViewCtr = [[MapSearchViewController alloc] initWithNibName:@"MapSearchViewController" bundle:nil];
+    [msViewCtr initializeWithBookmark:bookmark];
+    msViewCtr.delegate = self;
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    msViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/2);
+    [msViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [msViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view addSubview:msViewCtr.view];
+    [msViewCtr showMapView];
+}
+
+-(void)savedBookmark:(Bookmark *)bookmark {
+    [self registerStickyWithBookmark:bookmark];
+}
+
+#pragma mark -
+#pragma mark MapSearchViewControllerDelegate
+-(void)selectedLocationOnMap:(Bookmark *)bm {
+    [bsViewCtr refleshWithBookmark:bm];
+    
+    [msViewCtr.view removeFromSuperview];
+    
+}
+
+-(void)canceledMapView {
+    [msViewCtr.view removeFromSuperview];
 }
 
 -(BOOL)shouldAutorotate {

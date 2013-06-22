@@ -36,6 +36,13 @@
     self.bookmark = bm;
     
     self.nameLabel.text = bm.t_title;
+    
+    [self loadImage];
+    
+    //insert data if id doesn't exist
+    if (self.bookmark.i_id <= 0) {
+        [BookmarkDAO insert:self.bookmark];
+    }
 }
 
 - (void)setStyle {
@@ -48,6 +55,22 @@
     [self addGestureRecognizer:recogPan];
     UILongPressGestureRecognizer *recogLong = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(removeStickyAlert:)];
     [self addGestureRecognizer:recogLong];
+}
+
+-(void)loadImage {
+    
+    NSString *searchText;
+    ImageSearchLogic *imageSearchLogic;
+    NSURL *imageURL;
+    SimpleNetwork *simpleNetwork = [SimpleNetwork new];
+    simpleNetwork.delegate = self;
+    
+    searchText = self.nameLabel.text;
+    imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
+    imageURL = [imageSearchLogic searchImageURL];
+    
+    [MBProgressHUD showHUDAddedTo:self.resultImageView animated:YES];
+    [simpleNetwork sendGetRequestForData:imageURL tag:@"aaa"];
 }
 
 /*
@@ -81,24 +104,12 @@
 {
     if (alertView.tag == CREATE) {
         
-        NSString *searchText;
-        ImageSearchLogic *imageSearchLogic;
-        NSURL *imageURL;
-        SimpleNetwork *simpleNetwork = [SimpleNetwork new];
-        simpleNetwork.delegate = self;
-        
         switch (buttonIndex) {
             case 1:
                 self.nameLabel.text = [[alertView textFieldAtIndex:0] text];
-                searchText = self.nameLabel.text;
-                imageSearchLogic = [[ImageSearchLogic alloc] initWithSearchWord:searchText];
-                imageURL = [imageSearchLogic searchImageURL];
-                
-                [MBProgressHUD showHUDAddedTo:self.resultImageView animated:YES];
-                [simpleNetwork sendGetRequestForData:imageURL tag:@"aaa"];
-                
+                [self loadImage];
                 self.bookmark = [[Bookmark alloc] initWithTitle:self.nameLabel.text];
-                [BookmarkDAO inert:self.bookmark];
+                [BookmarkDAO insert:self.bookmark];
                 
                 break;
                 
