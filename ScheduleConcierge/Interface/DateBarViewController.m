@@ -13,7 +13,8 @@
 #import "MBProgressHUD.h"
 
 #define STICKY_OFFSET_X 130
-#define STICKY_OFFSET_Y 15
+#define STICKY_OFFSET_Y 10
+#define DIRECTION_OFFSET_Y 10
 
 @interface DateBarViewController ()
 
@@ -198,6 +199,7 @@
         dir = [Direction new];
         dir.departurePlace = depSticky.nameLabel.text;
         dir.destinationPlace = destSticky.nameLabel.text;
+        //FIXME: このDateBarの日付で計算する
         dir.departureTime = [[[NSDate date] truncWithScale:NSDayCalendarUnit] addHour:9];
         dir.destinationTime = [dir.departureTime subMinute:1];
         
@@ -221,7 +223,7 @@
                 NSLog(@"%@ to %@",dvCtr.direction.departurePlace,dvCtr.direction.destinationPlace);
                 
                 dvCtr.view.center = CGPointMake((depSticky.center.x + destSticky.center.x) / 2.0,
-                                                depSticky.frame.origin.y + depSticky.frame.size.height);
+                                                depSticky.frame.origin.y + depSticky.frame.size.height + DIRECTION_OFFSET_Y);
                 
                 [self.view addSubview:dvCtr.view];
                 [self.directionCtrArray addObject:dvCtr];
