@@ -56,6 +56,8 @@
     [self.mapButton setType:BButtonTypeSuccess];
     [self.startDateButton setType:BButtonTypeDefault];
     [self.endDateButton setType:BButtonTypeDefault];
+    [self.startTimeButton setType:BButtonTypeDefault];
+    [self.endTimeButton setType:BButtonTypeDefault];
     
     [self.saveButton setType:BButtonTypeInfo];
     [self.cancelButton setType:BButtonTypeGray];
@@ -118,6 +120,13 @@
         self.endDateLabel.text = [NSString stringWithDate:self.bookmark.d_end_date format:@"YYYY/MM/dd"];
     }
     
+    if (self.bookmark.r_start_time > 0) {
+        self.startTimeLabel.text = [NSString stringWithFormat:@"%d:00~",(NSInteger)self.bookmark.r_start_time];
+    }
+    if (self.bookmark.r_end_time > 0) {
+        self.endTimeLabel.text = [NSString stringWithFormat:@"~%d:00",(NSInteger)self.bookmark.r_end_time];
+    }
+    
     if (![self.bookmark.t_url isEmpty]) {
         [self.wButton setColor:[UIColor blueColor]];
     } else {
@@ -160,6 +169,38 @@
     
     
     [self.view.superview addSubview:self.calendarView];
+}
+
+-(void)showTimePicker:(NSInteger)tag {
+    self.tpViewCtr = [[TimePickerViewController alloc] initWithNibName:@"TimePickerViewController" bundle:nil];
+    self.tpViewCtr.delegate = self;
+    self.tpViewCtr.view.tag = tag;
+    [self.tpViewCtr initializeWithBookmark:self.bookmark];
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    self.tpViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/2);
+    [self.tpViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [self.tpViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view.superview addSubview:self.tpViewCtr.view];
+}
+
+#pragma mark -
+#pragma mark TimePickerViewController Delegate
+-(void)selectedTime:(Bookmark *)bm {
+    [self.tpViewCtr.view removeFromSuperview];
+    
+    if (bm != nil) {
+        [self refleshWithBookmark:bm];
+    }
 }
 
 #pragma mark -
@@ -245,6 +286,16 @@
 - (IBAction)clickedEndDateButton:(id)sender {
     [self hideKeyboard];
     [self showCalendar:CAL_END];
+}
+
+- (IBAction)clickedStartTimeButton:(id)sender {
+    [self hideKeyboard];
+    [self showTimePicker:CAL_START];
+}
+
+- (IBAction)clickedEndTimeButton:(id)sender {
+    [self hideKeyboard];
+    [self showTimePicker:CAL_END];
 }
 
 - (IBAction)clickedMapButton:(id)sender {

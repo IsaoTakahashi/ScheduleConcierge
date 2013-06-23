@@ -102,6 +102,9 @@
 		4DA840B9177691C900D7A9D6 /* CKCalendarViewControllerInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840A6177691C900D7A9D6 /* CKCalendarViewControllerInternal.m */; };
 		4DA840BE1776AFDF00D7A9D6 /* WebSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840BC1776AFDF00D7A9D6 /* WebSearchViewController.m */; };
 		4DA840BF1776AFDF00D7A9D6 /* WebSearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA840BD1776AFDF00D7A9D6 /* WebSearchViewController.xib */; };
+		4DA840C11776E8C900D7A9D6 /* scheduleDBUpdate_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4DA840C01776E8C900D7A9D6 /* scheduleDBUpdate_3.txt */; };
+		4DA840C61776EF2200D7A9D6 /* TimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840C41776EF2200D7A9D6 /* TimePickerViewController.m */; };
+		4DA840C71776EF2200D7A9D6 /* TimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA840C51776EF2200D7A9D6 /* TimePickerViewController.xib */; };
 		4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */; };
 		4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */; };
 		4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB595175085D20020D9AB /* DateBarViewController.m */; };
@@ -286,6 +289,10 @@
 		4DA840BB1776AFDF00D7A9D6 /* WebSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebSearchViewController.h; sourceTree = "<group>"; };
 		4DA840BC1776AFDF00D7A9D6 /* WebSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebSearchViewController.m; sourceTree = "<group>"; };
 		4DA840BD1776AFDF00D7A9D6 /* WebSearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebSearchViewController.xib; sourceTree = "<group>"; };
+		4DA840C01776E8C900D7A9D6 /* scheduleDBUpdate_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scheduleDBUpdate_3.txt; sourceTree = "<group>"; };
+		4DA840C31776EF2200D7A9D6 /* TimePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimePickerViewController.h; sourceTree = "<group>"; };
+		4DA840C41776EF2200D7A9D6 /* TimePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimePickerViewController.m; sourceTree = "<group>"; };
+		4DA840C51776EF2200D7A9D6 /* TimePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimePickerViewController.xib; sourceTree = "<group>"; };
 		4DA9F12517488B6C00BB2FCC /* SpringAnimationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringAnimationLogic.h; sourceTree = "<group>"; };
 		4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationLogic.m; sourceTree = "<group>"; };
 		4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -594,6 +601,7 @@
 				4DA12C7B172EC3E8004A1114 /* scheduleDBSetup.txt */,
 				4DB1137617758198003E681B /* scheduleDBUpdate_1.txt */,
 				4DA5EA6317378473004F13DD /* scheduleDBUpdate_2.txt */,
+				4DA840C01776E8C900D7A9D6 /* scheduleDBUpdate_3.txt */,
 			);
 			path = schema;
 			sourceTree = "<group>";
@@ -647,6 +655,7 @@
 		4DA7B51C172FCD02004BAFED /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				4DA840C21776EF0000D7A9D6 /* Time */,
 				4DA840BA1776AFBD00D7A9D6 /* Web */,
 				4DACB594175085D20020D9AB /* DateBarViewController.h */,
 				4DACB595175085D20020D9AB /* DateBarViewController.m */,
@@ -859,6 +868,16 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
+		4DA840C21776EF0000D7A9D6 /* Time */ = {
+			isa = PBXGroup;
+			children = (
+				4DA840C31776EF2200D7A9D6 /* TimePickerViewController.h */,
+				4DA840C41776EF2200D7A9D6 /* TimePickerViewController.m */,
+				4DA840C51776EF2200D7A9D6 /* TimePickerViewController.xib */,
+			);
+			name = Time;
+			sourceTree = "<group>";
+		};
 		4DA9F12417488B5300BB2FCC /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1028,6 +1047,8 @@
 				4DA692371775A0EA00AB0E1B /* BookmarkSettingViewController.xib in Resources */,
 				4DA6923F1775DB5A00AB0E1B /* MapSearchViewController.xib in Resources */,
 				4DA840BF1776AFDF00D7A9D6 /* WebSearchViewController.xib in Resources */,
+				4DA840C11776E8C900D7A9D6 /* scheduleDBUpdate_3.txt in Resources */,
+				4DA840C71776EF2200D7A9D6 /* TimePickerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,6 +1151,7 @@
 				4DA840B8177691C900D7A9D6 /* CKCalendarViewController.m in Sources */,
 				4DA840B9177691C900D7A9D6 /* CKCalendarViewControllerInternal.m in Sources */,
 				4DA840BE1776AFDF00D7A9D6 /* WebSearchViewController.m in Sources */,
+				4DA840C61776EF2200D7A9D6 /* TimePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

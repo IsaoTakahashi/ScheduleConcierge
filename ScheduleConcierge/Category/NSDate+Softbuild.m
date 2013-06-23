@@ -58,6 +58,26 @@
     return [self addMinute:-1];
 }
 
+- (NSInteger) getHour {
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* comp = [calendar components:NSHourCalendarUnit fromDate:self];
+    
+    return comp.hour;
+}
+- (NSInteger) getMinute {
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* comp = [calendar components:NSMinuteCalendarUnit fromDate:self];
+    
+    return comp.minute;
+}
+
+- (NSInteger) getSecond {
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* comp = [calendar components:NSSecondCalendarUnit fromDate:self];
+    
+    return comp.second;
+}
+
 - (NSDate*)boundaryForCalendarUnit:(NSCalendarUnit)calendarUnit
 {
     NSDate *boundary;

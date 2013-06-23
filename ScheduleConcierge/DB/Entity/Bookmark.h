@@ -23,6 +23,9 @@
 @property (nonatomic) NSDate* d_insert;
 @property (nonatomic) int i_del_flg;
 
+@property (nonatomic) CGFloat r_start_time;
+@property (nonatomic) CGFloat r_end_time;
+
 -(id)initWithTitle:(NSString*)title;
 -(id)initWithResultSet:(FMResultSet*)rs;
 

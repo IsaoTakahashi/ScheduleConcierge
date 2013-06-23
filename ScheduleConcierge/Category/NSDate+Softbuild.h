@@ -25,6 +25,10 @@
 - (NSDate*) addMinute:(int)min;
 - (NSDate*) subMinute:(int)min;
 
+- (NSInteger) getHour;
+- (NSInteger) getMinute;
+- (NSInteger) getSecond;
+
 - (NSTimeInterval) timeToDate:(NSDate*)date scale:(NSCalendarUnit)scale;
 
 - (NSDate*) truncWithScale:(NSCalendarUnit)scale;

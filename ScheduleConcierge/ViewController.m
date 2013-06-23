@@ -179,7 +179,7 @@
 }
 
 - (IBAction)clickedBookmarkButton:(id)sender {
-    [self showBookmarkSettingView:nil];
+    [self showBookmarkSettingView:[[Bookmark alloc] initWithTitle:@"new"]];
 }
 
 #pragma mark -

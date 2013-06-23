@@ -18,25 +18,29 @@
     
     if (bookmark.d_end_date != nil) {
         insert_flg = [db.connection executeUpdate:@"INSERT INTO BOOKMARK \
-                (t_title,t_place,r_latitude,r_longitude,d_start_date,d_end_date,i_base_service,t_url,d_insert,i_del_flg) \
-                VALUES (?,?,?,?,?,?,?,?,?,?)",
+                (t_title,t_place,r_latitude,r_longitude,d_start_date,d_end_date,r_start_time,r_end_time,i_base_service,t_url,d_insert,i_del_flg) \
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 bookmark.t_title,bookmark.t_place,
                 [NSNumber numberWithDouble:bookmark.r_latitude],
                 [NSNumber numberWithDouble:bookmark.r_longitude],
                 [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
                 [NSNumber numberWithLong:[bookmark.d_end_date timeIntervalSince1970]],
+                [NSNumber numberWithDouble:bookmark.r_start_time],
+                [NSNumber numberWithDouble:bookmark.r_end_time],
                 [NSNumber numberWithInt:bookmark.i_base_service],
                 bookmark.t_url,
                 [NSNumber numberWithLong:[bookmark.d_insert timeIntervalSince1970]],
                 [NSNumber numberWithInt:bookmark.i_del_flg]];
     } else {
         insert_flg = [db.connection executeUpdate:@"INSERT INTO BOOKMARK \
-                (t_title,t_place,r_latitude,r_longitude,d_start_date,i_base_service,t_url,d_insert,i_del_flg) \
+                (t_title,t_place,r_latitude,r_longitude,d_start_date,r_start_time,r_end_time,i_base_service,t_url,d_insert,i_del_flg) \
                 VALUES (?,?,?,?,?,?,?,?,?)",
                 bookmark.t_title,bookmark.t_place,
                 [NSNumber numberWithDouble:bookmark.r_latitude],
                 [NSNumber numberWithDouble:bookmark.r_longitude],
                 [NSNumber numberWithDouble:[bookmark.d_start_date timeIntervalSince1970]],
+                [NSNumber numberWithDouble:bookmark.r_start_time],
+                [NSNumber numberWithDouble:bookmark.r_end_time],
                 [NSNumber numberWithInt:bookmark.i_base_service],
                 bookmark.t_url,
                 [NSNumber numberWithLong:[bookmark.d_insert timeIntervalSince1970]],
@@ -64,24 +68,28 @@
     
     if (bookmark.d_end_date != nil) {
         update_flg = [db.connection executeUpdate:@"UPDATE BOOKMARK SET \
-                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, d_end_date=?, i_base_service=?, t_url=? \
+                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, d_end_date=?, r_start_time=?, r_end_time=?, i_base_service=?, t_url=? \
                       WHERE i_id = ?",
                       bookmark.t_title,bookmark.t_place,
                       [NSNumber numberWithDouble:bookmark.r_latitude],
                       [NSNumber numberWithDouble:bookmark.r_longitude],
                       [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
                       [NSNumber numberWithLong:[bookmark.d_end_date timeIntervalSince1970]],
+                      [NSNumber numberWithDouble:bookmark.r_start_time],
+                      [NSNumber numberWithDouble:bookmark.r_end_time],
                       [NSNumber numberWithInt:bookmark.i_base_service],
                       bookmark.t_url,
                       [NSNumber numberWithInt:bookmark.i_id]];
     } else {
         update_flg = [db.connection executeUpdate:@"UPDATE BOOKMARK SET \
-                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, i_base_service=?, t_url=? \
+                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, r_start_time=?, r_end_time=?, i_base_service=?, t_url=? \
                       WHERE i_id = ?",
                       bookmark.t_title,bookmark.t_place,
                       [NSNumber numberWithDouble:bookmark.r_latitude],
                       [NSNumber numberWithDouble:bookmark.r_longitude],
                       [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
+                      [NSNumber numberWithDouble:bookmark.r_start_time],
+                      [NSNumber numberWithDouble:bookmark.r_end_time],
                       [NSNumber numberWithInt:bookmark.i_base_service],
                       bookmark.t_url,
                       [NSNumber numberWithInt:bookmark.i_id]];

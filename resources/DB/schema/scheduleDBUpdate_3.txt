@@ -1,0 +1,4 @@
+--Add specific start/end time
+ALTER TABLE BOOKMARK ADD COLUMN r_start_time REAL;
+ALTER TABLE BOOKMARK ADD COLUMN r_end_time REAL;
+UPDATE dbinfo SET version='4';

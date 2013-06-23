@@ -21,10 +21,12 @@ CREATE TABLE BOOKMARK (
      , r_longitude REAL
      , d_start_date DATETIME
      , d_end_date DATETIME
+     , r_start_time REAL
+     , r_end_time REAL
      , i_base_service INTEGER
 	 , t_url text TIME
      , d_insert DATETIME NOT NULL
 	 , i_del_flg integer NOT NULL
 );
 
-INSERT INTO dbinfo (id, version) VALUES (1, '3');
+INSERT INTO dbinfo (id, version) VALUES (1, '4');

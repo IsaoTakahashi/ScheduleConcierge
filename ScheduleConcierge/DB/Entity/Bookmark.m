@@ -27,6 +27,8 @@
     bookmark.r_longitude = bm.r_longitude;
     bookmark.d_start_date = bm.d_start_date;
     bookmark.d_end_date = bm.d_end_date;
+    bookmark.r_start_time = bm.r_start_time;
+    bookmark.r_end_time = bm.r_end_time;
     bookmark.i_base_service = bm.i_base_service;
     bookmark.i_del_flg = 0;
     
@@ -45,6 +47,9 @@
         self.d_end_date = nil;
         self.i_base_service = -1;
         self.i_del_flg = 0;
+        
+        self.r_start_time = 0.0f;
+        self.r_end_time = 0.0f;
     }
     
     return self;
@@ -57,8 +62,16 @@
         self.t_place = [rs stringForColumn:@"t_place"];
         self.r_latitude = [rs doubleForColumn:@"r_latitude"];
         self.r_longitude = [rs doubleForColumn:@"r_latitude"];
+        
         self.d_start_date = [NSDate dateWithTimeIntervalSince1970:[rs longForColumn:@"d_start_date"]];
-        self.d_end_date = [NSDate dateWithTimeIntervalSince1970:[rs longForColumn:@"d_end_date"]];
+        if ([rs longForColumn:@"d_end_tate"] > 0) {
+            self.d_end_date = [NSDate dateWithTimeIntervalSince1970:[rs longForColumn:@"d_end_date"]];
+        } else {
+            self.d_end_date = nil;
+        }
+        
+        self.r_start_time = [rs doubleForColumn:@"r_start_time"];
+        self.r_end_time = [rs doubleForColumn:@"r_end_time"];
         self.i_base_service = [rs intForColumn:@"i_base_service"];
         
         if (![[rs stringForColumn:@"t_url"] isEmpty]) {

@@ -12,6 +12,7 @@
 #import "BButton.h"
 #import "Bookmark.h"
 #import "WebSearchViewController.h"
+#import "TimePickerViewController.h"
 #import "CalendarKit.h"
 
 @protocol BookmarkSettingViewControllerDelegate <NSObject>
@@ -21,12 +22,13 @@
 
 @end
 
-@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate,WebSearchViewControllerDelegate,CKCalendarViewDelegate,CKCalendarViewDataSource>
+@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate,WebSearchViewControllerDelegate,TimePickerViewControllerDelegate,CKCalendarViewDelegate,CKCalendarViewDataSource>
 
 @property (nonatomic) Bookmark *bookmark;
 @property (nonatomic) id<BookmarkSettingViewControllerDelegate> delegate;
 @property (nonatomic) GMSMapView *gmsMapView;
 @property (nonatomic) WebSearchViewController *wsViewCtr;
+@property (nonatomic) TimePickerViewController *tpViewCtr;
 @property (nonatomic) CKCalendarView *calendarView;
 @property (nonatomic) BButton *wButton;
 
@@ -36,10 +38,14 @@
 @property (weak, nonatomic) IBOutlet BButton *mapButton;
 @property (weak, nonatomic) IBOutlet BButton *startDateButton;
 @property (weak, nonatomic) IBOutlet BButton *endDateButton;
+@property (weak, nonatomic) IBOutlet BButton *startTimeButton;
+@property (weak, nonatomic) IBOutlet BButton *endTimeButton;
 
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationFixedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 
 @property (weak, nonatomic) IBOutlet BButton *saveButton;
 @property (weak, nonatomic) IBOutlet BButton *cancelButton;
@@ -56,6 +62,9 @@
 
 - (IBAction)clickedStartDateButton:(id)sender;
 - (IBAction)clickedEndDateButton:(id)sender;
+- (IBAction)clickedStartTimeButton:(id)sender;
+- (IBAction)clickedEndTimeButton:(id)sender;
+
 
 - (IBAction)clickedMapButton:(id)sender;
 - (IBAction)clickedWebButton:(id)sender;
