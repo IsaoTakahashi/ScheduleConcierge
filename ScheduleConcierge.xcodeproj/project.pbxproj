@@ -81,6 +81,25 @@
 		4DA7B532172FFB0F004BAFED /* UIStickyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */; };
 		4DA7B533172FFB0F004BAFED /* UIStickyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */; };
 		4DA7B53517301064004BAFED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DA7B53417301064004BAFED /* QuartzCore.framework */; };
+		4DA840A7177691C900D7A9D6 /* NSCalendar+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84075177691C900D7A9D6 /* NSCalendar+Components.m */; };
+		4DA840A8177691C900D7A9D6 /* NSCalendar+DateComparison.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84077177691C900D7A9D6 /* NSCalendar+DateComparison.m */; };
+		4DA840A9177691C900D7A9D6 /* NSCalendar+DateManipulation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84079177691C900D7A9D6 /* NSCalendar+DateManipulation.m */; };
+		4DA840AA177691C900D7A9D6 /* NSCalendar+Juncture.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8407B177691C900D7A9D6 /* NSCalendar+Juncture.m */; };
+		4DA840AB177691C900D7A9D6 /* NSCalendar+Ranges.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8407D177691C900D7A9D6 /* NSCalendar+Ranges.m */; };
+		4DA840AC177691C900D7A9D6 /* NSDate+Components.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84081177691C900D7A9D6 /* NSDate+Components.m */; };
+		4DA840AD177691C900D7A9D6 /* NSDate+Description.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84083177691C900D7A9D6 /* NSDate+Description.m */; };
+		4DA840AE177691C900D7A9D6 /* NSDateComponents+AllComponents.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84085177691C900D7A9D6 /* NSDateComponents+AllComponents.m */; };
+		4DA840AF177691C900D7A9D6 /* NSString+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84087177691C900D7A9D6 /* NSString+Color.m */; };
+		4DA840B0177691C900D7A9D6 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8408A177691C900D7A9D6 /* UIColor+HexString.m */; };
+		4DA840B1177691C900D7A9D6 /* UIView+AnimatedFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8408D177691C900D7A9D6 /* UIView+AnimatedFrame.m */; };
+		4DA840B2177691C900D7A9D6 /* UIView+Border.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8408F177691C900D7A9D6 /* UIView+Border.m */; };
+		4DA840B3177691C900D7A9D6 /* CKCalendarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84092177691C900D7A9D6 /* CKCalendarCell.m */; };
+		4DA840B4177691C900D7A9D6 /* CKCalendarEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84094177691C900D7A9D6 /* CKCalendarEvent.m */; };
+		4DA840B5177691C900D7A9D6 /* CKCalendarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84096177691C900D7A9D6 /* CKCalendarHeaderView.m */; };
+		4DA840B6177691C900D7A9D6 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA84098177691C900D7A9D6 /* CKCalendarView.m */; };
+		4DA840B7177691C900D7A9D6 /* MBPolygonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA8409A177691C900D7A9D6 /* MBPolygonView.m */; };
+		4DA840B8177691C900D7A9D6 /* CKCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840A4177691C900D7A9D6 /* CKCalendarViewController.m */; };
+		4DA840B9177691C900D7A9D6 /* CKCalendarViewControllerInternal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840A6177691C900D7A9D6 /* CKCalendarViewControllerInternal.m */; };
 		4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */; };
 		4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */; };
 		4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB595175085D20020D9AB /* DateBarViewController.m */; };
@@ -216,6 +235,52 @@
 		4DA7B530172FFB0F004BAFED /* UIStickyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIStickyViewController.m; sourceTree = "<group>"; };
 		4DA7B531172FFB0F004BAFED /* UIStickyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIStickyViewController.xib; sourceTree = "<group>"; };
 		4DA7B53417301064004BAFED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4DA84070177691C900D7A9D6 /* CalendarKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarKit.h; sourceTree = "<group>"; };
+		4DA84074177691C900D7A9D6 /* NSCalendar+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Components.h"; sourceTree = "<group>"; };
+		4DA84075177691C900D7A9D6 /* NSCalendar+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+Components.m"; sourceTree = "<group>"; };
+		4DA84076177691C900D7A9D6 /* NSCalendar+DateComparison.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+DateComparison.h"; sourceTree = "<group>"; };
+		4DA84077177691C900D7A9D6 /* NSCalendar+DateComparison.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+DateComparison.m"; sourceTree = "<group>"; };
+		4DA84078177691C900D7A9D6 /* NSCalendar+DateManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+DateManipulation.h"; sourceTree = "<group>"; };
+		4DA84079177691C900D7A9D6 /* NSCalendar+DateManipulation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+DateManipulation.m"; sourceTree = "<group>"; };
+		4DA8407A177691C900D7A9D6 /* NSCalendar+Juncture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Juncture.h"; sourceTree = "<group>"; };
+		4DA8407B177691C900D7A9D6 /* NSCalendar+Juncture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+Juncture.m"; sourceTree = "<group>"; };
+		4DA8407C177691C900D7A9D6 /* NSCalendar+Ranges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSCalendar+Ranges.h"; sourceTree = "<group>"; };
+		4DA8407D177691C900D7A9D6 /* NSCalendar+Ranges.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSCalendar+Ranges.m"; sourceTree = "<group>"; };
+		4DA8407E177691C900D7A9D6 /* NSCalendarCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCalendarCategories.h; sourceTree = "<group>"; };
+		4DA84080177691C900D7A9D6 /* NSDate+Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Components.h"; sourceTree = "<group>"; };
+		4DA84081177691C900D7A9D6 /* NSDate+Components.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Components.m"; sourceTree = "<group>"; };
+		4DA84082177691C900D7A9D6 /* NSDate+Description.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Description.h"; sourceTree = "<group>"; };
+		4DA84083177691C900D7A9D6 /* NSDate+Description.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Description.m"; sourceTree = "<group>"; };
+		4DA84084177691C900D7A9D6 /* NSDateComponents+AllComponents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateComponents+AllComponents.h"; sourceTree = "<group>"; };
+		4DA84085177691C900D7A9D6 /* NSDateComponents+AllComponents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateComponents+AllComponents.m"; sourceTree = "<group>"; };
+		4DA84086177691C900D7A9D6 /* NSString+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Color.h"; sourceTree = "<group>"; };
+		4DA84087177691C900D7A9D6 /* NSString+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Color.m"; sourceTree = "<group>"; };
+		4DA84089177691C900D7A9D6 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		4DA8408A177691C900D7A9D6 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		4DA8408C177691C900D7A9D6 /* UIView+AnimatedFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimatedFrame.h"; sourceTree = "<group>"; };
+		4DA8408D177691C900D7A9D6 /* UIView+AnimatedFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimatedFrame.m"; sourceTree = "<group>"; };
+		4DA8408E177691C900D7A9D6 /* UIView+Border.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Border.h"; sourceTree = "<group>"; };
+		4DA8408F177691C900D7A9D6 /* UIView+Border.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Border.m"; sourceTree = "<group>"; };
+		4DA84091177691C900D7A9D6 /* CKCalendarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarCell.h; sourceTree = "<group>"; };
+		4DA84092177691C900D7A9D6 /* CKCalendarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarCell.m; sourceTree = "<group>"; };
+		4DA84093177691C900D7A9D6 /* CKCalendarEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarEvent.h; sourceTree = "<group>"; };
+		4DA84094177691C900D7A9D6 /* CKCalendarEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarEvent.m; sourceTree = "<group>"; };
+		4DA84095177691C900D7A9D6 /* CKCalendarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarHeaderView.h; sourceTree = "<group>"; };
+		4DA84096177691C900D7A9D6 /* CKCalendarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarHeaderView.m; sourceTree = "<group>"; };
+		4DA84097177691C900D7A9D6 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		4DA84098177691C900D7A9D6 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		4DA84099177691C900D7A9D6 /* MBPolygonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBPolygonView.h; sourceTree = "<group>"; };
+		4DA8409A177691C900D7A9D6 /* MBPolygonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBPolygonView.m; sourceTree = "<group>"; };
+		4DA8409C177691C900D7A9D6 /* CKCalendarCellColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarCellColors.h; sourceTree = "<group>"; };
+		4DA8409D177691C900D7A9D6 /* CKCalendarDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarDataSource.h; sourceTree = "<group>"; };
+		4DA8409E177691C900D7A9D6 /* CKCalendarDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarDelegate.h; sourceTree = "<group>"; };
+		4DA8409F177691C900D7A9D6 /* CKCalendarHeaderColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarHeaderColors.h; sourceTree = "<group>"; };
+		4DA840A0177691C900D7A9D6 /* CKCalendarMonthCellStates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarMonthCellStates.h; sourceTree = "<group>"; };
+		4DA840A1177691C900D7A9D6 /* CKCalendarViewModes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarViewModes.h; sourceTree = "<group>"; };
+		4DA840A3177691C900D7A9D6 /* CKCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarViewController.h; sourceTree = "<group>"; };
+		4DA840A4177691C900D7A9D6 /* CKCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarViewController.m; sourceTree = "<group>"; };
+		4DA840A5177691C900D7A9D6 /* CKCalendarViewControllerInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarViewControllerInternal.h; sourceTree = "<group>"; };
+		4DA840A6177691C900D7A9D6 /* CKCalendarViewControllerInternal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarViewControllerInternal.m; sourceTree = "<group>"; };
 		4DA9F12517488B6C00BB2FCC /* SpringAnimationLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringAnimationLogic.h; sourceTree = "<group>"; };
 		4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationLogic.m; sourceTree = "<group>"; };
 		4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -469,6 +534,7 @@
 		4DA12C4F172E1133004A1114 /* ExternalLibrary */ = {
 			isa = PBXGroup;
 			children = (
+				4DA8406F177691C900D7A9D6 /* CalendarKit */,
 				4DACB59C17509A1F0020D9AB /* BButton */,
 				4DA9F1281748E21C00BB2FCC /* MBProgressHUD */,
 				4DA6FCE31747D9CE006FEEEC /* R9HTTPRequest */,
@@ -650,6 +716,131 @@
 				4DA417BE17520C7B00A27908 /* DirectionViewController.xib */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		4DA8406F177691C900D7A9D6 /* CalendarKit */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84070177691C900D7A9D6 /* CalendarKit.h */,
+				4DA84071177691C900D7A9D6 /* Categories */,
+				4DA84090177691C900D7A9D6 /* Core */,
+				4DA8409B177691C900D7A9D6 /* Headers */,
+				4DA840A2177691C900D7A9D6 /* View Controllers */,
+			);
+			path = CalendarKit;
+			sourceTree = "<group>";
+		};
+		4DA84071177691C900D7A9D6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84072177691C900D7A9D6 /* Foundation */,
+				4DA84088177691C900D7A9D6 /* UIKit */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4DA84072177691C900D7A9D6 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84073177691C900D7A9D6 /* NSCalendar */,
+				4DA8407E177691C900D7A9D6 /* NSCalendarCategories.h */,
+				4DA8407F177691C900D7A9D6 /* NSDate */,
+				4DA84084177691C900D7A9D6 /* NSDateComponents+AllComponents.h */,
+				4DA84085177691C900D7A9D6 /* NSDateComponents+AllComponents.m */,
+				4DA84086177691C900D7A9D6 /* NSString+Color.h */,
+				4DA84087177691C900D7A9D6 /* NSString+Color.m */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		4DA84073177691C900D7A9D6 /* NSCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84074177691C900D7A9D6 /* NSCalendar+Components.h */,
+				4DA84075177691C900D7A9D6 /* NSCalendar+Components.m */,
+				4DA84076177691C900D7A9D6 /* NSCalendar+DateComparison.h */,
+				4DA84077177691C900D7A9D6 /* NSCalendar+DateComparison.m */,
+				4DA84078177691C900D7A9D6 /* NSCalendar+DateManipulation.h */,
+				4DA84079177691C900D7A9D6 /* NSCalendar+DateManipulation.m */,
+				4DA8407A177691C900D7A9D6 /* NSCalendar+Juncture.h */,
+				4DA8407B177691C900D7A9D6 /* NSCalendar+Juncture.m */,
+				4DA8407C177691C900D7A9D6 /* NSCalendar+Ranges.h */,
+				4DA8407D177691C900D7A9D6 /* NSCalendar+Ranges.m */,
+			);
+			path = NSCalendar;
+			sourceTree = "<group>";
+		};
+		4DA8407F177691C900D7A9D6 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84080177691C900D7A9D6 /* NSDate+Components.h */,
+				4DA84081177691C900D7A9D6 /* NSDate+Components.m */,
+				4DA84082177691C900D7A9D6 /* NSDate+Description.h */,
+				4DA84083177691C900D7A9D6 /* NSDate+Description.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		4DA84088177691C900D7A9D6 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84089177691C900D7A9D6 /* UIColor+HexString.h */,
+				4DA8408A177691C900D7A9D6 /* UIColor+HexString.m */,
+				4DA8408B177691C900D7A9D6 /* UIView */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		4DA8408B177691C900D7A9D6 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				4DA8408C177691C900D7A9D6 /* UIView+AnimatedFrame.h */,
+				4DA8408D177691C900D7A9D6 /* UIView+AnimatedFrame.m */,
+				4DA8408E177691C900D7A9D6 /* UIView+Border.h */,
+				4DA8408F177691C900D7A9D6 /* UIView+Border.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		4DA84090177691C900D7A9D6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				4DA84091177691C900D7A9D6 /* CKCalendarCell.h */,
+				4DA84092177691C900D7A9D6 /* CKCalendarCell.m */,
+				4DA84093177691C900D7A9D6 /* CKCalendarEvent.h */,
+				4DA84094177691C900D7A9D6 /* CKCalendarEvent.m */,
+				4DA84095177691C900D7A9D6 /* CKCalendarHeaderView.h */,
+				4DA84096177691C900D7A9D6 /* CKCalendarHeaderView.m */,
+				4DA84097177691C900D7A9D6 /* CKCalendarView.h */,
+				4DA84098177691C900D7A9D6 /* CKCalendarView.m */,
+				4DA84099177691C900D7A9D6 /* MBPolygonView.h */,
+				4DA8409A177691C900D7A9D6 /* MBPolygonView.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4DA8409B177691C900D7A9D6 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				4DA8409C177691C900D7A9D6 /* CKCalendarCellColors.h */,
+				4DA8409D177691C900D7A9D6 /* CKCalendarDataSource.h */,
+				4DA8409E177691C900D7A9D6 /* CKCalendarDelegate.h */,
+				4DA8409F177691C900D7A9D6 /* CKCalendarHeaderColors.h */,
+				4DA840A0177691C900D7A9D6 /* CKCalendarMonthCellStates.h */,
+				4DA840A1177691C900D7A9D6 /* CKCalendarViewModes.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		4DA840A2177691C900D7A9D6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4DA840A3177691C900D7A9D6 /* CKCalendarViewController.h */,
+				4DA840A4177691C900D7A9D6 /* CKCalendarViewController.m */,
+				4DA840A5177691C900D7A9D6 /* CKCalendarViewControllerInternal.h */,
+				4DA840A6177691C900D7A9D6 /* CKCalendarViewControllerInternal.m */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		4DA9F12417488B5300BB2FCC /* Animation */ = {
@@ -902,6 +1093,25 @@
 				4DA692361775A0EA00AB0E1B /* BookmarkSettingViewController.m in Sources */,
 				4DA6923A1775D02D00AB0E1B /* PlaceSearchLogic.m in Sources */,
 				4DA6923E1775DB5A00AB0E1B /* MapSearchViewController.m in Sources */,
+				4DA840A7177691C900D7A9D6 /* NSCalendar+Components.m in Sources */,
+				4DA840A8177691C900D7A9D6 /* NSCalendar+DateComparison.m in Sources */,
+				4DA840A9177691C900D7A9D6 /* NSCalendar+DateManipulation.m in Sources */,
+				4DA840AA177691C900D7A9D6 /* NSCalendar+Juncture.m in Sources */,
+				4DA840AB177691C900D7A9D6 /* NSCalendar+Ranges.m in Sources */,
+				4DA840AC177691C900D7A9D6 /* NSDate+Components.m in Sources */,
+				4DA840AD177691C900D7A9D6 /* NSDate+Description.m in Sources */,
+				4DA840AE177691C900D7A9D6 /* NSDateComponents+AllComponents.m in Sources */,
+				4DA840AF177691C900D7A9D6 /* NSString+Color.m in Sources */,
+				4DA840B0177691C900D7A9D6 /* UIColor+HexString.m in Sources */,
+				4DA840B1177691C900D7A9D6 /* UIView+AnimatedFrame.m in Sources */,
+				4DA840B2177691C900D7A9D6 /* UIView+Border.m in Sources */,
+				4DA840B3177691C900D7A9D6 /* CKCalendarCell.m in Sources */,
+				4DA840B4177691C900D7A9D6 /* CKCalendarEvent.m in Sources */,
+				4DA840B5177691C900D7A9D6 /* CKCalendarHeaderView.m in Sources */,
+				4DA840B6177691C900D7A9D6 /* CKCalendarView.m in Sources */,
+				4DA840B7177691C900D7A9D6 /* MBPolygonView.m in Sources */,
+				4DA840B8177691C900D7A9D6 /* CKCalendarViewController.m in Sources */,
+				4DA840B9177691C900D7A9D6 /* CKCalendarViewControllerInternal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

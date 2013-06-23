@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "BButton.h"
 #import "Bookmark.h"
+#import "CalendarKit.h"
 
 @protocol BookmarkSettingViewControllerDelegate <NSObject>
 
@@ -19,11 +20,12 @@
 
 @end
 
-@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate>
+@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate,CKCalendarViewDelegate,CKCalendarViewDataSource>
 
 @property (nonatomic) Bookmark *bookmark;
 @property (nonatomic) id<BookmarkSettingViewControllerDelegate> delegate;
 @property (nonatomic) GMSMapView *gmsMapView;
+@property (nonatomic) CKCalendarView *calendarView;
 
 //Outlet
 @property (weak, nonatomic) IBOutlet UITextField *titleField;

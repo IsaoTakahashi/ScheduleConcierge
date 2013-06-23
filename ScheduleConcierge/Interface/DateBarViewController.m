@@ -84,7 +84,7 @@
             break;
     }
     
-    NSAttributedString *dateString = [[NSAttributedString alloc] initWithString:[f stringFromDate:date] attributes:@{NSForegroundColorAttributeName : dayColor}];
+    NSAttributedString *dateString = [[NSAttributedString alloc] initWithString:[NSString stringWithDate:date format:@"MM/dd"] attributes:@{NSForegroundColorAttributeName : dayColor}];
     NSAttributedString *dayString = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@" (%@)",[date stringShortweekdayEn]] attributes:@{NSForegroundColorAttributeName : dayColor}];
     
     NSMutableAttributedString *labelString = [[NSMutableAttributedString alloc] initWithAttributedString:dateString];

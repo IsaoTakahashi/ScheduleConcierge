@@ -20,4 +20,12 @@
     return false;
 }
 
+
++ (NSString*) stringWithDate:(NSDate*)date format:(NSString*)format {
+    NSDateFormatter *f = [NSDateFormatter new];
+    [f setDateFormat:format];
+    
+    return [f stringFromDate:date];
+}
+
 @end

@@ -67,8 +67,13 @@
 
 
 - (NSTimeInterval) timeToDate:(NSDate*)date scale:(NSCalendarUnit)scale {
-    NSTimeInterval diffInterval = date.timeIntervalSince1970 - self.timeIntervalSince1970;
     
+    if (scale == NSMonthCalendarUnit) {
+        return [self diffMonthToDate:date];
+    }
+    
+    
+    NSTimeInterval diffInterval = date.timeIntervalSince1970 - self.timeIntervalSince1970;
     switch (scale) {
         case NSYearCalendarUnit:
             diffInterval /= 365;
@@ -86,6 +91,14 @@
     }
     
     return diffInterval;
+}
+
+- (NSInteger) diffMonthToDate:(NSDate*)date {
+    NSCalendar* calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents* selfComp = [calendar components:NSMonthCalendarUnit fromDate:self];
+    NSDateComponents* targetComp = [calendar components:NSMonthCalendarUnit fromDate:date];
+    
+    return targetComp.month - selfComp.month;
 }
 
 - (NSDate*) truncWithScale:(NSCalendarUnit)scale {

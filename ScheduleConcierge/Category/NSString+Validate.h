@@ -10,4 +10,5 @@
 
 @interface NSString (Validate)
 - (Boolean) isEmpty;
++ (NSString*) stringWithDate:(NSDate*)date format:(NSString*)format; //TODO: will move to another category later
 @end

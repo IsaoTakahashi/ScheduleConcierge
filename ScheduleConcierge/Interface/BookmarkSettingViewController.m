@@ -7,10 +7,15 @@
 //
 
 #import "BookmarkSettingViewController.h"
+#import "NSString+Validate.h"
+#import "NSDate+Softbuild.h"
 
 @interface BookmarkSettingViewController ()
 
 @end
+
+#define CAL_START   1
+#define CAL_END     2
 
 @implementation BookmarkSettingViewController
 
@@ -92,12 +97,19 @@
     self.titleField.text = self.bookmark.t_title;
     self.placeField.text = self.bookmark.t_place;
     
-    if(self.bookmark.r_latitude != 0.0f || self.bookmark.r_longitude != 0.0f) {
+    if (self.bookmark.r_latitude != 0.0f || self.bookmark.r_longitude != 0.0f) {
         self.locationFixedLabel.text = @"Fixed!";
-        self.locationFixedLabel.textColor = [UIColor greenColor];
+        self.locationFixedLabel.textColor = [UIColor blackColor];
     } else {
         self.locationFixedLabel.text = @"UnFixed";
         self.locationFixedLabel.textColor = [UIColor darkGrayColor];
+    }
+    
+    if (self.bookmark.d_start_date != nil) {
+        self.startDateLabel.text = [NSString stringWithDate:self.bookmark.d_start_date format:@"YYYY/MM/dd"];
+    }
+    if (self.bookmark.d_end_date != nil) {
+        self.endDateLabel.text = [NSString stringWithDate:self.bookmark.d_end_date format:@"YYYY/MM/dd"];
     }
 }
 
@@ -109,6 +121,80 @@
 -(void)hideKeyboard {
     [self.titleField resignFirstResponder];
     [self.placeField resignFirstResponder];
+}
+
+-(void)showCalendar:(NSInteger)tag {
+    self.calendarView = [CKCalendarView new];
+    self.calendarView.delegate = self;
+    self.calendarView.dataSource = self;
+    self.calendarView.tag = tag;
+    self.calendarView.center = self.view.frame.origin;
+    
+    switch (tag) {
+        case CAL_START:
+            if (self.bookmark.d_start_date != nil) {
+                self.calendarView.date = self.bookmark.d_start_date;
+            }
+            break;
+        case CAL_END:
+            if (self.bookmark.d_end_date != nil) {
+                self.calendarView.date = self.bookmark.d_end_date;
+            }
+            break;
+        default:
+            break;
+    }
+    
+    
+    [self.view.superview addSubview:self.calendarView];
+}
+
+#pragma mark -
+#pragma mark CKCalendarView Delegate
+-(void)calendarView:(CKCalendarView *)CalendarView didSelectDate:(NSDate *)date {
+    NSDate *newMonth = [date truncWithScale:NSMonthCalendarUnit];
+    NSDate *prevMonth = [[CalendarView previousDate] truncWithScale:NSMonthCalendarUnit];
+    
+    if ([newMonth timeToDate:prevMonth scale:NSMonthCalendarUnit] != 0) {
+        return;
+    }
+    
+    UIAlertView *alert;
+    switch (CalendarView.tag) {
+        case CAL_START:
+            
+            if (self.bookmark.d_end_date != nil && [date compare:self.bookmark.d_end_date] == NSOrderedDescending) {
+                alert = [[UIAlertView alloc] initWithTitle:@"StartDate" message:@"Please Choose date which is earlier than EndDate" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
+                return;
+            } else {
+                self.bookmark.d_start_date = date;
+            }
+            break;
+        case CAL_END:
+            
+            if (self.bookmark.d_start_date != nil && [date compare:self.bookmark.d_start_date] == NSOrderedAscending) {
+                alert = [[UIAlertView alloc] initWithTitle:@"EndDate" message:@"Please Choose date which is later than StartDate" delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];
+                [alert show];
+                return;
+            } else {
+                self.bookmark.d_end_date = date;
+            }
+            break;
+        default:
+            break;
+    }
+    
+    [self.calendarView removeFromSuperview];
+    
+    [self refleshWithBookmark:self.bookmark];
+}
+
+#pragma mark -
+#pragma mark CLCalendarView DataSource
+-(NSArray*)calendarView:(CKCalendarView *)calendarView eventsForDate:(NSDate *)date {
+    //TODO: I'd like to add logic for listing bookmark on the calendar table
+    return [NSArray new];
 }
 
 - (IBAction)clickedSaveButton:(id)sender {
@@ -132,10 +218,12 @@
 
 - (IBAction)clickedStartDateButton:(id)sender {
     [self hideKeyboard];
+    [self showCalendar:CAL_START];
 }
 
 - (IBAction)clickedEndDateButton:(id)sender {
     [self hideKeyboard];
+    [self showCalendar:CAL_END];
 }
 
 - (IBAction)clickedMapButton:(id)sender {
