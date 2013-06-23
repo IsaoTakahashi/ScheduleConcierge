@@ -18,10 +18,13 @@ typedef enum AlertTabType : NSUInteger {
     REMOVE
 } AlertTabType;
 
+@protocol UIStickyViewDelegate;
+
 @interface UIStickyView : UIView<UIGestureRecognizerDelegate,UIAlertViewDelegate,SimpeNetworkDelegate>
 {
     CGPoint lastPoint_;
 }
+@property (nonatomic) id<UIStickyViewDelegate> delegate;
 @property (nonatomic) Bookmark* bookmark;
 @property (strong, nonatomic) SpringAnimationLogic *springAnimationLogic;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -30,5 +33,11 @@ typedef enum AlertTabType : NSUInteger {
 - (void)initialize;
 - (void)initializeWithBookmark:(Bookmark*)bm;
 - (void)setViewPosition:(CGPoint)diffVector;
+
+@end
+
+@protocol UIStickyViewDelegate <NSObject>
+
+-(void)beginSetting:(UIStickyView*)sticky;
 
 @end

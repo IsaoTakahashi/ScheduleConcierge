@@ -55,6 +55,10 @@
     [self addGestureRecognizer:recogPan];
     UILongPressGestureRecognizer *recogLong = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(removeStickyAlert:)];
     [self addGestureRecognizer:recogLong];
+    UITapGestureRecognizer *recogDoubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapSticky:)];
+    recogDoubleTap.numberOfTapsRequired = 2;
+    [self addGestureRecognizer:recogDoubleTap];
+    
 }
 
 -(void)loadImage {
@@ -191,6 +195,17 @@
         case UIGestureRecognizerStateChanged:
             break;
         case UIGestureRecognizerStateEnded:
+        default:
+            break;
+    }
+}
+
+-(void)doubleTapSticky:(UITapGestureRecognizer*)recog {
+    switch (recog.state) {
+        case UIGestureRecognizerStateEnded:
+            //TODO: call BookingSettingViewController
+            [self.delegate beginSetting:self];
+            break;
         default:
             break;
     }

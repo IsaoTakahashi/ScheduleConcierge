@@ -26,4 +26,5 @@
 -(id)initWithTitle:(NSString*)title;
 -(id)initWithResultSet:(FMResultSet*)rs;
 
++(Bookmark*)bookmarkWithBookmark:(Bookmark*)bm;
 @end

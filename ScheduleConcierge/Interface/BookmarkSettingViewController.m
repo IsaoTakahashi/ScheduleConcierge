@@ -48,6 +48,11 @@
 
 -(void)buttonSetting {
     
+    self.wButton = [BButton awesomeButtonWithOnlyIcon:FAIconBookmark color:[UIColor blueColor]];
+    self.wButton.frame = self.webButton.frame;
+    [self.wButton addTarget:self action:@selector(clickedWebButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.wButton];
+    
     [self.mapButton setType:BButtonTypeSuccess];
     [self.startDateButton setType:BButtonTypeDefault];
     [self.endDateButton setType:BButtonTypeDefault];
@@ -92,7 +97,8 @@
 }
 
 -(void)refleshWithBookmark:(Bookmark*)bm {
-    self.bookmark = bm;
+    //create copy
+    self.bookmark = [Bookmark bookmarkWithBookmark:bm];
     
     self.titleField.text = self.bookmark.t_title;
     self.placeField.text = self.bookmark.t_place;
@@ -111,6 +117,13 @@
     if (self.bookmark.d_end_date != nil) {
         self.endDateLabel.text = [NSString stringWithDate:self.bookmark.d_end_date format:@"YYYY/MM/dd"];
     }
+    
+    if (![self.bookmark.t_url isEmpty]) {
+        [self.wButton setColor:[UIColor blueColor]];
+    } else {
+        [self.wButton setColor:[UIColor grayColor]];
+    }
+    
 }
 
 -(void)saveBookmark {
@@ -197,6 +210,14 @@
     return [NSArray new];
 }
 
+#pragma mark -
+#pragma mark WebSearchViewController Delegate
+-(void)selectedBookmarkURL:(Bookmark *)bm {
+    [self.wsViewCtr.view removeFromSuperview];
+    
+    [self refleshWithBookmark:bm];
+}
+
 - (IBAction)clickedSaveButton:(id)sender {
     
     if([self.titleField.text isEmpty]) {
@@ -231,6 +252,30 @@
     [self hideKeyboard];
     
     [self.delegate showMapView:self.bookmark];
+}
+
+- (IBAction)clickedWebButton:(id)sender {
+    [self saveBookmark];
+    [self hideKeyboard];
+    
+    self.wsViewCtr = [[WebSearchViewController alloc] initWithNibName:@"WebSearchViewController" bundle:nil];
+    [self.wsViewCtr initializeWithBookmark:self.bookmark];
+    self.wsViewCtr.delegate = self;
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    self.wsViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/2);
+    [self.wsViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [self.wsViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view.superview addSubview:self.wsViewCtr.view];
 }
 
 @end

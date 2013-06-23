@@ -56,6 +56,10 @@ static const NSArray *awesomeStrings;
 
 - (BOOL)isEmpty
 {
+    if (self == nil) {
+        return false;
+    }
+    
     return [[self trimWhitespace] isEqualToString:@""];
 }
 

@@ -56,15 +56,40 @@
         [self registerStickyWithBookmark:bm];
     }
 
+    self.edittedSticky = nil;
 }
 
 -(void)registerStickyWithBookmark:(Bookmark*)bm {
     StickyManager *stickyMgr = [StickyManager getInstance];
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
-    
+    UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
+    sticky.delegate = self;
     [self.view addSubview:newStickyCtr.view];
     
     [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
+}
+
+-(void)showBookmarkSettingView:(Bookmark*)bm {
+    bsViewCtr = [[BookmarkSettingViewController alloc] initWithNibName:@"BookmarkSettingViewController" bundle:nil];
+    bsViewCtr.delegate = self;
+    if(bm != nil) {
+        [bsViewCtr refleshWithBookmark:bm];
+    }
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    bsViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/3);
+    [bsViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [bsViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view addSubview:bsViewCtr.view];
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,6 +121,9 @@
     StickyManager *stickyMgr = [StickyManager getInstance];
     
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+    UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
+    sticky.delegate = self;
+    
     [self.view addSubview:newStickyCtr.view];
     
     [stickyMgr addSticky:newStickyCtr];
@@ -151,23 +179,14 @@
 }
 
 - (IBAction)clickedBookmarkButton:(id)sender {
-    bsViewCtr = [[BookmarkSettingViewController alloc] initWithNibName:@"BookmarkSettingViewController" bundle:nil];
-    bsViewCtr.delegate = self;
-    
-    CGRect window = [[UIScreen mainScreen] bounds];
-    bsViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/3);
-    [bsViewCtr.view setAlpha:0.1];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.2];
-    [UIView setAnimationDelay:0];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    
-    [bsViewCtr.view setAlpha:1.0];
-    
-    [UIView commitAnimations];
-    
-    [self.view addSubview:bsViewCtr.view];
+    [self showBookmarkSettingView:nil];
+}
+
+#pragma mark -
+#pragma mark UIStickyViewDelegate
+-(void)beginSetting:(UIStickyView *)sticky {
+    self.edittedSticky = sticky;
+    [self showBookmarkSettingView:sticky.bookmark];
 }
 
 #pragma mark -
@@ -196,7 +215,16 @@
 }
 
 -(void)savedBookmark:(Bookmark *)bookmark {
-    [self registerStickyWithBookmark:bookmark];
+    
+    if(self.edittedSticky != nil) {
+        if ([BookmarkDAO update:bookmark]) {
+            [self.edittedSticky initializeWithBookmark:bookmark];
+        }
+
+        self.edittedSticky = nil;
+    } else {
+        [self registerStickyWithBookmark:bookmark];
+    }
 }
 
 #pragma mark -

@@ -58,6 +58,40 @@
     return insert_flg;
 }
 
++(bool)update:(Bookmark*)bookmark {
+    SimpleDBManager* db = [SimpleDBManager getInstance];
+    bool update_flg = false;
+    
+    if (bookmark.d_end_date != nil) {
+        update_flg = [db.connection executeUpdate:@"UPDATE BOOKMARK SET \
+                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, d_end_date=?, i_base_service=?, t_url=? \
+                      WHERE i_id = ?",
+                      bookmark.t_title,bookmark.t_place,
+                      [NSNumber numberWithDouble:bookmark.r_latitude],
+                      [NSNumber numberWithDouble:bookmark.r_longitude],
+                      [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
+                      [NSNumber numberWithLong:[bookmark.d_end_date timeIntervalSince1970]],
+                      [NSNumber numberWithInt:bookmark.i_base_service],
+                      bookmark.t_url,
+                      [NSNumber numberWithInt:bookmark.i_id]];
+    } else {
+        update_flg = [db.connection executeUpdate:@"UPDATE BOOKMARK SET \
+                      t_title=?, t_place=?, r_latitude=?, r_longitude=?, d_start_date=?, i_base_service=?, t_url=? \
+                      WHERE i_id = ?",
+                      bookmark.t_title,bookmark.t_place,
+                      [NSNumber numberWithDouble:bookmark.r_latitude],
+                      [NSNumber numberWithDouble:bookmark.r_longitude],
+                      [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
+                      [NSNumber numberWithInt:bookmark.i_base_service],
+                      bookmark.t_url,
+                      [NSNumber numberWithInt:bookmark.i_id]];
+    }
+    [db hadError];
+    //[db commit];
+    
+    return update_flg;
+}
+
 +(NSMutableArray*)selectAll{
     SimpleDBManager* db = [SimpleDBManager getInstance];
     

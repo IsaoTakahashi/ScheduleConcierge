@@ -12,6 +12,7 @@
 
 @interface BookmarkDAO : NSObject
 +(bool)insert:(Bookmark*)bookmark;
++(bool)update:(Bookmark*)bookmark;
 +(NSMutableArray*)selectAll;
 +(bool)deleteWithId:(Bookmark*)bookmark;
 @end

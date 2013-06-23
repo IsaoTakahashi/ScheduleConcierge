@@ -11,6 +11,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "BButton.h"
 #import "Bookmark.h"
+#import "WebSearchViewController.h"
 #import "CalendarKit.h"
 
 @protocol BookmarkSettingViewControllerDelegate <NSObject>
@@ -20,12 +21,14 @@
 
 @end
 
-@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate,CKCalendarViewDelegate,CKCalendarViewDataSource>
+@interface BookmarkSettingViewController : UIViewController<GMSMapViewDelegate,WebSearchViewControllerDelegate,CKCalendarViewDelegate,CKCalendarViewDataSource>
 
 @property (nonatomic) Bookmark *bookmark;
 @property (nonatomic) id<BookmarkSettingViewControllerDelegate> delegate;
 @property (nonatomic) GMSMapView *gmsMapView;
+@property (nonatomic) WebSearchViewController *wsViewCtr;
 @property (nonatomic) CKCalendarView *calendarView;
+@property (nonatomic) BButton *wButton;
 
 //Outlet
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
@@ -40,6 +43,7 @@
 
 @property (weak, nonatomic) IBOutlet BButton *saveButton;
 @property (weak, nonatomic) IBOutlet BButton *cancelButton;
+@property (weak, nonatomic) IBOutlet BButton *webButton;
 
 
 //Event
@@ -54,6 +58,7 @@
 - (IBAction)clickedEndDateButton:(id)sender;
 
 - (IBAction)clickedMapButton:(id)sender;
+- (IBAction)clickedWebButton:(id)sender;
 
 //Event -text field
 

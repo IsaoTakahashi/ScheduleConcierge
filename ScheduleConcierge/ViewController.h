@@ -11,11 +11,12 @@
 #import "BookmarkSettingViewController.h"
 #import "MapSearchViewController.h"
 
-@interface ViewController : UIViewController<BookmarkSettingViewControllerDelegate,MapSearchViewControllerDelegate> {
+@interface ViewController : UIViewController<BookmarkSettingViewControllerDelegate,MapSearchViewControllerDelegate,UIStickyViewDelegate> {
     BookmarkSettingViewController *bsViewCtr;
     MapSearchViewController *msViewCtr;
 }
 
+@property (nonatomic) UIStickyView *edittedSticky;
 @property (weak, nonatomic) IBOutlet UIButton *springButton;
 @property (weak, nonatomic) IBOutlet UIButton *offsetButton;
 - (IBAction)handlePanGesture:(UIPanGestureRecognizer*)sender;
