@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NSDate+Softbuild.h"
+#import "Bookmark.h"
 
 typedef enum TransportationType : NSUInteger {
     UNKNOWN_WAY,
@@ -26,5 +27,7 @@ typedef enum TransportationType : NSUInteger {
 @property(nonatomic) TransportationType transportationType;
 @property(nonatomic) NSInteger *cost;
 @property(nonatomic) NSNumber *distance;
+@property(nonatomic) Bookmark* depBookmark;
+@property(nonatomic) Bookmark* destBookmark;
 
 @end

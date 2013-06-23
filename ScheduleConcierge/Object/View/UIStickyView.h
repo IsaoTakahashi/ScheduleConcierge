@@ -30,6 +30,9 @@ typedef enum AlertTabType : NSUInteger {
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *resultImageView;
 
+@property (weak, nonatomic) IBOutlet UILabel *stayTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
 - (void)initialize;
 - (void)initializeWithBookmark:(Bookmark*)bm;
 - (void)setViewPosition:(CGPoint)diffVector;

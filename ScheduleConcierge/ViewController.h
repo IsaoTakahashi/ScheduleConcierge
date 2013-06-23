@@ -10,10 +10,13 @@
 #import "StickyManager.h"
 #import "BookmarkSettingViewController.h"
 #import "MapSearchViewController.h"
+#import "NaviSearchViewController.h"
 
-@interface ViewController : UIViewController<BookmarkSettingViewControllerDelegate,MapSearchViewControllerDelegate,UIStickyViewDelegate> {
+@interface ViewController : UIViewController
+<BookmarkSettingViewControllerDelegate,MapSearchViewControllerDelegate,UIStickyViewDelegate,NaviSearchViewControllerDelegate> {
     BookmarkSettingViewController *bsViewCtr;
     MapSearchViewController *msViewCtr;
+    NaviSearchViewController *nsViewCtr;
 }
 
 @property (nonatomic) UIStickyView *edittedSticky;
@@ -24,5 +27,6 @@
 - (IBAction)clidkSpringButton:(UIButton*)sender;
 - (IBAction)clickOffsetButton:(id)sender;
 - (IBAction)clickedBookmarkButton:(id)sender;
+- (IBAction)clickSearchButton:(id)sender;
 
 @end

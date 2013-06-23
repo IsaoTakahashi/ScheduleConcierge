@@ -68,6 +68,11 @@
 }
 
 - (void)setDate:(NSDate*)date {
+    if (date == nil) {
+        self.DateLabel.attributedText = [[NSAttributedString alloc] initWithString:@""];
+        self.CalcButton.alpha = 0.0f;
+        return;
+    }
     NSDateFormatter *f = [NSDateFormatter new];
     [f setDateFormat:@"MM/dd"];
     UIColor *dayColor;
@@ -199,6 +204,9 @@
         dir = [Direction new];
         dir.departurePlace = depSticky.nameLabel.text;
         dir.destinationPlace = destSticky.nameLabel.text;
+        dir.depBookmark = depSticky.bookmark;
+        dir.destBookmark = destSticky.bookmark;
+        
         //FIXME: このDateBarの日付で計算する
         dir.departureTime = [[[NSDate date] truncWithScale:NSDayCalendarUnit] addHour:9];
         dir.destinationTime = [dir.departureTime subMinute:1];

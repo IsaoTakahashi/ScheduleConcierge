@@ -37,6 +37,15 @@
     
     self.nameLabel.text = bm.t_title;
     
+    if (self.bookmark.r_start_time > 0) {
+        self.startTimeLabel.text = [NSString stringWithFormat:@"%2d:00",(int)self.bookmark.r_start_time];
+        self.startTimeLabel.alpha = 1.0f;
+    }
+    if (self.bookmark.r_end_time > 0) {
+        self.endTimeLabel.text = [NSString stringWithFormat:@"%2d:00",(int)self.bookmark.r_end_time];
+        self.endTimeLabel.alpha = 1.0f;
+    }
+    
     [self loadImage];
     
     //insert data if id doesn't exist
@@ -47,6 +56,14 @@
 
 - (void)setStyle {
     self.layer.borderColor = [[UIColor brownColor] CGColor];
+    
+    self.startTimeLabel.layer.cornerRadius = 2;
+    self.endTimeLabel.layer.cornerRadius = 2;
+    self.stayTimeLabel.layer.cornerRadius = 2;
+    
+    self.stayTimeLabel.alpha = 0.0f;
+    self.startTimeLabel.alpha = 0.0f;
+    self.endTimeLabel.alpha = 0.0f;
 }
 
 -(void)registerRecognizers {

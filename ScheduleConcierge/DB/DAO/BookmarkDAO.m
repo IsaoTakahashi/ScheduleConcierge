@@ -7,6 +7,7 @@
 //
 
 #import "BookmarkDAO.h"
+#import "NSDate+Softbuild.h"
 
 @implementation BookmarkDAO
 
@@ -23,8 +24,8 @@
                 bookmark.t_title,bookmark.t_place,
                 [NSNumber numberWithDouble:bookmark.r_latitude],
                 [NSNumber numberWithDouble:bookmark.r_longitude],
-                [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
-                [NSNumber numberWithLong:[bookmark.d_end_date timeIntervalSince1970]],
+                [NSNumber numberWithLong:[[bookmark.d_start_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
+                [NSNumber numberWithLong:[[bookmark.d_end_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                 [NSNumber numberWithDouble:bookmark.r_start_time],
                 [NSNumber numberWithDouble:bookmark.r_end_time],
                 [NSNumber numberWithInt:bookmark.i_base_service],
@@ -38,7 +39,7 @@
                 bookmark.t_title,bookmark.t_place,
                 [NSNumber numberWithDouble:bookmark.r_latitude],
                 [NSNumber numberWithDouble:bookmark.r_longitude],
-                [NSNumber numberWithDouble:[bookmark.d_start_date timeIntervalSince1970]],
+                [NSNumber numberWithLong:[[bookmark.d_start_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                 [NSNumber numberWithDouble:bookmark.r_start_time],
                 [NSNumber numberWithDouble:bookmark.r_end_time],
                 [NSNumber numberWithInt:bookmark.i_base_service],
@@ -73,8 +74,8 @@
                       bookmark.t_title,bookmark.t_place,
                       [NSNumber numberWithDouble:bookmark.r_latitude],
                       [NSNumber numberWithDouble:bookmark.r_longitude],
-                      [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
-                      [NSNumber numberWithLong:[bookmark.d_end_date timeIntervalSince1970]],
+                      [NSNumber numberWithLong:[[bookmark.d_start_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
+                      [NSNumber numberWithLong:[[bookmark.d_end_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                       [NSNumber numberWithDouble:bookmark.r_start_time],
                       [NSNumber numberWithDouble:bookmark.r_end_time],
                       [NSNumber numberWithInt:bookmark.i_base_service],
@@ -87,7 +88,7 @@
                       bookmark.t_title,bookmark.t_place,
                       [NSNumber numberWithDouble:bookmark.r_latitude],
                       [NSNumber numberWithDouble:bookmark.r_longitude],
-                      [NSNumber numberWithLong:[bookmark.d_start_date timeIntervalSince1970]],
+                      [NSNumber numberWithLong:[[bookmark.d_start_date truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                       [NSNumber numberWithDouble:bookmark.r_start_time],
                       [NSNumber numberWithDouble:bookmark.r_end_time],
                       [NSNumber numberWithInt:bookmark.i_base_service],

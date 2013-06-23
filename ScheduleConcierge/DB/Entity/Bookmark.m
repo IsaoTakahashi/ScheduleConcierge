@@ -61,10 +61,10 @@
         self.t_title = [rs stringForColumn:@"t_title"];
         self.t_place = [rs stringForColumn:@"t_place"];
         self.r_latitude = [rs doubleForColumn:@"r_latitude"];
-        self.r_longitude = [rs doubleForColumn:@"r_latitude"];
+        self.r_longitude = [rs doubleForColumn:@"r_longitude"];
         
         self.d_start_date = [NSDate dateWithTimeIntervalSince1970:[rs longForColumn:@"d_start_date"]];
-        if ([rs longForColumn:@"d_end_tate"] > 0) {
+        if ([rs longForColumn:@"d_end_date"] > 0) {
             self.d_end_date = [NSDate dateWithTimeIntervalSince1970:[rs longForColumn:@"d_end_date"]];
         } else {
             self.d_end_date = nil;

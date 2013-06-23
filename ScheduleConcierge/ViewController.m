@@ -41,7 +41,12 @@
         origin.y += barCtr.view.frame.size.height * i;
         
         barCtr.view.frame = CGRectMake(origin.x, origin.y, barCtr.view.frame.size.width, barCtr.view.frame.size.height);
-        [barCtr setDate:date];
+        if (i < DateBarCount-1) {
+            [barCtr setDate:date];
+        } else {
+            [barCtr setDate:nil];
+        }
+        
         
         [self.view addSubview:barCtr.view];
         [stickyMgr addDateBar:barCtr];
@@ -64,9 +69,11 @@
     UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
     UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
     sticky.delegate = self;
+    sticky.center = CGPointMake(100, 600);
     [self.view addSubview:newStickyCtr.view];
     
     [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
+    [stickyMgr relocateSticky:sticky];
 }
 
 -(void)showBookmarkSettingView:(Bookmark*)bm {
@@ -182,6 +189,27 @@
     [self showBookmarkSettingView:[[Bookmark alloc] initWithTitle:@"new"]];
 }
 
+- (IBAction)clickSearchButton:(id)sender {
+    nsViewCtr = [[NaviSearchViewController alloc] initWithNibName:@"NaviSearchViewController" bundle:nil];
+    [nsViewCtr inisializeWithBookmark:[[Bookmark alloc] initWithTitle:@"Search"]];
+    nsViewCtr.delegate = self;
+    
+    CGRect window = [[UIScreen mainScreen] bounds];
+    nsViewCtr.view.center = CGPointMake(window.size.height/2, window.size.width/2);
+    [nsViewCtr.view setAlpha:0.1];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.2];
+    [UIView setAnimationDelay:0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    [nsViewCtr.view setAlpha:1.0];
+    
+    [UIView commitAnimations];
+    
+    [self.view addSubview:nsViewCtr.view];
+}
+
 #pragma mark -
 #pragma mark UIStickyViewDelegate
 -(void)beginSetting:(UIStickyView *)sticky {
@@ -238,6 +266,12 @@
 
 -(void)canceledMapView {
     [msViewCtr.view removeFromSuperview];
+}
+
+#pragma mark -
+#pragma mark NaviSearchViewController Delegate
+-(void)search:(SearchCondition *)condition {
+    [nsViewCtr.view removeFromSuperview];
 }
 
 -(BOOL)shouldAutorotate {

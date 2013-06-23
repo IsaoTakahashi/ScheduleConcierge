@@ -42,7 +42,8 @@
 
 -(void)showMapView {
     
-    if(![self.bookmark.t_place isEqualToString:@""]) {
+    if(self.bookmark.r_latitude == 0 && self.bookmark.r_longitude == 0
+       && ![self.bookmark.t_place isEqualToString:@""]) {
         PlaceSearchLogic *psLogic = [[PlaceSearchLogic alloc] initWithSearchWord:self.bookmark.t_place];
         NSDictionary *location = [psLogic searchPlaceURL];
         

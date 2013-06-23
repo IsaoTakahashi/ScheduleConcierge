@@ -77,6 +77,10 @@
     layer.cornerRadius = 5;
     layer.borderWidth = 3;
     layer.borderColor = [[UIColor darkGrayColor] CGColor];
+    
+    self.titleBackLabel.layer.cornerRadius = 5;
+    self.locationBackLabel.layer.cornerRadius = 5;
+    self.timeBackLabel.layer.cornerRadius = 5;
 }
 
 -(void)removeViewAnimation {

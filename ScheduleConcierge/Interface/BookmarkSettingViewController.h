@@ -41,6 +41,11 @@
 @property (weak, nonatomic) IBOutlet BButton *startTimeButton;
 @property (weak, nonatomic) IBOutlet BButton *endTimeButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *titleBackLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationBackLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeBackLabel;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *startDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *endDateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationFixedLabel;

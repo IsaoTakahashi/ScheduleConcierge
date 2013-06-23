@@ -19,6 +19,8 @@
         self.transportationType = UNKNOWN_WAY;
         self.cost = 0;
         self.distance = 0;
+        self.depBookmark = nil;
+        self.destBookmark = nil;
     }
     
     return self;
