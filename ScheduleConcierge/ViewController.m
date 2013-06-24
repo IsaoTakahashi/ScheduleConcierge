@@ -10,6 +10,7 @@
 #import "GlobalProperty.h"
 #import "NSDate+Softbuild.h"
 #import "BookmarkDAO.h"
+#import "TripSuggestionLogic.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 #define DateBarCount 3
@@ -70,6 +71,24 @@
     UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
     sticky.delegate = self;
     sticky.center = CGPointMake(100, 600);
+    [self.view addSubview:newStickyCtr.view];
+    
+    [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
+    [stickyMgr relocateSticky:sticky];
+}
+
+// temp logic for showing suggestion list
+-(void)registerStickyWithBookmarkByTripSuggestion:(Bookmark*)bm Condition:(SearchCondition*)condition{
+    StickyManager *stickyMgr = [StickyManager getInstance];
+    UIStickyViewController *newStickyCtr = [[UIStickyViewController alloc] initWithNibName:@"UIStickyViewController" bundle:nil];
+    UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
+    sticky.delegate = self;
+    if ([bm.d_start_date timeToDate:condition.bookmark.d_start_date scale:NSDayCalendarUnit] == 0){
+        sticky.center = CGPointMake(100, 200);
+    } else {
+        sticky.center = CGPointMake(100, 400);
+    }
+    
     [self.view addSubview:newStickyCtr.view];
     
     [stickyMgr addStickyWithBookmark:bm usvCtr:newStickyCtr];
@@ -272,6 +291,17 @@
 #pragma mark NaviSearchViewController Delegate
 -(void)search:(SearchCondition *)condition {
     [nsViewCtr.view removeFromSuperview];
+    
+    //TODO: added search logic
+    NSMutableArray* suggestedBMArray = [TripSuggestionLogic suggestionWithCondition:condition];
+    
+    for (Bookmark *bm in suggestedBMArray) {
+        [self registerStickyWithBookmarkByTripSuggestion:bm Condition:condition];
+    }
+    
+    //set date bar date to start_date of condition
+    [(DateBarViewController*)[StickyManager getInstance].dateBarCtrArray[0] setDate:condition.bookmark.d_start_date];
+    [(DateBarViewController*)[StickyManager getInstance].dateBarCtrArray[0] setDate:condition.bookmark.d_end_date];
 }
 
 -(BOOL)shouldAutorotate {

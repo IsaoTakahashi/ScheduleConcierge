@@ -110,6 +110,7 @@
 		4DA840D01777200700D7A9D6 /* SearchCondition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA840CF1777200700D7A9D6 /* SearchCondition.m */; };
 		4DA9F12717488B6C00BB2FCC /* SpringAnimationLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */; };
 		4DA9F12B1748E21C00BB2FCC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */; };
+		4DAADA7017787AC50091139B /* TripSuggestionLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAADA6F17787AC50091139B /* TripSuggestionLogic.m */; };
 		4DACB597175085D20020D9AB /* DateBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB595175085D20020D9AB /* DateBarViewController.m */; };
 		4DACB598175085D20020D9AB /* DateBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DACB596175085D20020D9AB /* DateBarViewController.xib */; };
 		4DACB59B1750927D0020D9AB /* NSDate+Softbuild.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DACB59A1750927D0020D9AB /* NSDate+Softbuild.m */; };
@@ -305,6 +306,8 @@
 		4DA9F12617488B6C00BB2FCC /* SpringAnimationLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringAnimationLogic.m; sourceTree = "<group>"; };
 		4DA9F1291748E21C00BB2FCC /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		4DA9F12A1748E21C00BB2FCC /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		4DAADA6E17787AC50091139B /* TripSuggestionLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TripSuggestionLogic.h; sourceTree = "<group>"; };
+		4DAADA6F17787AC50091139B /* TripSuggestionLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TripSuggestionLogic.m; sourceTree = "<group>"; };
 		4DACB594175085D20020D9AB /* DateBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateBarViewController.h; sourceTree = "<group>"; };
 		4DACB595175085D20020D9AB /* DateBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateBarViewController.m; sourceTree = "<group>"; };
 		4DACB596175085D20020D9AB /* DateBarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateBarViewController.xib; sourceTree = "<group>"; };
@@ -688,6 +691,8 @@
 				4DACB5AE1750E95A0020D9AB /* DirectionSearchLogic.m */,
 				4DA692381775D02D00AB0E1B /* PlaceSearchLogic.h */,
 				4DA692391775D02D00AB0E1B /* PlaceSearchLogic.m */,
+				4DAADA6E17787AC50091139B /* TripSuggestionLogic.h */,
+				4DAADA6F17787AC50091139B /* TripSuggestionLogic.m */,
 			);
 			path = Logic;
 			sourceTree = "<group>";
@@ -1176,6 +1181,7 @@
 				4DA840C61776EF2200D7A9D6 /* TimePickerViewController.m in Sources */,
 				4DA840CC177715D700D7A9D6 /* NaviSearchViewController.m in Sources */,
 				4DA840D01777200700D7A9D6 /* SearchCondition.m in Sources */,
+				4DAADA7017787AC50091139B /* TripSuggestionLogic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

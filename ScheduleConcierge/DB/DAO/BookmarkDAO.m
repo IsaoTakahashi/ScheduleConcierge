@@ -130,4 +130,13 @@
     return delete_flg;
 }
 
++(NSMutableArray*)selectWithCondition:(SearchCondition*)cond {
+    NSMutableArray *array = [NSMutableArray new];
+    
+    //FIXME: temporary logic
+    array = [BookmarkDAO selectAll];
+    
+    return array;
+}
+
 @end

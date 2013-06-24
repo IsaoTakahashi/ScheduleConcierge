@@ -260,7 +260,9 @@
 -(void)selectedBookmarkURL:(Bookmark *)bm {
     [self.wsViewCtr.view removeFromSuperview];
     
-    [self refleshWithBookmark:bm];
+    if (bm != nil) {
+        [self refleshWithBookmark:bm];
+    }
 }
 
 - (IBAction)clickedSaveButton:(id)sender {
