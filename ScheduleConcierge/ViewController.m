@@ -295,13 +295,15 @@
     //TODO: added search logic
     NSMutableArray* suggestedBMArray = [TripSuggestionLogic suggestionWithCondition:condition];
     
-    for (Bookmark *bm in suggestedBMArray) {
-        [self registerStickyWithBookmarkByTripSuggestion:bm Condition:condition];
+    //FIXME: set first 2 days suggestion temporarily
+    for (int i=0;i<2 && i<suggestedBMArray.count;i++) {
+        NSMutableArray* bookmarks = suggestedBMArray[i];
+        for (Bookmark *bm in bookmarks) {
+            [self registerStickyWithBookmarkByTripSuggestion:bm Condition:condition];
+        }
+        
+        [(DateBarViewController*)[StickyManager getInstance].dateBarCtrArray[i] setDate:[condition.bookmark.d_start_date addDay:i]];
     }
-    
-    //set date bar date to start_date of condition
-    [(DateBarViewController*)[StickyManager getInstance].dateBarCtrArray[0] setDate:condition.bookmark.d_start_date];
-    [(DateBarViewController*)[StickyManager getInstance].dateBarCtrArray[0] setDate:condition.bookmark.d_end_date];
 }
 
 -(BOOL)shouldAutorotate {

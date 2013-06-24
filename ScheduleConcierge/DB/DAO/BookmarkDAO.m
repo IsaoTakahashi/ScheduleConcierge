@@ -131,12 +131,61 @@
 }
 
 +(NSMutableArray*)selectWithCondition:(SearchCondition*)cond {
-    NSMutableArray *array = [NSMutableArray new];
+    SimpleDBManager* db = [SimpleDBManager getInstance];
+    
+    NSMutableArray *bookmarkArray = [NSMutableArray new];
     
     //FIXME: temporary logic
-    array = [BookmarkDAO selectAll];
+    //bookmarkArray = [BookmarkDAO selectAll];
+    CGFloat latLongRadius = [BookmarkDAO convertMeterToLatLong:cond.searchAreaRadius];
+    // if cannot get correct radius, set no limit radius
+    if (latLongRadius <= 0.0f) {
+        latLongRadius = 180;
+    }
+    NSDate *targetDate = [NSDate dateWithTimeInterval:0 sinceDate:cond.bookmark.d_start_date];
     
-    return array;
+    while ([targetDate timeToDate:cond.bookmark.d_end_date scale:NSDayCalendarUnit] >= 0) {
+        FMResultSet *rs = [db.connection executeQuery:@"SELECT * FROM BOOKMARK \
+                           WHERE i_del_flg = 0 \
+                           AND d_start_date <= ? \
+                           AND d_end_date >= ? \
+                           AND r_latitude BETWEEN ? AND ? \
+                           AND r_longitude BETWEEN ? AND ? \
+                           ORDER BY d_start_date ASC",
+                           [NSNumber numberWithLong:[[targetDate truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
+                           [NSNumber numberWithLong:[[targetDate truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
+                           [NSNumber numberWithDouble:cond.bookmark.r_latitude - latLongRadius],[NSNumber numberWithDouble:cond.bookmark.r_latitude + latLongRadius],
+                           [NSNumber numberWithDouble:cond.bookmark.r_longitude - latLongRadius],[NSNumber numberWithDouble:cond.bookmark.r_longitude + latLongRadius]
+                           ];
+        [db hadError];
+        
+        NSMutableArray* bookmarksWithDate = [NSMutableArray new];
+        while([rs next]) {
+            Bookmark *bm = [[Bookmark alloc] initWithResultSet:rs];
+            
+            // set start/end date for showing as sticky
+            bm.d_start_date = [NSDate dateWithTimeInterval:0 sinceDate:targetDate];
+            bm.d_end_date = [NSDate dateWithTimeInterval:0 sinceDate:targetDate];
+            
+            [bookmarksWithDate addObject:bm];
+        }
+        
+        [bookmarkArray addObject:bookmarksWithDate];
+        
+        targetDate = [targetDate addDay:1];
+    }
+
+    
+    return bookmarkArray;
+}
+
+//TODO: move below method to correct class or category
++(CGFloat)convertMeterToLatLong:(NSInteger)meter {
+    CGFloat latLong = 0.0f;
+    
+    latLong = (CGFloat)meter * 360 / (40076.5 * 1000);
+    
+    return latLong;
 }
 
 @end
