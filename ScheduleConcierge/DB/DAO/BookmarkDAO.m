@@ -151,7 +151,7 @@
                            AND d_end_date >= ? \
                            AND r_latitude BETWEEN ? AND ? \
                            AND r_longitude BETWEEN ? AND ? \
-                           ORDER BY d_start_date ASC",
+                           ORDER BY (d_end_date - d_start_date), (r_end_time - r_start_time) ASC",
                            [NSNumber numberWithLong:[[targetDate truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                            [NSNumber numberWithLong:[[targetDate truncWithScale:NSDayCalendarUnit] timeIntervalSince1970]],
                            [NSNumber numberWithDouble:cond.bookmark.r_latitude - latLongRadius],[NSNumber numberWithDouble:cond.bookmark.r_latitude + latLongRadius],

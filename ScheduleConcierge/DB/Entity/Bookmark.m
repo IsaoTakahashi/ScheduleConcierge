@@ -49,7 +49,7 @@
         self.i_del_flg = 0;
         
         self.r_start_time = 0.0f;
-        self.r_end_time = 0.0f;
+        self.r_end_time = 23.0f;
     }
     
     return self;
@@ -72,6 +72,10 @@
         
         self.r_start_time = [rs doubleForColumn:@"r_start_time"];
         self.r_end_time = [rs doubleForColumn:@"r_end_time"];
+        if(self.r_end_time == 0.0f) {
+            self.r_end_time = 23.0f;
+        }
+        
         self.i_base_service = [rs intForColumn:@"i_base_service"];
         
         if (![[rs stringForColumn:@"t_url"] isEmpty]) {
@@ -84,6 +88,24 @@
     }
     
     return self;
+}
+
+-(bool)isContainedInArray:(NSMutableArray*)array {
+    for (Bookmark *bm in array) {
+        if(self.i_id == bm.i_id) return true;
+    }
+    
+    return false;
+}
+
+-(NSComparisonResult)compareByStartTime:(Bookmark*)bm {
+    if (self.r_start_time < bm.r_start_time) {
+        return NSOrderedAscending;
+    } else if (self.r_start_time < bm.r_start_time) {
+        return NSOrderedDescending;
+    } else {
+        return NSOrderedSame;
+    }
 }
 
 @end

@@ -84,9 +84,9 @@
     UIStickyView *sticky = (UIStickyView*)newStickyCtr.view;
     sticky.delegate = self;
     if ([bm.d_start_date timeToDate:condition.bookmark.d_start_date scale:NSDayCalendarUnit] == 0){
-        sticky.center = CGPointMake(100, 200);
+        sticky.center = CGPointMake(800, 200);
     } else {
-        sticky.center = CGPointMake(100, 400);
+        sticky.center = CGPointMake(800, 400);
     }
     
     [self.view addSubview:newStickyCtr.view];

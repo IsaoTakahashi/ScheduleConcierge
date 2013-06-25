@@ -30,4 +30,7 @@
 -(id)initWithResultSet:(FMResultSet*)rs;
 
 +(Bookmark*)bookmarkWithBookmark:(Bookmark*)bm;
+
+-(bool)isContainedInArray:(NSMutableArray*)array;
+-(NSComparisonResult)compareByStartTime:(Bookmark*)bm;
 @end
